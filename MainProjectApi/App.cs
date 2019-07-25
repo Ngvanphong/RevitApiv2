@@ -5,6 +5,7 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using MainProjectApi.Button;
 #endregion
 
 namespace MainProjectApi
@@ -13,6 +14,9 @@ namespace MainProjectApi
     {
         public Result OnStartup(UIControlledApplication a)
         {
+            CreateMaterialComponentButton createMaterialButton = new CreateMaterialComponentButton();
+            createMaterialButton.CreateMaterial(a);
+
             return Result.Succeeded;
         }
 
