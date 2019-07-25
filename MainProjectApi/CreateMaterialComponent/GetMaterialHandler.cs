@@ -8,15 +8,21 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Threading;
-
 namespace MainProjectApi.CreateMaterialComponent
 {
-    [Transaction(TransactionMode.Manual)]
-    public class CreateMaterialComponentBinding : IExternalCommand
+    public class GetMaterialHandler : IExternalEventHandler
     {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+       
+
+        public void Execute(UIApplication app)
         {
-            return Result.Succeeded;
+            Document doc = app.ActiveUIDocument.Document;
+
+        }
+
+        public string GetName()
+        {
+            return "GetMaterial";
         }
     }
 }
