@@ -16,10 +16,8 @@ namespace MainProjectApi.CreateMaterialComponent
         public static void ShowCrateMaterial(UIApplication uiApp)
         {
             CreateMaterialComponentHandler handler = new CreateMaterialComponentHandler();
-            ExternalEvent myEvent = ExternalEvent.Create(handler);
-            GetMaterialHandler getInfor = new GetMaterialHandler();
-            ExternalEvent getMaterialEvent = ExternalEvent.Create(getInfor);
-            formCreateMaterial = new frmCreateMaterialCompont(myEvent, handler,getMaterialEvent,getInfor);
+            ExternalEvent myEvent = ExternalEvent.Create(handler);            
+            formCreateMaterial = new frmCreateMaterialCompont(myEvent, handler);
             formCreateMaterial.Show();
         }
     }

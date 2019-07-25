@@ -104,9 +104,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox dropMaterial;
         private System.Windows.Forms.Button btnCreateMaterialComponent;
         private System.Windows.Forms.Label Category;
-        private System.Windows.Forms.ComboBox dropCategory;
+        public System.Windows.Forms.ComboBox dropMaterial;
+        public System.Windows.Forms.ComboBox dropCategory;
     }
 }

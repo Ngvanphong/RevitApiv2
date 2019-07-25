@@ -64,6 +64,7 @@
     <Compile Include="Button\CreateMaterialComponentButton.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CreateMaterialComponent\AppPanelMaterial.cs" />
+    <Compile Include="CreateMaterialComponent\CreateMaterialComponentBinding.cs" />
     <Compile Include="CreateMaterialComponent\CreateMaterialComponentHandler.cs" />
     <Compile Include="CreateMaterialComponent\frmCreateMaterialCompont.cs">
       <SubType>Form</SubType>
@@ -71,7 +72,6 @@
     <Compile Include="CreateMaterialComponent\frmCreateMaterialCompont.Designer.cs">
       <DependentUpon>frmCreateMaterialCompont.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateMaterialComponent\GetMaterialHandler.cs" />
     <Compile Include="Helper\Extension.cs" />
     <Compile Include="Helper\ParameterRevit.cs" />
     <Compile Include="Helper\SelectionFilterCategory.cs" />

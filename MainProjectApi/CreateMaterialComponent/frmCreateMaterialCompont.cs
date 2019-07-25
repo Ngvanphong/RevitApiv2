@@ -15,16 +15,12 @@ namespace MainProjectApi.CreateMaterialComponent
     {
 
         private ExternalEvent _myEvent;
-        private ExternalEvent _getInforEvent;
         private CreateMaterialComponentHandler _handler;
-        private GetMaterialHandler _getInforhanler;
-        public frmCreateMaterialCompont(ExternalEvent myEvent, CreateMaterialComponentHandler handler, ExternalEvent getInforEvent, GetMaterialHandler getInforhanler)
+        public frmCreateMaterialCompont(ExternalEvent myEvent, CreateMaterialComponentHandler handler)
         {
             InitializeComponent();
             _myEvent = myEvent;
             _handler = handler;
-            _getInforEvent = getInforEvent;
-            _getInforhanler = getInforhanler;
         }
 
         private void Category_Click(object sender, EventArgs e)
@@ -34,7 +30,6 @@ namespace MainProjectApi.CreateMaterialComponent
 
         private void btnCreateMaterialComponent_Click(object sender, EventArgs e)
         {
-            _getInforEvent.Raise();
             _myEvent.Raise();
         }
     }
