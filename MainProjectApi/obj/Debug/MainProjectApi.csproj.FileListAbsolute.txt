@@ -5,3 +5,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.CreateMaterialComponent.frmCreateMaterialCompont.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.csprojResolveAssemblyReference.cache

@@ -25,14 +25,14 @@ namespace MainProjectApi.CreateMaterialComponent
             foreach(var item in categories)
             {
                 Category cate = item as Category;
-                if(cate!=null) myForm.dropCategory.Items.Add(new { Text = cate.Name, Value = cate.Id });
+                if(cate!=null) myForm.dropCategory.Items.Add(new { Text = cate.Name, Value = cate.Name });
             }
             var materials = new FilteredElementCollector(doc).OfClass(typeof(Material)).Cast<Material>();
             myForm.dropMaterial.DisplayMember = "Text";
             myForm.dropMaterial.ValueMember = "Value";
             foreach (var item in materials)
             {
-                myForm.dropMaterial.Items.Add(new { Text = item.Name, Value = item.Id });
+                myForm.dropMaterial.Items.Add(new { Text = item.Name, Value = item.Name });
             }
             return Result.Succeeded;
         }

@@ -32,5 +32,10 @@ namespace MainProjectApi.CreateMaterialComponent
         {
             _myEvent.Raise();
         }
+
+        private void frmCreateMaterialCompont_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
