@@ -9,6 +9,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Threading;
 using MainProjectApi.Helper;
+using System.IO;
 
 namespace MainProjectApi.CreateMaterialComponent
 {
@@ -34,38 +35,73 @@ namespace MainProjectApi.CreateMaterialComponent
             Material m = GetMaterialValue(doc, materialName);
             foreach (var item in collection)
             {
-                using (Transaction t = new Transaction(doc, "Set material"))
+                FamilyInstance familyInstance = item as FamilyInstance;
+                if (familyInstance != null)
                 {
-                    t.Start();
-                    foreach (Parameter parameter in item.Parameters)
-                    {
-                        Definition definition = parameter.Definition;
-                        // material is stored as element id
-                       
-                            if (definition.ParameterGroup == BuiltInParameterGroup.PG_MATERIALS &&definition.ParameterType == ParameterType.Material)
-                            {
-                                Autodesk.Revit.DB.Material material = null;
-                                Autodesk.Revit.DB.ElementId materialId = parameter.AsElementId();
-                                if (-1 == materialId.IntegerValue)
-                                {
-                                    //Invalid ElementId, assume the material is "By Category"
-                                    if (null != item.Category)
-                                    {
-                                        material = item.Category.Material;
-                                    }
-                                }
-                                else
-                                {
-                                    material = doc.GetElement(materialId) as Material;
-                                }
+                    Family family = familyInstance.Symbol.Family;
 
-                                TaskDialog.Show("Revit", "Element material: " + material.Name);
-                                break;
+                    Document familyDoc = doc.EditFamily(family);
+                    if (familyDoc != null && familyDoc.IsFamilyDocument == true)
+                    {
+                        using (Transaction t = new Transaction(familyDoc, "Set material"))
+                        {
+                            t.Start();
+                            // app.OpenAndActivateDocument(item.Name);
+                            FamilyParameter oldParamter = null;
+                            try
+                            {
+                                oldParamter = familyDoc.FamilyManager.AddParameter("Structural Material", BuiltInParameterGroup.PG_MATERIALS, ParameterType.Material, true);
                             }
-                     
-                        t.Commit();
+                            catch
+                            {
+                                oldParamter= familyDoc.FamilyManager.GetParameters().Where(x => x.Definition.Name == "Structural Material").First();
+                            }
+                            if (m != null)
+                            {
+                                familyDoc.FamilyManager.Set(oldParamter, m.Id);
+                            }
+                            var listFamilyAll = new FilteredElementCollector(familyDoc).WhereElementIsNotElementType();
+                            List<Element> listFamily = new List<Element>();
+                            foreach (Element e in listFamilyAll)
+                            {
+                                Options option = new Options();
+                                option.ComputeReferences = true;
+                                GeometryElement geroElment = e.get_Geometry(option);
+                                if (geroElment != null)
+                                {
+                                    listFamily.Add(e);
+                                }
+                            }
+                            foreach (var f in listFamily)
+                            {
+                                // f.get_Parameter("")
+                                try
+                                {
+                                    if (m != null)
+                                    {
+                                        var paramter = f.LookupParameter("Material");
+                                        if (paramter != null)
+                                        {
+                                            familyDoc.FamilyManager.AssociateElementParameterToFamilyParameter(paramter, oldParamter);
+                                            familyDoc.LoadFamily(doc, new FamilyOption());
+                                        }
+
+                                    }
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    var msg = ex.Message;
+                                }
+                            }
+                            t.Commit();
+                        }
+                        
+                        
+
                     }
                 }
+
             }
         }
 
@@ -90,6 +126,24 @@ namespace MainProjectApi.CreateMaterialComponent
             return mat;
         }
 
-
     }
+    class FamilyOption : IFamilyLoadOptions
+    {
+        public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
+        {
+            overwriteParameterValues = true;
+            return true;
+        }
+
+        public bool OnSharedFamilyFound(Family sharedFamily, bool familyInUse, out FamilySource source, out bool overwriteParameterValues)
+        {
+            overwriteParameterValues = true;
+            source = FamilySource.Family;
+            return true;
+
+        }
+
+        
+    }
+
 }
