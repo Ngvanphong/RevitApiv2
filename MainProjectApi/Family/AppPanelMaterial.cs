@@ -7,17 +7,17 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-namespace MainProjectApi.CreateMaterialComponent
+namespace MainProjectApi.CreateMaterialFamily
 {
   public static  class AppPanelMaterial
     {
-        public static frmCreateMaterialCompont formCreateMaterial;
+        public static frmCreateMaterialFamily formCreateMaterial;
 
         public static void ShowCrateMaterial(UIApplication uiApp)
         {
-            CreateMaterialComponentHandler handler = new CreateMaterialComponentHandler();
+            CreateMaterialFamilyHandler handler = new CreateMaterialFamilyHandler();
             ExternalEvent myEvent = ExternalEvent.Create(handler);            
-            formCreateMaterial = new frmCreateMaterialCompont(myEvent, handler);
+            formCreateMaterial = new frmCreateMaterialFamily(myEvent, handler);
             formCreateMaterial.Show();
         }
     }

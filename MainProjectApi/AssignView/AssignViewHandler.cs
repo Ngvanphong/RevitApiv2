@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
-using System.Threading;
-using MainProjectApi.Helper;
-using System.IO;
-namespace MainProjectApi.DirectShape
+namespace MainProjectApi.AssignView
 {
-    public class CreateDirectShapeHandler : IExternalEventHandler
+    public class AssignViewHandler : IExternalEventHandler
     {
         public void Execute(UIApplication app)
         {
@@ -20,7 +18,7 @@ namespace MainProjectApi.DirectShape
 
         public string GetName()
         {
-            return "Create Shape";
+            throw new NotImplementedException();
         }
     }
 }

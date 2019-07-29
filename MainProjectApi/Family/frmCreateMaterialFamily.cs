@@ -1,7 +1,6 @@
 ﻿using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -9,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainProjectApi.CreateMaterialComponent
+namespace MainProjectApi.CreateMaterialFamily
 {
-    public partial class frmCreateMaterialCompont : Form
+    public partial class frmCreateMaterialFamily : Form
     {
 
         private ExternalEvent _myEvent;
-        private CreateMaterialComponentHandler _handler;
-        public frmCreateMaterialCompont(ExternalEvent myEvent, CreateMaterialComponentHandler handler)
+        private CreateMaterialFamilyHandler _handler;
+        public frmCreateMaterialFamily(ExternalEvent myEvent, CreateMaterialFamilyHandler handler)
         {
             InitializeComponent();
             _myEvent = myEvent;
@@ -28,7 +27,7 @@ namespace MainProjectApi.CreateMaterialComponent
 
         }
 
-        private void btnCreateMaterialComponent_Click(object sender, EventArgs e)
+        private void btnCreateMaterialFamily_Click(object sender, EventArgs e)
         {
             _myEvent.Raise();
         }

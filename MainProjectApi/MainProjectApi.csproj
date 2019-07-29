@@ -61,26 +61,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Button\CreateMaterialComponentButton.cs" />
-    <Compile Include="Button\DirectShapeButton.cs" />
+    <Compile Include="AssignView\AppPenalAssignView.cs" />
+    <Compile Include="AssignView\AssignViewHandler.cs" />
+    <Compile Include="AssignView\AssignViewBinding.cs" />
+    <Compile Include="AssignView\frmAssignView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignView\frmAssignView.Designer.cs">
+      <DependentUpon>frmAssignView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Button\AssignViewButton.cs" />
+    <Compile Include="Button\CreateMaterialFamilyButton.cs" />
     <Compile Include="Command.cs" />
-    <Compile Include="CreateMaterialComponent\AppPanelMaterial.cs" />
-    <Compile Include="CreateMaterialComponent\CreateMaterialComponentBinding.cs" />
-    <Compile Include="CreateMaterialComponent\CreateMaterialComponentHandler.cs" />
-    <Compile Include="CreateMaterialComponent\frmCreateMaterialCompont.cs">
+    <Compile Include="Family\AppPanelMaterial.cs" />
+    <Compile Include="Family\CreateMaterialFamilyBinding.cs" />
+    <Compile Include="Family\CreateMaterialFamilyHandler.cs" />
+    <Compile Include="Family\frmCreateMaterialFamily.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateMaterialComponent\frmCreateMaterialCompont.Designer.cs">
-      <DependentUpon>frmCreateMaterialCompont.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DirectShape\AppPenalCreateDirectShape.cs" />
-    <Compile Include="DirectShape\CreateDirectShapeBinding.cs" />
-    <Compile Include="DirectShape\CreateDirectShapeHandler.cs" />
-    <Compile Include="DirectShape\frmCreateDirectShape.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DirectShape\frmCreateDirectShape.Designer.cs">
-      <DependentUpon>frmCreateDirectShape.cs</DependentUpon>
+    <Compile Include="Family\frmCreateMaterialFamily.Designer.cs">
+      <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Extension.cs" />
     <Compile Include="Helper\ParameterRevit.cs" />
@@ -94,16 +94,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\icon.png" />
     <None Include="Resources\icons8-color-16.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="CreateMaterialComponent\frmCreateMaterialCompont.resx">
-      <DependentUpon>frmCreateMaterialCompont.cs</DependentUpon>
+    <EmbeddedResource Include="AssignView\frmAssignView.resx">
+      <DependentUpon>frmAssignView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DirectShape\frmCreateDirectShape.resx">
-      <DependentUpon>frmCreateDirectShape.cs</DependentUpon>
+    <EmbeddedResource Include="Family\frmCreateMaterialFamily.resx">
+      <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

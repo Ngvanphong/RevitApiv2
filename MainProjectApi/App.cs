@@ -14,11 +14,10 @@ namespace MainProjectApi
     {
         public Result OnStartup(UIControlledApplication a)
         {
-            //CreateMaterialComponentButton createMaterialButton = new CreateMaterialComponentButton();
+            //CreateMaterialFamilyButton createMaterialButton = new CreateMaterialFamilyButton();
             //createMaterialButton.CreateMaterial(a);
-            DirectShapeButton createShape = new DirectShapeButton();
-            createShape.CrateShape(a);
-
+            AssignViewButton assignViewButton = new AssignViewButton();
+            assignViewButton.CreateAssignView(a);
             return Result.Succeeded;
         }
 

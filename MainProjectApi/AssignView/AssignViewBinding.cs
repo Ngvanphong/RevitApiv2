@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
+using System.Windows.Forms;
+namespace MainProjectApi.AssignView
+{
+    [Transaction(TransactionMode.Manual)]
+    public class AssignViewBinding : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+
+            UIApplication uiApp = commandData.Application;
+            Document doc = uiApp.ActiveUIDocument.Document;
+            AppPenalAssignView.ShowFormAssignView();
+            List<ViewSheet> listViewSheet = new List<ViewSheet>();
+            List<Autodesk.Revit.DB.View> listView = GetView(doc,out listViewSheet);
+
+            foreach (var item in listView.OrderBy(x=>x.Name))
+            {
+                var row = new string[] { item.Name };
+                var lvi = new ListViewItem(row);
+                lvi.Tag = lvi;
+                AppPenalAssignView.myFormAssignView.listViewView.Items.Add(lvi);
+            }
+
+            foreach(var sheet in listViewSheet.OrderByDescending(x=>x.SheetNumber))
+            {
+                var sheetNumber = sheet.SheetNumber;
+                var sheetName = sheet.ViewName;
+                var row = new string[] {sheetNumber,sheetName};
+                var lvi = new ListViewItem(row);
+                lvi.Tag = lvi;
+                AppPenalAssignView.myFormAssignView.listSheet.Items.Add(lvi);
+            }
+
+            return Result.Succeeded;
+
+        }
+
+        public List<Autodesk.Revit.DB.View> GetView(Document doc,out List<Autodesk.Revit.DB.ViewSheet> listSheet)
+        {
+            var listView = new FilteredElementCollector(doc).OfClass(typeof(Autodesk.Revit.DB.View)).Cast<Autodesk.Revit.DB.View>();
+            List<Autodesk.Revit.DB.View> listviewNotUse = new List<Autodesk.Revit.DB.View>();
+            List<ViewSheet> listViewSheet = new List<ViewSheet>();
+            foreach (var item in listView)
+            {
+                ViewSheet viewSheet = item as ViewSheet;
+                if (viewSheet == null)
+                {
+                    listviewNotUse.Add(item);
+                }
+                else
+                {
+                    listViewSheet.Add(viewSheet);
+                }
+            }
+            List<Autodesk.Revit.DB.View> result = new List<Autodesk.Revit.DB.View>();
+            foreach (var item in listviewNotUse)
+            {
+                foreach (var view in listViewSheet)
+                {
+                    if (Viewport.CanAddViewToSheet(doc, view.Id, item.Id) == true)
+                    {
+                        result.Add(item);
+                        break;
+                    }
+                }
+            }
+            listSheet = listViewSheet;
+            return result;
+        }
+    }
+}

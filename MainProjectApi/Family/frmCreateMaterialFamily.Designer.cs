@@ -1,11 +1,11 @@
-﻿namespace MainProjectApi.CreateMaterialComponent
+﻿namespace MainProjectApi.CreateMaterialFamily
 {
-    partial class frmCreateMaterialCompont
+    partial class frmCreateMaterialFamily
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private System.ComponentModel.IContainer Components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -13,9 +13,9 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (Components != null))
             {
-                components.Dispose();
+                Components.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -61,7 +61,7 @@
             this.btnCreateMaterialComponent.TabIndex = 2;
             this.btnCreateMaterialComponent.Text = "Create";
             this.btnCreateMaterialComponent.UseVisualStyleBackColor = true;
-            this.btnCreateMaterialComponent.Click += new System.EventHandler(this.btnCreateMaterialComponent_Click);
+            this.btnCreateMaterialComponent.Click += new System.EventHandler(this.btnCreateMaterialFamily_Click);
             // 
             // Category
             // 

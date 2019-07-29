@@ -10,14 +10,15 @@ using Autodesk.Revit.ApplicationServices;
 using System.Drawing;
 using System.Windows.Media;
 using System.Reflection;
+
 namespace MainProjectApi.Button
 {
-   public class DirectShapeButton
+   public class CreateMaterialFamilyButton
     {
-        public void CrateShape(UIControlledApplication application)
+        public void CreateMaterial(UIControlledApplication application)
         {
             const string ribbonTag = "ArmoApiVn";
-            const string ribbonPanel = "Component";
+            const string ribbonPanel = "Family";
             try
             {
                 application.CreateRibbonTab(ribbonTag);
@@ -37,13 +38,13 @@ namespace MainProjectApi.Button
             {
                 panel = application.CreateRibbonPanel(ribbonTag, ribbonPanel);
             }
-            Image img = MainProjectApi.Properties.Resources.icon;
+            Image img = MainProjectApi.Properties.Resources.icons8_color_16;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
-            PushButtonData btnData = new PushButtonData("ShapeComponent", "DirectShape",
-                Assembly.GetExecutingAssembly().Location, "MainProjectApi.DirectShape.CreateDirectShapeBinding")
+            PushButtonData btnData = new PushButtonData("MaterialFamily", "Material", 
+                Assembly.GetExecutingAssembly().Location, "MainProjectApi.CreateMaterialFamily.CreateMaterialFamilyBinding")
             {
-                ToolTip = "Create shape",
-                LongDescription = "Create shape",
+                ToolTip = "Create material for Family",
+                LongDescription = "Select Family to assign material",
                 Image = imgSrc,
                 LargeImage = imgSrc,
             };

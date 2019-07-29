@@ -7,12 +7,12 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
-namespace MainProjectApi.CreateMaterialComponent
+namespace MainProjectApi.CreateMaterialFamily
 {
     [Transaction(TransactionMode.Manual)]
-    public class CreateMaterialComponentBinding : IExternalCommand
+    public class CreateMaterialFamilyBinding : IExternalCommand
     {
-        public frmCreateMaterialCompont myForm;
+        public frmCreateMaterialFamily myForm;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiApp = commandData.Application;

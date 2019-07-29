@@ -10,17 +10,18 @@ using Autodesk.Revit.UI.Selection;
 using System.Threading;
 using MainProjectApi.Helper;
 using System.IO;
+using MainProjectApi.CreateMaterialFamily;
 
-namespace MainProjectApi.CreateMaterialComponent
+namespace MainProjectApi.CreateMaterialFamily
 {
-    public class CreateMaterialComponentHandler : IExternalEventHandler
+    public class CreateMaterialFamilyHandler : IExternalEventHandler
     {
-        public frmCreateMaterialCompont myFormComponent;
+        public frmCreateMaterialFamily myFormFamily;
         public void Execute(UIApplication app)
         {
-            myFormComponent = AppPanelMaterial.formCreateMaterial;
+            myFormFamily = AppPanelMaterial.formCreateMaterial;
             Document doc = app.ActiveUIDocument.Document;
-            string categoryName = myFormComponent.dropCategory.GetItemText(myFormComponent.dropCategory.SelectedItem);
+            string categoryName = myFormFamily.dropCategory.GetItemText(myFormFamily.dropCategory.SelectedItem);
             Category category = null;
             foreach (var item in doc.Settings.Categories)
             {
@@ -31,36 +32,36 @@ namespace MainProjectApi.CreateMaterialComponent
                 }
             }
             IList<Element> collection = app.ActiveUIDocument.Selection.PickElementsByRectangle(new SelectionFilterCategory(category));
-            string materialName = myFormComponent.dropMaterial.GetItemText(myFormComponent.dropMaterial.SelectedItem);
+            string materialName = myFormFamily.dropMaterial.GetItemText(myFormFamily.dropMaterial.SelectedItem);
             Material m = GetMaterialValue(doc, materialName);
             foreach (var item in collection)
             {
-                FamilyInstance familyInstance = item as FamilyInstance;
-                if (familyInstance != null)
+                FamilyInstance FamilyInstance = item as FamilyInstance;
+                if (FamilyInstance != null)
                 {
-                    Family family = familyInstance.Symbol.Family;
+                    Family Family = FamilyInstance.Symbol.Family;
 
-                    Document familyDoc = doc.EditFamily(family);
-                    if (familyDoc != null && familyDoc.IsFamilyDocument == true)
+                    Document FamilyDoc = doc.EditFamily(Family);
+                    if (FamilyDoc != null && FamilyDoc.IsFamilyDocument == true)
                     {
-                        using (Transaction t = new Transaction(familyDoc, "Set material"))
+                        using (Transaction t = new Transaction(FamilyDoc, "Set material"))
                         {
                             t.Start();
                             // app.OpenAndActivateDocument(item.Name);
                             FamilyParameter oldParamter = null;
                             try
                             {
-                                oldParamter = familyDoc.FamilyManager.AddParameter("Structural Material", BuiltInParameterGroup.PG_MATERIALS, ParameterType.Material, true);
+                                oldParamter = FamilyDoc.FamilyManager.AddParameter("Structural Material", BuiltInParameterGroup.PG_MATERIALS, ParameterType.Material, true);
                             }
                             catch
                             {
-                                oldParamter= familyDoc.FamilyManager.GetParameters().Where(x => x.Definition.Name == "Structural Material").First();
+                                oldParamter= FamilyDoc.FamilyManager.GetParameters().Where(x => x.Definition.Name == "Structural Material").First();
                             }
                             if (m != null)
                             {
-                                familyDoc.FamilyManager.Set(oldParamter, m.Id);
+                                FamilyDoc.FamilyManager.Set(oldParamter, m.Id);
                             }
-                            var listFamilyAll = new FilteredElementCollector(familyDoc).WhereElementIsNotElementType();
+                            var listFamilyAll = new FilteredElementCollector(FamilyDoc).WhereElementIsNotElementType();
                             List<Element> listFamily = new List<Element>();
                             foreach (Element e in listFamilyAll)
                             {
@@ -82,8 +83,8 @@ namespace MainProjectApi.CreateMaterialComponent
                                         var paramter = f.LookupParameter("Material");
                                         if (paramter != null)
                                         {
-                                            familyDoc.FamilyManager.AssociateElementParameterToFamilyParameter(paramter, oldParamter);
-                                            familyDoc.LoadFamily(doc, new FamilyOption());
+                                            FamilyDoc.FamilyManager.AssociateElementParameterToFamilyParameter(paramter, oldParamter);
+                                            FamilyDoc.LoadFamily(doc, new FamilyOption());
                                         }
 
                                     }
@@ -129,13 +130,13 @@ namespace MainProjectApi.CreateMaterialComponent
     }
     class FamilyOption : IFamilyLoadOptions
     {
-        public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
+        public bool OnFamilyFound(bool FamilyInUse, out bool overwriteParameterValues)
         {
             overwriteParameterValues = true;
             return true;
         }
 
-        public bool OnSharedFamilyFound(Family sharedFamily, bool familyInUse, out FamilySource source, out bool overwriteParameterValues)
+        public bool OnSharedFamilyFound(Family sharedFamily, bool FamilyInUse, out FamilySource source, out bool overwriteParameterValues)
         {
             overwriteParameterValues = true;
             source = FamilySource.Family;

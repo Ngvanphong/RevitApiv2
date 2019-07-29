@@ -13,12 +13,12 @@ using System.Reflection;
 
 namespace MainProjectApi.Button
 {
-   public class CreateMaterialComponentButton
+   public class AssignViewButton
     {
-        public void CreateMaterial(UIControlledApplication application)
+        public void CreateAssignView(UIControlledApplication application)
         {
             const string ribbonTag = "ArmoApiVn";
-            const string ribbonPanel = "Component";
+            const string ribbonPanel = "View&Sheet";
             try
             {
                 application.CreateRibbonTab(ribbonTag);
@@ -38,13 +38,13 @@ namespace MainProjectApi.Button
             {
                 panel = application.CreateRibbonPanel(ribbonTag, ribbonPanel);
             }
-            Image img = MainProjectApi.Properties.Resources.icons8_color_16;
+            Image img = MainProjectApi.Properties.Resources.iconfinder_62_62719;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
-            PushButtonData btnData = new PushButtonData("MaterialComponent", "Material", 
-                Assembly.GetExecutingAssembly().Location, "MainProjectApi.CreateMaterialComponent.CreateMaterialComponentBinding")
+            PushButtonData btnData = new PushButtonData("AssignView", "ViewSheet",
+                Assembly.GetExecutingAssembly().Location, "MainProjectApi.AssignView.AssignViewBinding")
             {
-                ToolTip = "Create material for component",
-                LongDescription = "Select component to assign material",
+                ToolTip = "Assign view to sheet",
+                LongDescription = "Assign view to sheet",
                 Image = imgSrc,
                 LargeImage = imgSrc,
             };
