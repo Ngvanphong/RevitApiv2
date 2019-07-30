@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="packages.config" />
     <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\icon.png" />
     <None Include="Resources\icons8-color-16.png" />

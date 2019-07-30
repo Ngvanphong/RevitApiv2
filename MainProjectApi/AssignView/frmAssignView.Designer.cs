@@ -146,6 +146,7 @@
             this.Name = "frmAssignView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAssignView";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmAssignView_Load);
             this.ResumeLayout(false);
 
