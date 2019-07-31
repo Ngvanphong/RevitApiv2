@@ -38,6 +38,9 @@
             this.listSheet = new System.Windows.Forms.ListView();
             this.columnSheetNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnSheetName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.checkBoxFixPosition = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSheetNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewView
@@ -110,9 +113,9 @@
             this.listSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumber,
             this.columnSheetName});
-            this.listSheet.Location = new System.Drawing.Point(747, 25);
+            this.listSheet.Location = new System.Drawing.Point(747, 72);
             this.listSheet.Name = "listSheet";
-            this.listSheet.Size = new System.Drawing.Size(316, 446);
+            this.listSheet.Size = new System.Drawing.Size(316, 399);
             this.listSheet.TabIndex = 8;
             this.listSheet.UseCompatibleStateImageBehavior = false;
             this.listSheet.View = System.Windows.Forms.View.Details;
@@ -130,11 +133,41 @@
             this.columnSheetName.Text = "Sheet Name";
             this.columnSheetName.Width = 233;
             // 
+            // checkBoxFixPosition
+            // 
+            this.checkBoxFixPosition.AutoSize = true;
+            this.checkBoxFixPosition.Location = new System.Drawing.Point(747, 25);
+            this.checkBoxFixPosition.Name = "checkBoxFixPosition";
+            this.checkBoxFixPosition.Size = new System.Drawing.Size(247, 17);
+            this.checkBoxFixPosition.TabIndex = 9;
+            this.checkBoxFixPosition.Text = "Fix position and box similar with sheet duplicate";
+            this.checkBoxFixPosition.UseVisualStyleBackColor = true;
+            this.checkBoxFixPosition.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(747, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Sheet Number Start";
+            // 
+            // txtSheetNumber
+            // 
+            this.txtSheetNumber.Location = new System.Drawing.Point(853, 46);
+            this.txtSheetNumber.Name = "txtSheetNumber";
+            this.txtSheetNumber.Size = new System.Drawing.Size(141, 20);
+            this.txtSheetNumber.TabIndex = 11;
+            // 
             // frmAssignView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 499);
+            this.Controls.Add(this.txtSheetNumber);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkBoxFixPosition);
             this.Controls.Add(this.listSheet);
             this.Controls.Add(this.btnAssign);
             this.Controls.Add(this.btnRemove);
@@ -149,6 +182,7 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmAssignView_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,5 +197,8 @@
         public System.Windows.Forms.ListView listViewView;
         private System.Windows.Forms.ColumnHeader columnViewName;
         private System.Windows.Forms.ColumnHeader columnViewSelect;
+        public System.Windows.Forms.CheckBox checkBoxFixPosition;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtSheetNumber;
     }
 }
