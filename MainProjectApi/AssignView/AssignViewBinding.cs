@@ -22,9 +22,9 @@ namespace MainProjectApi.AssignView
             List<ViewSheet> listViewSheet = new List<ViewSheet>();
             List<Autodesk.Revit.DB.View> listView = GetView(doc,out listViewSheet);
 
-            foreach (var item in listView.OrderBy(x=>x.Name))
+            foreach (var item in listView.OrderBy(x=> x.ViewType + "/Name: " + x.Name))
             {
-                var row = new string[] { item.Name };
+                var row = new string[] {item.ViewType+"/Name: "+ item.Name};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
                 AppPenalAssignView.myFormAssignView.listViewView.Items.Add(lvi);

@@ -205,7 +205,8 @@ namespace MainProjectApi.AssignView
                 var name = view.Text;
                 foreach (var viewAdd in listAllView)
                 {
-                    if (viewAdd.Name == name)
+                    var viewname = viewAdd.ViewType + "/Name: " + viewAdd.Name;
+                    if (viewname == name)
                     {
                         listView.Add(viewAdd);
                     }
