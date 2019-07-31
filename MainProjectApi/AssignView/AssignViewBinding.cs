@@ -19,32 +19,14 @@ namespace MainProjectApi.AssignView
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
             AppPenalAssignView.ShowFormAssignView();
-            List<ViewSheet> listViewSheet = new List<ViewSheet>();
-            List<Autodesk.Revit.DB.View> listView = GetView(doc,out listViewSheet);
-
-            foreach (var item in listView.OrderBy(x=> x.ViewType + "/Name: " + x.Name))
-            {
-                var row = new string[] {item.ViewType+"/Name: "+ item.Name};
-                var lvi = new ListViewItem(row);
-                lvi.Tag = lvi;
-                AppPenalAssignView.myFormAssignView.listViewView.Items.Add(lvi);
-            }
-
-            foreach(var sheet in listViewSheet.OrderByDescending(x=>x.SheetNumber))
-            {
-                var sheetNumber = sheet.SheetNumber;
-                var sheetName = sheet.ViewName;
-                var row = new string[] {sheetNumber,sheetName};
-                var lvi = new ListViewItem(row);
-                lvi.Tag = lvi;
-                AppPenalAssignView.myFormAssignView.listSheet.Items.Add(lvi);
-            }
-
+            GetViewInfor.UpdateFormInformation(doc);
             return Result.Succeeded;
-
         }
-
-        public List<Autodesk.Revit.DB.View> GetView(Document doc,out List<Autodesk.Revit.DB.ViewSheet> listSheet)
+       
+    }
+    public static class GetViewInfor
+    {
+        public static List<Autodesk.Revit.DB.View> GetView(Document doc, out List<Autodesk.Revit.DB.ViewSheet> listSheet)
         {
             var listView = new FilteredElementCollector(doc).OfClass(typeof(Autodesk.Revit.DB.View)).Cast<Autodesk.Revit.DB.View>();
             List<Autodesk.Revit.DB.View> listviewNotUse = new List<Autodesk.Revit.DB.View>();
@@ -75,6 +57,30 @@ namespace MainProjectApi.AssignView
             }
             listSheet = listViewSheet;
             return result;
+        }
+
+        public static void UpdateFormInformation(Document doc)
+        {
+            List<ViewSheet> listViewSheet = new List<ViewSheet>();
+            List<Autodesk.Revit.DB.View> listView = GetViewInfor.GetView(doc, out listViewSheet);
+
+            foreach (var item in listView.OrderBy(x => x.ViewType + "/Name: " + x.Name))
+            {
+                var row = new string[] { item.ViewType + "/Name: " + item.Name };
+                var lvi = new ListViewItem(row);
+                lvi.Tag = lvi;
+                AppPenalAssignView.myFormAssignView.listViewView.Items.Add(lvi);
+            }
+
+            foreach (var sheet in listViewSheet.OrderByDescending(x => x.SheetNumber))
+            {
+                var sheetNumber = sheet.SheetNumber;
+                var sheetName = sheet.ViewName;
+                var row = new string[] { sheetNumber, sheetName };
+                var lvi = new ListViewItem(row);
+                lvi.Tag = lvi;
+                AppPenalAssignView.myFormAssignView.listSheet.Items.Add(lvi);
+            }
         }
     }
 }
