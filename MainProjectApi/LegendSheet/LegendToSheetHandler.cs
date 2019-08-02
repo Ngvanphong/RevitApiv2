@@ -27,12 +27,14 @@ namespace MainProjectApi.LegendSheet
                 foreach(var legend in listLegends)
                 {
                     XYZ location=null;
+                    ElementId typeView = null;
                     foreach(var id in listViewPortId)
                     {
                         Viewport viewPort = doc.GetElement(id) as Viewport;
                         if (viewPort.ViewId == legend.Id)
                         {
                             location = viewPort.GetBoxCenter();
+                            typeView = viewPort.GetTypeId();
                             break;
                         }
                     }
@@ -43,7 +45,8 @@ namespace MainProjectApi.LegendSheet
                             using (Transaction t = new Transaction(doc, "Assginlegend"))
                             {
                                 t.Start();
-                                Viewport viewNew = Viewport.Create(doc, sheet.Id, legend.Id, location);                              
+                                Viewport viewNew = Viewport.Create(doc, sheet.Id, legend.Id, location);
+                                viewNew.ChangeTypeId(typeView);                       
                                 t.Commit();
                             }
                         }

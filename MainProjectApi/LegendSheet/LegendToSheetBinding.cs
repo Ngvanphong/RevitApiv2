@@ -45,8 +45,8 @@ namespace MainProjectApi.LegendSheet
         }
         public static void GetInforToForm(Document doc)
         {
-            List<ViewSheet> listViewSheet   = GetInforLegend.GetSheet(doc);
-            List<Autodesk.Revit.DB.View> listLegend = GetInforLegend.GetLegendInfo(doc);
+            List<ViewSheet> listViewSheet   = GetSheet(doc);
+            List<Autodesk.Revit.DB.View> listLegend = GetLegendInfo(doc);
             foreach (var item in listLegend)
             {
                 var row = new string[] { item.Name };

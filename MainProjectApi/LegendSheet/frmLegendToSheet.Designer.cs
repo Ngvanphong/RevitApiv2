@@ -35,10 +35,10 @@
             this.columnSheetName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.listViewSheet = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.columnSheetNumberChose = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnSheetNameChose = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnAssignLegend = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -107,6 +107,16 @@
             this.listViewSheet.UseCompatibleStateImageBehavior = false;
             this.listViewSheet.View = System.Windows.Forms.View.Details;
             // 
+            // columnSheetNumberChose
+            // 
+            this.columnSheetNumberChose.Text = "Sheet Number";
+            this.columnSheetNumberChose.Width = 80;
+            // 
+            // columnSheetNameChose
+            // 
+            this.columnSheetNameChose.Text = "Sheet Name";
+            this.columnSheetNameChose.Width = 200;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -124,16 +134,6 @@
             this.label3.Size = new System.Drawing.Size(146, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Chose sheets to apply legend";
-            // 
-            // columnSheetNumberChose
-            // 
-            this.columnSheetNumberChose.Text = "Sheet Number";
-            this.columnSheetNumberChose.Width = 80;
-            // 
-            // columnSheetNameChose
-            // 
-            this.columnSheetNameChose.Text = "Sheet Name";
-            this.columnSheetNameChose.Width = 200;
             // 
             // btnAssignLegend
             // 
@@ -162,6 +162,7 @@
             this.Name = "frmLegendToSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLegendToSheet";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmLegendToSheet_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

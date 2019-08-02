@@ -65,6 +65,7 @@ namespace MainProjectApi.AssignView
             bool isExistView = false;
             XYZ locationPoint=null;
             Autodesk.Revit.DB.View viewMain = null;
+            Viewport viewPortOldMain = null;
             foreach (var view in listViewAssgin)
             {
                 using (Transaction t = new Transaction(doc, "AssigntoSheet"))
@@ -80,19 +81,19 @@ namespace MainProjectApi.AssignView
                             if (sheet.GetAllViewports().Count > 0)
                             {
                                 var viewPortOldId = sheet.GetAllViewports();
-                                Viewport viewPortOld = null;                               
+                                                             
                                 foreach (var port in viewPortOldId)
                                 {
                                     Viewport viewport = doc.GetElement(port) as Viewport;
                                     Parameter parameter = viewport.LookupParameter("Crop View");
                                     if (parameter != null)
                                     {
-                                        viewPortOld = viewport;
+                                        viewPortOldMain = viewport;
                                         viewMain = doc.GetElement(viewport.ViewId) as Autodesk.Revit.DB.View;
                                         break;
                                     }
                                 }
-                                if (viewPortOld != null)
+                                if (viewPortOldMain != null)
                                 {
                                     isExistView = true;
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
@@ -106,7 +107,7 @@ namespace MainProjectApi.AssignView
                                         view.CropBox = box;
                                         view.CropBoxActive = true;
                                         view.CropBoxVisible = true;
-                                        locationPoint = viewPortOld.GetBoxCenter();
+                                        locationPoint = viewPortOldMain.GetBoxCenter();
                                     }
                                     else
                                     {
@@ -116,6 +117,7 @@ namespace MainProjectApi.AssignView
                                     }
 
                                     Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
+                                    viewNew.ChangeTypeId(viewPortOldMain.GetTypeId());
 
                                 }
                                 else
@@ -197,6 +199,7 @@ namespace MainProjectApi.AssignView
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.ViewName = view.Name;
                                     Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
+                                    viewNew.ChangeTypeId(viewPortOldMain.GetTypeId());
 
                                 }
                                 else
