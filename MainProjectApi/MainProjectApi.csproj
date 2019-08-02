@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Button\AssignViewButton.cs" />
     <Compile Include="Button\CreateMaterialFamilyButton.cs" />
+    <Compile Include="Button\LegendToViewButton.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Family\AppPanelMaterial.cs" />
     <Compile Include="Family\CreateMaterialFamilyBinding.cs" />
@@ -85,6 +86,15 @@
     <Compile Include="Helper\Extension.cs" />
     <Compile Include="Helper\ParameterRevit.cs" />
     <Compile Include="Helper\SelectionFilterCategory.cs" />
+    <Compile Include="LegendSheet\AppPanelLegendToSheet.cs" />
+    <Compile Include="LegendSheet\frmLegendToSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LegendSheet\frmLegendToSheet.Designer.cs">
+      <DependentUpon>frmLegendToSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LegendSheet\LegendToSheetBinding.cs" />
+    <Compile Include="LegendSheet\LegendToSheetHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="Resources\Copy.png" />
     <None Include="packages.config" />
     <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\icon.png" />
@@ -106,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Family\frmCreateMaterialFamily.resx">
       <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LegendSheet\frmLegendToSheet.resx">
+      <DependentUpon>frmLegendToSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

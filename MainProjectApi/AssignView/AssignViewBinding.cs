@@ -34,13 +34,16 @@ namespace MainProjectApi.AssignView
             foreach (var item in listView)
             {
                 ViewSheet viewSheet = item as ViewSheet;
-                if (viewSheet == null)
+                if (viewSheet == null&&item.ViewType!=ViewType.Legend)
                 {
                     listviewNotUse.Add(item);
                 }
                 else
                 {
-                    listViewSheet.Add(viewSheet);
+                    if (item.ViewType != ViewType.Legend)
+                    {
+                        listViewSheet.Add(viewSheet);
+                    }                    
                 }
             }
             List<Autodesk.Revit.DB.View> result = new List<Autodesk.Revit.DB.View>();

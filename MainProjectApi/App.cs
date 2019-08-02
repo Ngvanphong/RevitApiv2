@@ -18,6 +18,8 @@ namespace MainProjectApi
             //createMaterialButton.CreateMaterial(a);
             AssignViewButton assignViewButton = new AssignViewButton();
             assignViewButton.CreateAssignView(a);
+            LegendToViewButton legendToSheet = new LegendToViewButton();
+            legendToSheet.CreateLegend(a);
             return Result.Succeeded;
         }
 
