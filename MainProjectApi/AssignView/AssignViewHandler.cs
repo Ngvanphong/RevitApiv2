@@ -62,8 +62,10 @@ namespace MainProjectApi.AssignView
             
             bool isBegin = true;
             bool isCreate = true;
+            bool isExistView = false;
             XYZ locationPoint=null;
-            foreach(var view in listViewAssgin)
+            Autodesk.Revit.DB.View viewMain = null;
+            foreach (var view in listViewAssgin)
             {
                 using (Transaction t = new Transaction(doc, "AssigntoSheet"))
                 {
@@ -72,13 +74,13 @@ namespace MainProjectApi.AssignView
                     {
                         FamilyInstance titleblock = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance))
                     .OfCategory(BuiltInCategory.OST_TitleBlocks).Cast<FamilyInstance>().First(q => q.OwnerViewId == sheet.Id);
+                       
                         if (isBegin)
                         {
                             if (sheet.GetAllViewports().Count > 0)
                             {
                                 var viewPortOldId = sheet.GetAllViewports();
-                                Viewport viewPortOld = null;
-                                Autodesk.Revit.DB.View viewMain = null;
+                                Viewport viewPortOld = null;                               
                                 foreach (var port in viewPortOldId)
                                 {
                                     Viewport viewport = doc.GetElement(port) as Viewport;
@@ -92,6 +94,7 @@ namespace MainProjectApi.AssignView
                                 }
                                 if (viewPortOld != null)
                                 {
+                                    isExistView = true;
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.SheetNumber = sheetNumberStart;
                                     viewSheet.ViewName = view.Name;
@@ -183,9 +186,26 @@ namespace MainProjectApi.AssignView
                             }
                             else
                             {
-                                ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
-                                viewSheet.ViewName = view.Name;
-                                Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
+                                if (isExistView  && AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked)
+                                {
+                                    BoundingBoxXYZ box = new BoundingBoxXYZ();
+                                    box.Min = viewMain.CropBox.Min;
+                                    box.Max = viewMain.CropBox.Max;
+                                    view.CropBox = box;
+                                    view.CropBoxActive = true;
+                                    view.CropBoxVisible = true;
+                                    ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
+                                    viewSheet.ViewName = view.Name;
+                                    Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
+
+                                }
+                                else
+                                {
+                                    ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
+                                    viewSheet.ViewName = view.Name;
+                                    Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
+                                }
+                                
                             }
                         }
                         RemoveViewAssigned(view);
