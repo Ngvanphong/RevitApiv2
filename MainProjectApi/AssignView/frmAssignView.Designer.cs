@@ -48,9 +48,9 @@
             this.listViewView.CheckBoxes = true;
             this.listViewView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnViewName});
-            this.listViewView.Location = new System.Drawing.Point(19, 25);
+            this.listViewView.Location = new System.Drawing.Point(12, 25);
             this.listViewView.Name = "listViewView";
-            this.listViewView.Size = new System.Drawing.Size(303, 448);
+            this.listViewView.Size = new System.Drawing.Size(355, 448);
             this.listViewView.TabIndex = 0;
             this.listViewView.UseCompatibleStateImageBehavior = false;
             this.listViewView.View = System.Windows.Forms.View.Details;
@@ -58,14 +58,14 @@
             // columnViewName
             // 
             this.columnViewName.Text = "View Name";
-            this.columnViewName.Width = 300;
+            this.columnViewName.Width = 350;
             // 
             // listViewSelect
             // 
             this.listViewSelect.CheckBoxes = true;
             this.listViewSelect.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnViewSelect});
-            this.listViewSelect.Location = new System.Drawing.Point(425, 25);
+            this.listViewSelect.Location = new System.Drawing.Point(462, 25);
             this.listViewSelect.Name = "listViewSelect";
             this.listViewSelect.Size = new System.Drawing.Size(304, 448);
             this.listViewSelect.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(334, 142);
+            this.btnSelect.Location = new System.Drawing.Point(377, 142);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 29);
             this.btnSelect.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(334, 187);
+            this.btnRemove.Location = new System.Drawing.Point(377, 187);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 29);
             this.btnRemove.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             // btnAssign
             // 
-            this.btnAssign.Location = new System.Drawing.Point(334, 230);
+            this.btnAssign.Location = new System.Drawing.Point(377, 230);
             this.btnAssign.Name = "btnAssign";
             this.btnAssign.Size = new System.Drawing.Size(75, 29);
             this.btnAssign.TabIndex = 6;
@@ -113,9 +113,9 @@
             this.listSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumber,
             this.columnSheetName});
-            this.listSheet.Location = new System.Drawing.Point(747, 72);
+            this.listSheet.Location = new System.Drawing.Point(784, 72);
             this.listSheet.Name = "listSheet";
-            this.listSheet.Size = new System.Drawing.Size(316, 399);
+            this.listSheet.Size = new System.Drawing.Size(292, 399);
             this.listSheet.TabIndex = 8;
             this.listSheet.UseCompatibleStateImageBehavior = false;
             this.listSheet.View = System.Windows.Forms.View.Details;
@@ -131,12 +131,12 @@
             // columnSheetName
             // 
             this.columnSheetName.Text = "Sheet Name";
-            this.columnSheetName.Width = 233;
+            this.columnSheetName.Width = 207;
             // 
             // checkBoxFixPosition
             // 
             this.checkBoxFixPosition.AutoSize = true;
-            this.checkBoxFixPosition.Location = new System.Drawing.Point(747, 25);
+            this.checkBoxFixPosition.Location = new System.Drawing.Point(784, 25);
             this.checkBoxFixPosition.Name = "checkBoxFixPosition";
             this.checkBoxFixPosition.Size = new System.Drawing.Size(247, 17);
             this.checkBoxFixPosition.TabIndex = 9;
@@ -147,7 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(747, 50);
+            this.label1.Location = new System.Drawing.Point(784, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 10;
