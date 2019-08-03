@@ -155,9 +155,9 @@
             // 
             // txtSheetNumber
             // 
-            this.txtSheetNumber.Location = new System.Drawing.Point(853, 46);
+            this.txtSheetNumber.Location = new System.Drawing.Point(890, 46);
             this.txtSheetNumber.Name = "txtSheetNumber";
-            this.txtSheetNumber.Size = new System.Drawing.Size(141, 20);
+            this.txtSheetNumber.Size = new System.Drawing.Size(186, 20);
             this.txtSheetNumber.TabIndex = 11;
             // 
             // frmAssignView
