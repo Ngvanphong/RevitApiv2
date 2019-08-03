@@ -42,41 +42,33 @@ namespace MainProjectApi.Helper
                 t.Commit();
             }
         }
-        public bool SetNewParamatertoInstance(DefinitionFile definitionFile,BuiltInCategory category,string groupName,string parameter)
+        public bool SetNewParamatertoInstance(DefinitionFile myDefitionfile, BuiltInCategory category,string groupName,string parameter)
         {
            try
             {
-                DefinitionGroups myGroups = definitionFile.Groups;
+                DefinitionGroups myGroups = myDefitionfile.Groups;
                 DefinitionGroup myGroup = null;
-                Definition myDefinition_ProductDate = null;
-                foreach(var item in myGroups)
-                {
-                    if (item.Name == groupName)
-                    {
-                        myGroup = item;
-                        myDefinition_ProductDate = item.Definitions.get_Item(parameter);
-                        if (myDefinition_ProductDate == null)
-                        {
-                            ExternalDefinitionCreationOptions option = new ExternalDefinitionCreationOptions(parameter, ParameterType.Material);
-                            myDefinition_ProductDate = myGroup.Definitions.Create(option);
-                        }
-                        break;
-
-                    }
-                }
+                Definition myDefination_ProductDate = null;
+                myGroup = myGroups.get_Item(groupName);
                 if (myGroup == null)
                 {
-                    myGroup = myGroups.Create(groupName);
-                    ExternalDefinitionCreationOptions option = new ExternalDefinitionCreationOptions(parameter, ParameterType.Material);
-                    myDefinition_ProductDate = myGroup.Definitions.Create(option);
+                    myGroup = myDefitionfile.Groups.Create(groupName);
                 }
+
+                myDefination_ProductDate = myGroup.Definitions.get_Item(parameter);
+                if (myDefination_ProductDate == null)
+                {
+                    ExternalDefinitionCreationOptions option = new ExternalDefinitionCreationOptions(parameter, ParameterType.Text);
+                    myDefination_ProductDate = myGroup.Definitions.Create(option);
+                }
+
                 CategorySet categorySet = _uiApp.Application.Create.NewCategorySet();
                 Category myCategory = _uiApp.ActiveUIDocument.Document.Settings.Categories.get_Item(category);
                 categorySet.Insert(myCategory);
                 InstanceBinding instantBinding = _uiApp.Application.Create.NewInstanceBinding(categorySet);
                 BindingMap bindingMap = _uiApp.ActiveUIDocument.Document.ParameterBindings;
 
-                bool instanceBindOk = bindingMap.Insert(myDefinition_ProductDate, instantBinding, BuiltInParameterGroup.PG_MATERIALS);
+                bool instanceBindOk = bindingMap.Insert(myDefination_ProductDate, instantBinding, BuiltInParameterGroup.PG_MATERIALS);
 
                 return instanceBindOk;
 

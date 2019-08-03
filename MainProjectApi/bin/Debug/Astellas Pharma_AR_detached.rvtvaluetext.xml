@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Table>
+  <TextDoor>
+    <Id>4150883</Id>
+    <Name>SD-14</Name>
+    <NameFamily>Door_2Slides</NameFamily>
+    <ElementId>3610272</ElementId>
+    <Width>3000</Width>
+    <Height>3000</Height>
+    <Door_W>1500</Door_W>
+  </TextDoor>
+</Table>
