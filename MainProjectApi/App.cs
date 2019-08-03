@@ -20,6 +20,8 @@ namespace MainProjectApi
             assignViewButton.CreateAssignView(a);
             LegendToViewButton legendToSheet = new LegendToViewButton();
             legendToSheet.CreateLegend(a);
+            ChangeSheetNumberButton changeSheetNumber = new ChangeSheetNumberButton();
+            changeSheetNumber.CreateChangeSheetNumber(a);
             return Result.Succeeded;
         }
 

@@ -189,7 +189,6 @@ namespace MainProjectApi.AssignView
                                     XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
                                     locationPoint = newCenter;
                                     Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
-
                                 }
                                 else
                                 {
@@ -200,8 +199,6 @@ namespace MainProjectApi.AssignView
                                     Viewport viewNew = Viewport.Create(doc, sheet.Id, view.Id, locationPoint);
                                     isCreate = false;
                                 }
-
-
                             }
                             isBegin = false;
                         }
@@ -244,8 +241,7 @@ namespace MainProjectApi.AssignView
                         TaskDialog.Show("Error", "Sheet Number is existed");
                         t.Commit();
                         break;
-                    }                                   
-                   
+                    }                                                     
                 }
             }
 

@@ -71,8 +71,18 @@
       <DependentUpon>frmAssignView.cs</DependentUpon>
     </Compile>
     <Compile Include="Button\AssignViewButton.cs" />
+    <Compile Include="Button\ChangeSheetNumberButton.cs" />
     <Compile Include="Button\CreateMaterialFamilyButton.cs" />
     <Compile Include="Button\LegendToViewButton.cs" />
+    <Compile Include="ChangeSheetNumber\AppPanelChangeSheetNumber.cs" />
+    <Compile Include="ChangeSheetNumber\ChangeSheetNumberHandler.cs" />
+    <Compile Include="ChangeSheetNumber\ChangeSheetNumberBinding.cs" />
+    <Compile Include="ChangeSheetNumber\frmChangeSheetNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeSheetNumber\frmChangeSheetNumber.Designer.cs">
+      <DependentUpon>frmChangeSheetNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="Family\AppPanelMaterial.cs" />
     <Compile Include="Family\CreateMaterialFamilyBinding.cs" />
@@ -104,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="Resources\rename.png" />
     <None Include="Resources\Copy.png" />
     <None Include="packages.config" />
     <None Include="Resources\iconfinder_62_62719.png" />
@@ -114,6 +125,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AssignView\frmAssignView.resx">
       <DependentUpon>frmAssignView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeSheetNumber\frmChangeSheetNumber.resx">
+      <DependentUpon>frmChangeSheetNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Family\frmCreateMaterialFamily.resx">
       <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>
