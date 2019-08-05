@@ -22,6 +22,8 @@ namespace MainProjectApi
             legendToSheet.CreateLegend(a);
             ChangeSheetNumberButton changeSheetNumber = new ChangeSheetNumberButton();
             changeSheetNumber.CreateChangeSheetNumber(a);
+            NoNumberSheetButton noNumber = new NoNumberSheetButton();
+            noNumber.CreateNoNumber(a);
             return Result.Succeeded;
         }
 

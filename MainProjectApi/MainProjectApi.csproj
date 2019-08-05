@@ -74,6 +74,7 @@
     <Compile Include="Button\ChangeSheetNumberButton.cs" />
     <Compile Include="Button\CreateMaterialFamilyButton.cs" />
     <Compile Include="Button\LegendToViewButton.cs" />
+    <Compile Include="Button\NoNumberSheetButton.cs" />
     <Compile Include="ChangeSheetNumber\AppPanelChangeSheetNumber.cs" />
     <Compile Include="ChangeSheetNumber\ChangeSheetNumberHandler.cs" />
     <Compile Include="ChangeSheetNumber\ChangeSheetNumberBinding.cs" />
@@ -105,6 +106,15 @@
     </Compile>
     <Compile Include="LegendSheet\LegendToSheetBinding.cs" />
     <Compile Include="LegendSheet\LegendToSheetHandler.cs" />
+    <Compile Include="NoNumberSheet\AppPanelNoNumberSheet.cs" />
+    <Compile Include="NoNumberSheet\frmNoNumberSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoNumberSheet\frmNoNumberSheet.Designer.cs">
+      <DependentUpon>frmNoNumberSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoNumberSheet\NoNumberSheetHandler.cs" />
+    <Compile Include="NoNumberSheet\NoNumberSheetBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -114,6 +124,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="Resources\sort-by-numeric-order.png" />
+    <None Include="Resources\numbered-list.png" />
     <None Include="Resources\rename.png" />
     <None Include="Resources\Copy.png" />
     <None Include="packages.config" />
@@ -134,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LegendSheet\frmLegendToSheet.resx">
       <DependentUpon>frmLegendToSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoNumberSheet\frmNoNumberSheet.resx">
+      <DependentUpon>frmNoNumberSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

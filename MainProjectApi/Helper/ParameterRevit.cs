@@ -24,7 +24,7 @@ namespace MainProjectApi.Helper
             _app = uiApp.Application;
         }
         //Create parameter
-        public void CreateParameterRevit(string groupName, string parameterName,BuiltInCategory category)
+        public void CreateParameterRevit(string groupName, string parameterName,BuiltInCategory category, BuiltInParameterGroup gruopInstance)
         {
             DefinitionFile definitionFile = _app.OpenSharedParameterFile();
             string path = Path.Combine(Environment.SystemDirectory, @"\Autodesk\ShareParameterArmo.txt");
@@ -38,11 +38,11 @@ namespace MainProjectApi.Helper
             using(Transaction t = new Transaction(_doc, "CreateParamater"))
             {
                 t.Start();
-                SetNewParamatertoInstance(definitionFile, BuiltInCategory.OST_GenericModel, groupName, parameterName);
+                SetNewParamatertoInstance(definitionFile, BuiltInCategory.OST_GenericModel, groupName, parameterName, gruopInstance);
                 t.Commit();
             }
         }
-        public bool SetNewParamatertoInstance(DefinitionFile myDefitionfile, BuiltInCategory category,string groupName,string parameter)
+        public bool SetNewParamatertoInstance(DefinitionFile myDefitionfile, BuiltInCategory category,string groupName,string parameter, BuiltInParameterGroup groupInstance)
         {
            try
             {
@@ -68,7 +68,7 @@ namespace MainProjectApi.Helper
                 InstanceBinding instantBinding = _uiApp.Application.Create.NewInstanceBinding(categorySet);
                 BindingMap bindingMap = _uiApp.ActiveUIDocument.Document.ParameterBindings;
 
-                bool instanceBindOk = bindingMap.Insert(myDefination_ProductDate, instantBinding, BuiltInParameterGroup.PG_MATERIALS);
+                bool instanceBindOk = bindingMap.Insert(myDefination_ProductDate, instantBinding, groupInstance);
 
                 return instanceBindOk;
 
@@ -78,5 +78,41 @@ namespace MainProjectApi.Helper
                 return false;
             }
         }
+        public static string ParameterToString(Parameter param)
+        {
+            string val = "none";
+
+            if (param == null)
+            {
+                return val;
+            }
+
+            // To get to the parameter value, we need to pause it depending on its storage type 
+
+            switch (param.StorageType)
+            {
+                case StorageType.Double:
+                    double dVal = param.AsDouble() * 0.3048 * 1000;
+                    val = dVal.ToString();
+                    break;
+                case StorageType.Integer:
+                    int iVal = param.AsInteger();
+                    val = iVal.ToString();
+                    break;
+                case StorageType.String:
+                    string sVal = param.AsString();
+                    val = sVal;
+                    break;
+                case StorageType.ElementId:
+                    ElementId idVal = param.AsElementId();
+                    val = idVal.IntegerValue.ToString();
+                    break;
+                case StorageType.None:
+                    break;
+            }
+            return val;
+        }
     }
+
 }
+
