@@ -23,6 +23,18 @@ namespace MainProjectApi.Helper
             _doc = uiApp.ActiveUIDocument.Document;
             _app = uiApp.Application;
         }
+
+        //set parameter
+        public void SetValueParameter(Parameter parameter, string value)
+        {
+            using (Transaction t = new Transaction(_uiApp.ActiveUIDocument.Document, "Set value parameter"))
+            {
+                t.Start();
+                try { parameter.Set(value); }
+                catch (Exception ex) { };
+                t.Commit();
+            }
+        }
         //Create parameter
         public void CreateParameterRevit(string groupName, string parameterName,BuiltInCategory category, BuiltInParameterGroup gruopInstance)
         {
@@ -38,7 +50,7 @@ namespace MainProjectApi.Helper
             using(Transaction t = new Transaction(_doc, "CreateParamater"))
             {
                 t.Start();
-                SetNewParamatertoInstance(definitionFile, BuiltInCategory.OST_GenericModel, groupName, parameterName, gruopInstance);
+                SetNewParamatertoInstance(definitionFile,category, groupName, parameterName, gruopInstance);
                 t.Commit();
             }
         }

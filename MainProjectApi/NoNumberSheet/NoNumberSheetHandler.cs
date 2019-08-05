@@ -18,9 +18,29 @@ namespace MainProjectApi.NoNumberSheet
         public void Execute(UIApplication app)
         {
             bool isBegin = true;
+            Document doc = app.ActiveUIDocument.Document;
             string noNumberStart = AppPanelNoNumberSheet.myFormNoNumberSheet.txtNoStartNumber.Text;
+
             List<ViewSheet> listViewSheet = GetListSheetInSchedule(app);
-           
+            Parameter paramter = listViewSheet.First().LookupParameter("STT");
+            ParameterRevit paraRevit = new ParameterRevit(app);
+            if (paramter == null)
+            {
+                paraRevit.CreateParameterRevit("Sheet", "STT", BuiltInCategory.OST_Sheets, BuiltInParameterGroup.PG_IDENTITY_DATA);
+            }
+            string inputNumber = noNumberStart;
+            foreach (var sheet in listViewSheet)
+            {
+                Parameter para = sheet.LookupParameter("STT");
+                string newNoNumber = SetNumber(inputNumber, ref isBegin);
+                if (isBegin == true)
+                {
+                    isBegin = false;
+                }
+                paraRevit.SetValueParameter(para, newNoNumber);
+                inputNumber = newNoNumber;
+            }
+
         }
 
         public string GetName()
@@ -28,7 +48,7 @@ namespace MainProjectApi.NoNumberSheet
             return "NoNumberSheet";
         }
 
-        public string GetNumber(string noNumber, ref bool isBegin)
+        public string SetNumber(string noNumber, ref bool isBegin)
         {
             string noNumberResult = null;
             int lengthNumber = noNumber.Length;
@@ -39,7 +59,14 @@ namespace MainProjectApi.NoNumberSheet
                 end = end + 1;
             }
             int countEnd = end.ToString().Length;
-            noNumberResult = noNumber.Remove(lengthNumber - countEnd) + end.ToString();
+            if (lengthNumber >= countEnd)
+            {
+                noNumberResult = noNumber.Remove(lengthNumber - countEnd) + end.ToString();
+            }else
+            {
+                noNumberResult =  end.ToString();
+            }
+            
             return noNumberResult;
         }
         public List<ViewSheet> GetListSheetInSchedule(UIApplication uIapp)
@@ -54,13 +81,26 @@ namespace MainProjectApi.NoNumberSheet
                 ViewSheet viewsheet = doc.GetElement(id) as ViewSheet;
                 Parameter parameter = viewsheet.LookupParameter("Appears In Sheet List");
                 var isChecked = ParameterRevit.ParameterToString(parameter);
-                if (viewsheet != null&&isChecked!="0")
+                if (viewsheet != null && isChecked == "1")
                 {
                     listViewSheet.Add(viewsheet);
                 }
+            };
+            if (listViewSheet.Count() == 0)
+            {
+                var allSheets = new FilteredElementCollector(doc).OfClass(typeof(ViewSheet)).Cast<ViewSheet>().ToList();
+                foreach (var item in allSheets)
+                {
+                    Parameter parameter = item.LookupParameter("Appears In Sheet List");
+                    var isChecked = ParameterRevit.ParameterToString(parameter);
+                    if (isChecked == "1")
+                    {
+                        listViewSheet.Add(item);
+                    }
+                }
             }
             IOrderedEnumerable<ViewSheet> vps = from ViewSheet vp in listViewSheet orderby vp.SheetNumber ascending select vp;
-           
+
             listViewSheet = vps.ToList();
             return listViewSheet;
         }
