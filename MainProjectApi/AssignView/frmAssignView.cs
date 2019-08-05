@@ -103,7 +103,23 @@ namespace MainProjectApi.AssignView
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void checkBoxFixPositionNotBox_CheckedChanged(object sender, EventArgs e)
+        {
+          
+            
+        }
+
+        private void checkBoxFixPosition_Click(object sender, EventArgs e)
+        {
+            AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked = false;
+        }
+
+        private void checkBoxFixPositionNotBox_Click(object sender, EventArgs e)
+        {
+            AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked = false;
         }
     }
 }

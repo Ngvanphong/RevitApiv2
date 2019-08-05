@@ -64,7 +64,23 @@ namespace MainProjectApi.AssignView
             XYZ locationPoint=null;
             Autodesk.Revit.DB.View viewMain = null;
             Viewport viewPortOldMain = null;
-            if (AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked)
+            List<ViewSectionBox> listBoudingBoxOld = new List<ViewSectionBox>();
+            if (AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked)
+            {
+                foreach(var item in listViewAssgin)
+                {
+                    ViewSectionBox sectionBox = new ViewSectionBox();
+                    BoundingBoxXYZ box = new BoundingBoxXYZ();
+                    box.Min = item.CropBox.Min;
+                    box.Max = item.CropBox.Max;                  
+                    sectionBox.BoudingBoxOld = box;
+                    sectionBox.viewAssign = item;
+                    listBoudingBoxOld.Add(sectionBox);
+                }
+            }
+
+            if (AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked
+                ||AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked)
             {
                 foreach (var item in listViewAssgin)
                 {
@@ -143,7 +159,8 @@ namespace MainProjectApi.AssignView
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.SheetNumber = sheetNumberStart;
                                     viewSheet.ViewName = view.Name;
-                                    if (AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked==false)
+                                    if (AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked==false
+                                        && AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked == false)
                                     {
                                         BoundingBoxXYZ newvpbb = titleblock.get_BoundingBox(sheet);
                                         XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
@@ -217,7 +234,8 @@ namespace MainProjectApi.AssignView
                             }
                             else
                             {
-                                if (isExistView  && AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked)
+                                if (isExistView  &&(AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked
+                                    || AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked))
                                 {                                   
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.ViewName = view.Name;
@@ -232,6 +250,7 @@ namespace MainProjectApi.AssignView
                                 }                               
                             }
                         }
+                        
                         RemoveViewAssigned(view);
                         t.Commit();
 
@@ -244,7 +263,22 @@ namespace MainProjectApi.AssignView
                     }                                                     
                 }
             }
+            if (AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked)
+            {
+                foreach (var viewBox in listBoudingBoxOld)
+                {
+                    using(Transaction t3= new Transaction(doc, "notCropBox"))
+                    {
+                        t3.Start();
+                        viewBox.viewAssign.CropBox = viewBox.BoudingBoxOld;
+                        viewBox.viewAssign.CropBoxActive = true;
+                        viewBox.viewAssign.CropBoxVisible = true;
+                        t3.Commit();
+                    }
 
+                }
+            }
+            
             //Update form;
             AppPenalAssignView.myFormAssignView.listViewView.Items.Clear();
             AppPenalAssignView.myFormAssignView.listSheet.Items.Clear();
@@ -344,5 +378,10 @@ namespace MainProjectApi.AssignView
                 }
             }
         }
+    }
+    public class ViewSectionBox
+    {
+      public BoundingBoxXYZ BoudingBoxOld;
+      public Autodesk.Revit.DB.View viewAssign;
     }
 }
