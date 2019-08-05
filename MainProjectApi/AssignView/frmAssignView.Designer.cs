@@ -139,9 +139,9 @@
             this.checkBoxFixPosition.AutoSize = true;
             this.checkBoxFixPosition.Location = new System.Drawing.Point(784, 25);
             this.checkBoxFixPosition.Name = "checkBoxFixPosition";
-            this.checkBoxFixPosition.Size = new System.Drawing.Size(227, 17);
+            this.checkBoxFixPosition.Size = new System.Drawing.Size(214, 17);
             this.checkBoxFixPosition.TabIndex = 9;
-            this.checkBoxFixPosition.Text = "Fix position and section box similar for view";
+            this.checkBoxFixPosition.Text = "Fix position and crop box similar for view";
             this.checkBoxFixPosition.UseVisualStyleBackColor = true;
             this.checkBoxFixPosition.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             this.checkBoxFixPosition.Click += new System.EventHandler(this.checkBoxFixPosition_Click);
@@ -167,9 +167,9 @@
             this.checkBoxFixPositionNotBox.AutoSize = true;
             this.checkBoxFixPositionNotBox.Location = new System.Drawing.Point(784, 49);
             this.checkBoxFixPositionNotBox.Name = "checkBoxFixPositionNotBox";
-            this.checkBoxFixPositionNotBox.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxFixPositionNotBox.Size = new System.Drawing.Size(171, 17);
             this.checkBoxFixPositionNotBox.TabIndex = 12;
-            this.checkBoxFixPositionNotBox.Text = "Fix position but not fix section box";
+            this.checkBoxFixPositionNotBox.Text = "Fix position but not fix crop box";
             this.checkBoxFixPositionNotBox.UseVisualStyleBackColor = true;
             this.checkBoxFixPositionNotBox.CheckedChanged += new System.EventHandler(this.checkBoxFixPositionNotBox_CheckedChanged);
             this.checkBoxFixPositionNotBox.Click += new System.EventHandler(this.checkBoxFixPositionNotBox_Click);
