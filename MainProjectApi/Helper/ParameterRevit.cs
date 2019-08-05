@@ -39,7 +39,7 @@ namespace MainProjectApi.Helper
         public void CreateParameterRevit(string groupName, string parameterName,BuiltInCategory category, BuiltInParameterGroup gruopInstance)
         {
             DefinitionFile definitionFile = _app.OpenSharedParameterFile();
-            string path = Path.Combine(Environment.SystemDirectory, @"\Autodesk\ShareParameterArmo.txt");
+            string path= @"C:\Autodesk\ShareParameterArmo.txt";           
             if (definitionFile == null)
             {
                 StreamWriter stream = new StreamWriter(path);
