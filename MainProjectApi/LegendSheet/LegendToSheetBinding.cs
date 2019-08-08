@@ -8,6 +8,8 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Forms;
+using MainProjectApi.Helper;
+
 namespace MainProjectApi.LegendSheet
 {
     [Transaction(TransactionMode.Manual)]
@@ -17,8 +19,11 @@ namespace MainProjectApi.LegendSheet
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            AppPanelLegendToSheet.ShowFormAssignLegend();
-            GetInforLegend.GetInforToForm(doc);
+            if (CheckAccess.CheckLicense() == true)
+            {
+                AppPanelLegendToSheet.ShowFormAssignLegend();
+                GetInforLegend.GetInforToForm(doc);
+            }
             return Result.Succeeded;
         }
     }

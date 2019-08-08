@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MainProjectApi.AssignView
 {
-   public static class AppPenalAssignView
+    public static class AppPenalAssignView
     {
         public static frmAssignView myFormAssignView;
         public static ListViewItem mySelectItem;

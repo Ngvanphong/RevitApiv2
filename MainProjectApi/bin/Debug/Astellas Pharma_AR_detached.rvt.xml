@@ -89,6 +89,14 @@
     <Door_W>none</Door_W>
   </Door>
   <Door>
+    <Id>3610272</Id>
+    <NameFamily>Door_2Slides</NameFamily>
+    <NameTypeFamily>SD-1B 9</NameTypeFamily>
+    <Width>1700</Width>
+    <Height>2100</Height>
+    <Door_W>850</Door_W>
+  </Door>
+  <Door>
     <Id>3610442</Id>
     <NameFamily>Door_2Slides</NameFamily>
     <NameTypeFamily>SD-2 7</NameTypeFamily>

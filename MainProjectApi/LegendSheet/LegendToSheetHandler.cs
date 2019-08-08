@@ -9,6 +9,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using MainProjectApi.Helper;
 
 namespace MainProjectApi.LegendSheet
 {
@@ -16,6 +17,7 @@ namespace MainProjectApi.LegendSheet
     {
         public void Execute(UIApplication app)
         {
+           
             Document doc = app.ActiveUIDocument.Document;
             List<Autodesk.Revit.DB.View> listLegends = GetLegendCheked(doc);
             List<ViewSheet> listSheetAssign = GetSheets(doc);

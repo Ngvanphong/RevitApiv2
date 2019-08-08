@@ -7,6 +7,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using MainProjectApi.Helper;
 
 namespace MainProjectApi.ChangeSheetNumber
 {
@@ -17,7 +18,10 @@ namespace MainProjectApi.ChangeSheetNumber
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            AppPanelChangeSheetNumber.ShowFormChange();
+            if (CheckAccess.CheckLicense() == true)
+            {
+                AppPanelChangeSheetNumber.ShowFormChange();
+            }                
             return Result.Succeeded;
         }
     }

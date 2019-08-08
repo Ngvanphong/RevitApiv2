@@ -8,6 +8,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Forms;
+using MainProjectApi.Helper;
 
 namespace MainProjectApi.NoNumberSheet
 {
@@ -18,7 +19,10 @@ namespace MainProjectApi.NoNumberSheet
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            AppPanelNoNumberSheet.ShowFormNoNumber();
+            if (CheckAccess.CheckLicense() == true)
+            {
+                AppPanelNoNumberSheet.ShowFormNoNumber();
+            } 
             return Result.Succeeded;
         }
     }

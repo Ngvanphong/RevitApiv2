@@ -1,0 +1,15 @@
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\Content\FoxLearn.License.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\MainProjectApi.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\MainProjectApi.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\FoxLearn.License.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\Newtonsoft.Json.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Release\Newtonsoft.Json.xml
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.AssignView.frmAssignView.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.ChangeSheetNumber.frmChangeSheetNumber.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.CreateMaterialFamily.frmCreateMaterialFamily.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.LegendSheet.frmLegendToSheet.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.NoNumberSheet.frmNoNumberSheet.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.Properties.Resources.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.csproj.GenerateResource.Cache
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Release\MainProjectApi.pdb

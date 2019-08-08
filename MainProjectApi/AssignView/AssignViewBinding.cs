@@ -8,6 +8,8 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Forms;
+using MainProjectApi.Helper;
+
 namespace MainProjectApi.AssignView
 {
     [Transaction(TransactionMode.Manual)]
@@ -18,8 +20,11 @@ namespace MainProjectApi.AssignView
 
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            AppPenalAssignView.ShowFormAssignView();
-            GetViewInfor.UpdateFormInformation(doc);
+            if (CheckAccess.CheckLicense() == true)
+            {
+                AppPenalAssignView.ShowFormAssignView();
+                GetViewInfor.UpdateFormInformation(doc);
+            }
             return Result.Succeeded;
         }
        
