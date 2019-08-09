@@ -24,6 +24,8 @@ namespace MainProjectApi
             changeSheetNumber.CreateChangeSheetNumber(a);
             NoNumberSheetButton noNumber = new NoNumberSheetButton();
             noNumber.CreateNoNumber(a);
+            DuplicateSheetButton duplicate = new DuplicateSheetButton();
+            duplicate.CreateDuplicate(a);
             return Result.Succeeded;
         }
 

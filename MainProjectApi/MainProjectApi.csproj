@@ -83,6 +83,7 @@
     <Compile Include="Button\AssignViewButton.cs" />
     <Compile Include="Button\ChangeSheetNumberButton.cs" />
     <Compile Include="Button\CreateMaterialFamilyButton.cs" />
+    <Compile Include="Button\DuplicateSheetButton.cs" />
     <Compile Include="Button\LegendToViewButton.cs" />
     <Compile Include="Button\NoNumberSheetButton.cs" />
     <Compile Include="ChangeSheetNumber\AppPanelChangeSheetNumber.cs" />
@@ -95,6 +96,15 @@
       <DependentUpon>frmChangeSheetNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Command.cs" />
+    <Compile Include="DuplicateSheet\AppPanelDuplicateSheet.cs" />
+    <Compile Include="DuplicateSheet\DuplicateSheetBinding.cs" />
+    <Compile Include="DuplicateSheet\DuplicateSheetHandler.cs" />
+    <Compile Include="DuplicateSheet\frmDuplicateSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuplicateSheet\frmDuplicateSheet.Designer.cs">
+      <DependentUpon>frmDuplicateSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Family\AppPanelMaterial.cs" />
     <Compile Include="Family\CreateMaterialFamilyBinding.cs" />
     <Compile Include="Family\CreateMaterialFamilyHandler.cs" />
@@ -135,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin" />
+    <None Include="Resources\insurance.png" />
     <None Include="Resources\sort-by-numeric-order.png" />
     <None Include="Resources\numbered-list.png" />
     <None Include="Resources\rename.png" />
@@ -150,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeSheetNumber\frmChangeSheetNumber.resx">
       <DependentUpon>frmChangeSheetNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuplicateSheet\frmDuplicateSheet.resx">
+      <DependentUpon>frmDuplicateSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Family\frmCreateMaterialFamily.resx">
       <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>

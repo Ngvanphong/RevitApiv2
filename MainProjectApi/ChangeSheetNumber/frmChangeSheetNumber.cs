@@ -28,5 +28,10 @@ namespace MainProjectApi.ChangeSheetNumber
         {
             _myEvent.Raise();
         }
+
+        private void frmChangeSheetNumber_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

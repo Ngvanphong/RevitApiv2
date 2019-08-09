@@ -12,4 +12,5 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\FoxLearn.License.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.DuplicateSheet.frmDuplicateSheet.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.csprojResolveAssemblyReference.cache
