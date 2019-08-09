@@ -222,25 +222,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 380);
+            this.label3.Location = new System.Drawing.Point(178, 380);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "End Name:";
+            this.label3.Text = "End Shhet Name:";
             // 
             // textBoxEndNumber
             // 
             this.textBoxEndNumber.Location = new System.Drawing.Point(114, 377);
             this.textBoxEndNumber.Name = "textBoxEndNumber";
-            this.textBoxEndNumber.Size = new System.Drawing.Size(79, 20);
+            this.textBoxEndNumber.Size = new System.Drawing.Size(61, 20);
             this.textBoxEndNumber.TabIndex = 8;
             this.textBoxEndNumber.Text = ".1";
             // 
             // textBoxEndName
             // 
-            this.textBoxEndName.Location = new System.Drawing.Point(254, 377);
+            this.textBoxEndName.Location = new System.Drawing.Point(270, 377);
             this.textBoxEndName.Name = "textBoxEndName";
-            this.textBoxEndName.Size = new System.Drawing.Size(125, 20);
+            this.textBoxEndName.Size = new System.Drawing.Size(109, 20);
             this.textBoxEndName.TabIndex = 9;
             this.textBoxEndName.Text = "-Duplicate";
             // 
