@@ -18,8 +18,11 @@ namespace ProjectApiV3.AllignBeamFloor
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            AllignBeamFloor beamFloorClass = new AllignBeamFloor(uiApp);
-            beamFloorClass.AllignBeamToFloor();
+            if (CheckAccess.CheckLicense() == true)
+            {
+                AllignBeamFloor beamFloorClass = new AllignBeamFloor(uiApp);
+                beamFloorClass.AllignBeamToFloor();
+            }          
             return Result.Succeeded;
         }
     }
