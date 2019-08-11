@@ -35,8 +35,8 @@ namespace ProjectApiV3.AllignBeamFloor
                     }                   
                 }              
             }
-            XYZ point1 = _uiApp.ActiveUIDocument.Selection.PickPoint();
-            XYZ point2= _uiApp.ActiveUIDocument.Selection.PickPoint();            
+            XYZ point1 = _uiApp.ActiveUIDocument.Selection.PickPoint("Chose a low point");
+            XYZ point2= _uiApp.ActiveUIDocument.Selection.PickPoint("Chose a heigh point");            
             foreach (var item in listBeam)
             {
                 try
