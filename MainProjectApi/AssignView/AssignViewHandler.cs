@@ -259,7 +259,7 @@ namespace MainProjectApi.AssignView
                     }
                     catch
                     {
-                        TaskDialog.Show("Error", "Sheet Number is existed");
+                        MessageBox.Show("Error: Sheet Number is existed");                       
                         t.Commit();
                         break;
                     }                                                     

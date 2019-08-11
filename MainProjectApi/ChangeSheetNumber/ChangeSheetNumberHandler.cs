@@ -9,6 +9,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Text.RegularExpressions;
 using MainProjectApi.Helper;
+using System.Windows.Forms;
 
 namespace MainProjectApi.ChangeSheetNumber
 {
@@ -84,7 +85,7 @@ namespace MainProjectApi.ChangeSheetNumber
             }
             catch(Exception ex)
             {
-                TaskDialog.Show("Error", "Not success, You must input start number");
+                MessageBox.Show("Error: Not success, You must input start number");                
                 return;                
             }
 

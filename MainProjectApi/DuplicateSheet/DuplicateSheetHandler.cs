@@ -97,7 +97,7 @@ namespace MainProjectApi.DuplicateSheet
                 }
                 catch
                 {
-                    TaskDialog.Show("Error", "Sheet Number is existed");
+                    MessageBox.Show("Error: Sheet Number is existed");                 
                     break;
                 }
                 

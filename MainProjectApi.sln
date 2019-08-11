@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProjectApi", "MainProje
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SeupSheetAddin", "SeupSheetAddin\SeupSheetAddin.vdproj", "{B812F711-C364-4BB6-987B-CBAC4E6892F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectApiV3", "ProjectApiV3\ProjectApiV3.csproj", "{CEE1426A-2344-44C5-B43F-C30D91314C01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{636697BE-3248-458D-A453-47A0C7814BCA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B812F711-C364-4BB6-987B-CBAC4E6892F1}.Debug|Any CPU.ActiveCfg = Debug
 		{B812F711-C364-4BB6-987B-CBAC4E6892F1}.Release|Any CPU.ActiveCfg = Release
+		{CEE1426A-2344-44C5-B43F-C30D91314C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE1426A-2344-44C5-B43F-C30D91314C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE1426A-2344-44C5-B43F-C30D91314C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE1426A-2344-44C5-B43F-C30D91314C01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

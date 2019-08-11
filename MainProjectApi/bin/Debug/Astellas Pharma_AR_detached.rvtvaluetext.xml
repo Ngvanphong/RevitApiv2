@@ -9,4 +9,22 @@
     <Height>3000</Height>
     <Door_W>1500</Door_W>
   </TextDoor>
+  <TextDoor>
+    <Id>4150897</Id>
+    <Name>SD-3</Name>
+    <NameFamily>K_片開き扉</NameFamily>
+    <ElementId>3611014</ElementId>
+    <Width>850</Width>
+    <Height>2100</Height>
+    <Door_W>none</Door_W>
+  </TextDoor>
+  <TextDoor>
+    <Id>4150899</Id>
+    <Name>SD-13B</Name>
+    <NameFamily>Door_Single_PanelSteel</NameFamily>
+    <ElementId>3611158</ElementId>
+    <Width>850</Width>
+    <Height>2500</Height>
+    <Door_W>none</Door_W>
+  </TextDoor>
 </Table>
