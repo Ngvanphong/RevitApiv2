@@ -65,7 +65,17 @@
     <Compile Include="AllignBeamFloor\AllignBeamFloorBinding.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Button\AllignBeamFloorButton.cs" />
+    <Compile Include="Button\FilterElementButton.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="FilterElement\AppPanelFilterElement.cs" />
+    <Compile Include="FilterElement\FilterElementBinding.cs" />
+    <Compile Include="FilterElement\FilterElementHandler.cs" />
+    <Compile Include="FilterElement\frmFilerElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterElement\frmFilerElement.Designer.cs">
+      <DependentUpon>frmFilerElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\CheckAccess.cs" />
     <Compile Include="Helper\Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,10 +87,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="Resources\iconfinder_61_62718.png" />
     <None Include="Resources\download-button.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="FilterElement\frmFilerElement.resx">
+      <DependentUpon>frmFilerElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

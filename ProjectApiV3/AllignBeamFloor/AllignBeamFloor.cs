@@ -34,7 +34,7 @@ namespace ProjectApiV3.AllignBeamFloor
                         listBeam.Add(element);
                     }                   
                 }              
-            }
+            }            
             XYZ point1 = _uiApp.ActiveUIDocument.Selection.PickPoint();
             XYZ point2= _uiApp.ActiveUIDocument.Selection.PickPoint();            
             foreach (var item in listBeam)
