@@ -11,6 +11,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.DB;
+using ProjectApiV3.Helper;
 
 namespace ProjectApiV3.FilterElement
 {
@@ -18,12 +19,25 @@ namespace ProjectApiV3.FilterElement
     {
         private ExternalEvent _event;
         private FilterElementHandler _handler;
-        List<ElementType> listTypeOfCategory = new List<ElementType>();
-        public frmFilerElement(ExternalEvent myevent, FilterElementHandler handler)
+        private ExternalEvent _eventCategory;
+        private CategoryCheckedHandler _handlerCategory;
+        private ExternalEvent _eventTypeName;
+        private TypeNameCheckedHandler _handlerTypeName;
+        private ExternalEvent _eventParameterType;
+        private ParameterTypeCheckedHandler _handlerParameterType;
+        public frmFilerElement(ExternalEvent myevent, FilterElementHandler handler, ExternalEvent eventCategory,
+            CategoryCheckedHandler handlerCategory, ExternalEvent eventTypeName, TypeNameCheckedHandler handlerTypeName,
+            ExternalEvent eventParameterType, ParameterTypeCheckedHandler handlerParameterType)
         {
             InitializeComponent();
             _event = myevent;
             _handler = handler;
+            _eventCategory = eventCategory;
+            _handlerCategory = handlerCategory;
+            _eventTypeName = eventTypeName;
+            _handlerTypeName = handlerTypeName;
+            _eventParameterType = eventParameterType;
+            _handlerParameterType = handlerParameterType;
         }
 
         private void frmFilerElement_Load(object sender, EventArgs e)
@@ -67,122 +81,28 @@ namespace ProjectApiV3.FilterElement
             var listCategoryChecked = AppPanelFilterElement.myFormFilterElement.listViewCategory.CheckedItems;
             if (listCategoryChecked.Count > 0)
             {
-                var listElementType = new FilteredElementCollector(FilterElementBinding.documentProject).OfClass(typeof(ElementType)).Cast<ElementType>().OrderBy(x => x.Name);
-                List<ElementType> listTypeChecked = new List<ElementType>();
-                foreach (ListViewItem item in listCategoryChecked)
-                {
-                    var name = item.Text;
-                    foreach (var ty in listElementType)
-                    {
-                        try
-                        {
-                            Category category = null;
-                            category = ty.Category;
-                            if (category != null)
-                            {
-                                if (name == category.Name)
-                                {
-                                    listTypeChecked.Add(ty);
-                                }
-                            }
-                        }
-                        catch { continue; }
-
-                    }
-                }
-                ////Load typeName
-                AppPanelFilterElement.myFormFilterElement.listViewTypeName.Items.Clear();
-                listTypeOfCategory = listTypeChecked;
-                foreach (var type in listTypeChecked)
-                {
-                    var name = type.FamilyName + "/" + type.Name;
-                    var row = new string[] { name };
-                    var lvi = new ListViewItem(row);
-                    lvi.Tag = lvi;
-                    AppPanelFilterElement.myFormFilterElement.listViewTypeName.Items.Add(lvi);
-                }
+                _eventCategory.Raise();
             }
-
-
         }
 
 
 
         private void listViewTypeName_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            var listTypeChecked = AppPanelFilterElement.myFormFilterElement.listViewTypeName.CheckedItems;           
+            var listTypeChecked = AppPanelFilterElement.myFormFilterElement.listViewTypeName.CheckedItems;
             if (listTypeChecked.Count > 0)
             {
-                List<ElementType> elementTypeSelect = new List<ElementType>();           
-                foreach (ListViewItem item in listTypeChecked)
-                {
-                    string[] typeFa = item.Text.Split('/');
-                    string fami = typeFa[0];
-                    string nameType = typeFa[1];
-                    foreach (var type in listTypeOfCategory)
-                    {
-                        if (type.Name == nameType && type.FamilyName == fami)
-                        {
-                            elementTypeSelect.Add(type);
-                        }
-                     }
-                }
-                AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Clear();
-                List<string> nameParameteres = new List<string>();
-                foreach(var typeSelect in elementTypeSelect)
-                {
-                    var parameteres = typeSelect.Parameters;
-                    foreach(Parameter para in parameteres)
-                    {
-                        string namePa = para.Definition.Name;
-                        if (!nameParameteres.Exists(x => x == namePa))
-                        {
-                            nameParameteres.Add(namePa);
-                        }                      
-                    }
-                }
-                foreach (var nameP in nameParameteres.OrderBy(x=>x))
-                {
-                    var name =nameP;
-                    var row = new string[] { name };
-                    var lvi = new ListViewItem(row);
-                    lvi.Tag = lvi;
-                    AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Add(lvi);
-                }
-
+                _eventTypeName.Raise();
             }
         }
 
         private void listViewParameter_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            //var listTypeChecked = AppPanelFilterElement.myFormFilterElement.listViewParameter.CheckedItems;
-            //if (listTypeChecked.Count > 0)
-            //{
-            //    List<ElementType> elementParameterSelect = new List<ElementType>();
-            //    foreach (ListViewItem item in listTypeChecked)
-            //    {
-            //        string[] typeFa = item.Text.Split('/');
-            //        string fami = typeFa[0];
-            //        string nameType = typeFa[1];
-            //        foreach (var type in listTypeOfCategory)
-            //        {
-            //            if (type.Name == nameType && type.FamilyName == fami)
-            //            {
-            //                elementTypeSelect.Add(type);
-            //            }
-            //        }
-            //    }
-            //    AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Clear();
-            //    foreach (var type in elementTypeSelect)
-            //    {
-            //        var name = type.FamilyName + "/" + type.Name;
-            //        var row = new string[] { name };
-            //        var lvi = new ListViewItem(row);
-            //        lvi.Tag = lvi;
-            //        AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Add(lvi);
-            //    }
-
-            //}
+            var parameterChecked = AppPanelFilterElement.myFormFilterElement.listViewParameter.CheckedItems;
+            if (parameterChecked.Count > 0)
+            {
+                _eventParameterType.Raise();
+            }
 
         }
     }

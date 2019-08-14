@@ -14,13 +14,12 @@ namespace ProjectApiV3.FilterElement
     [Transaction(TransactionMode.Manual)]
     public class FilterElementBinding : IExternalCommand
     {
-        public static Document documentProject;
+        
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-          
-            documentProject = doc;
+
             if (CheckAccess.CheckLicense() == true)
             {
                 AppPanelFilterElement.ShowFormFilterElement();
