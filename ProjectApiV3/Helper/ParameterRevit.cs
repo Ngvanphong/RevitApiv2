@@ -111,7 +111,7 @@ namespace ProjectApiV3.Helper
                     val = iVal.ToString();
                     break;
                 case StorageType.String:
-                    string sVal = param.AsString();
+                    string sVal = param.AsString();                  
                     val = sVal;
                     break;
                 case StorageType.ElementId:

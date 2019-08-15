@@ -19,96 +19,52 @@ namespace ProjectApiV3.FilterElement
         {
             var parameterChecked = AppPanelFilterElement.myFormFilterElement.listViewParameter.CheckedItems;
             List<Parameter> elementParameterSelect = new List<Parameter>();
-
             foreach (ListViewItem item in parameterChecked)
             {
                 string parameterName = item.Text;
-                foreach (var type in AppPanelFilterElement.listElementTypeChecked)
+                foreach(var pare in AppPanelFilterElement.listParameter)
                 {
-                    var parameteres = type.Parameters;
-                    foreach (Parameter par in parameteres)
+                    if (pare.Definition.Name == parameterName)
                     {
-                        if (par.Definition.Name == parameterName)
-                        {
-                            if (!elementParameterSelect.Exists(x => x.Definition.Name == par.Definition.Name))
-                            {
-                                elementParameterSelect.Add(par);
-                            }
-
-                        }
+                        elementParameterSelect.Add(pare);
                     }
-                }
-
+                }              
             }
             List<Element> listElementSe = new List<Element>();
-            var listCollection = new FilteredElementCollector(app.ActiveUIDocument.Document).WhereElementIsNotElementType().ToList();
-            foreach (var type in AppPanelFilterElement.listElementTypeChecked)
-            {
-                foreach (var fa in listCollection)
-                {
-                    if (type.Name == fa.Name)
-                    {
-                        try
-                        {
-                            FamilyInstance faInctance = null;
-                            faInctance = fa as FamilyInstance;
-                            if (fa != null && faInctance.Symbol.FamilyName == type.FamilyName)
-                            {
-                                listElementSe.Add(faInctance);
-                            }
-                            if (faInctance == null)
-                            {
-                                listElementSe.Add(fa);
-                            }                         
-                        }
-                        catch
-                        {
-                            listElementSe.Add(fa);
-                            continue;
-                        }
-                    }
-                }
-            }
-
+            listElementSe = AppPanelFilterElement.listElementName;
             AppPanelFilterElement.listParameterChecked = elementParameterSelect;
             AppPanelFilterElement.myFormFilterElement.listViewValueParameter.Items.Clear();
             List<string> valueParameteres = new List<string>();
-
             foreach (var pa in elementParameterSelect)
             {
                 foreach (Element element in listElementSe)
                 {
                     try
-                    {
-                        ElementType elementType = app.ActiveUIDocument.Document.GetElement(element.GetTypeId()) as ElementType;
-                        foreach (Parameter parae in elementType.Parameters)
+                    {                       
+                        foreach (Parameter parae in element.Parameters)
                         {
                             string name = parae.Definition.Name;
                             if (name == pa.Definition.Name)
-                            {
-                                Parameter parameterEle = null;
-
-                                parameterEle = element.LookupParameter(name);
-                                if (parameterEle == null)
+                            {                               
+                                foreach(Parameter paE in element.Parameters)
                                 {
-                                    FamilyInstance fains = element as FamilyInstance;
-                                    fains.Symbol.LookupParameter(name);
-                                }
-                                string valuestring = ParameterRevit.ParameterToString(parae);
-                                if (!valueParameteres.Exists(x => x == valuestring))
-                                {
-                                    valueParameteres.Add(valuestring);
-                                }
-
+                                    if (paE.Definition.Name == name)
+                                    {
+                                        string valuestring = ParameterRevit.ParameterToString(paE);
+                                        string value = name + "/" + valuestring;
+                                        if (!valueParameteres.Exists(x => x == value))
+                                        {
+                                            valueParameteres.Add(value);
+                                        }
+                                    }
+                                }                                
                             }
                         }
                     }
                     catch { continue; }
-                    
                 }
-
             }
-            foreach (var va in valueParameteres)
+            foreach (var va in valueParameteres.OrderBy(x=>x))
             {
                 var row = new string[] { va };
                 var lvi = new ListViewItem(row);

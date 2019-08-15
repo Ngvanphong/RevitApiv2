@@ -79,10 +79,12 @@ namespace ProjectApiV3.FilterElement
         {
 
             var listCategoryChecked = AppPanelFilterElement.myFormFilterElement.listViewCategory.CheckedItems;
+
             if (listCategoryChecked.Count > 0)
             {
                 _eventCategory.Raise();
             }
+
         }
 
 
@@ -105,5 +107,49 @@ namespace ProjectApiV3.FilterElement
             }
 
         }
+
+        private void checkBoxCategoryAll_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewCategory.Items;
+            if (this.checkBoxCategoryAll.Checked == false)
+            {             
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = false;
+                }
+            }else
+            {
+
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = true;
+                }
+            }
+           
+        }
+
+        private void checkBoxTypeNameAll_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewTypeName.Items;
+            if (this.checkBoxTypeNameAll.Checked == false)
+            {
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = false;
+                }
+            }
+            else
+            {
+
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = true;
+                }
+            }
+        }
+
+       
+
+       
     }
 }

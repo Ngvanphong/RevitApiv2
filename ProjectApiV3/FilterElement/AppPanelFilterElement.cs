@@ -17,12 +17,12 @@ namespace ProjectApiV3.FilterElement
         public static frmFilerElement myFormFilterElement;
         public static int numberButtonClick;
         public static List<ElementType> listTypeOfCategory = new List<ElementType>();
-        public static List<ElementType> listElementTypeChecked = new List<ElementType>();
+        public static List<ElementType> listTypeChecked = new List<ElementType>();
         public static List<Category> listCategoryChecked = new List<Category>();
-        public static List<Parameter> listParameterChecked = new List<Parameter>();
-        public static List<Element> listElementCategory = new List<Element>();
-        public static List<Element> listElementTypeName = new List<Element>();
-        public static List<Element> listElementParameter = new List<Element>();
+        public static List<Parameter> listParameter = new List<Parameter>();
+        public static List<Parameter> listParameterChecked = new List<Parameter>();       
+        public static List<Element> listElementName = new List<Element>();       
+        public static List<Element> listAllElement = new List<Element>();
 
         public static void ShowFormFilterElement()
         {

@@ -26,25 +26,81 @@ namespace ProjectApiV3.FilterElement
                 {
                     if (type.Name == nameType && type.FamilyName == fami)
                     {
-                        elementTypeSelect.Add(type);
+                        if (!elementTypeSelect.Exists(x => x.Name==nameType && x.FamilyName == fami))
+                        {
+                            elementTypeSelect.Add(type);
+                        }                       
                     }
                 }
             }
-            AppPanelFilterElement.listElementTypeChecked = elementTypeSelect;
+            AppPanelFilterElement.listTypeChecked = elementTypeSelect;
             AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Clear();
             List<string> nameParameteres = new List<string>();
-            foreach (var typeSelect in elementTypeSelect)
+            var listCollection = AppPanelFilterElement.listAllElement;
+            List<Element> listElemnetCa = new List<Element>();
+            foreach (var cat in AppPanelFilterElement.listCategoryChecked)
             {
-                var parameteres = typeSelect.Parameters;
-                foreach (Parameter para in parameteres)
+                foreach (var ele in listCollection)
                 {
-                    string namePa = para.Definition.Name;
-                    if (!nameParameteres.Exists(x => x == namePa))
+                    try
                     {
-                        nameParameteres.Add(namePa);
+                        Category catss = null;
+                        catss = ele.Category;
+                        if (catss != null)
+                        {
+                            if (catss.Name == cat.Name)
+                            {
+                                listElemnetCa.Add(ele);
+                            }
+                        }
+
+                    }
+                    catch { continue; }
+                }
+            }
+            List<Element> listElementSe = new List<Element>();
+            foreach (var type in elementTypeSelect)
+            {
+                foreach (var fa in listElemnetCa)
+                {
+                    if (type.Name == fa.Name)
+                    {
+                        try
+                        {
+                            FamilyInstance faInctance = null;
+                            faInctance = fa as FamilyInstance;
+                            if (fa != null && faInctance.Symbol.FamilyName == type.FamilyName)
+                            {
+                                listElementSe.Add(faInctance);
+                            }
+                            if (faInctance == null)
+                            {
+                                listElementSe.Add(fa);
+                            }
+                        }
+                        catch
+                        {
+                            listElementSe.Add(fa);
+                            continue;
+                        }
                     }
                 }
             }
+            AppPanelFilterElement.listElementName = listElementSe;
+            List<Parameter> listEleFa = new List<Parameter>();            
+            foreach (var ele in listElementSe)
+            {
+                foreach (Parameter pa in ele.Parameters)
+                {
+                    string nameP = pa.Definition.Name;
+                    if (!nameParameteres.Exists(x => x == nameP))
+                    {
+                        nameParameteres.Add(nameP);
+                        listEleFa.Add(pa);
+                    }
+                }
+            }
+            AppPanelFilterElement.listParameter = listEleFa;
             foreach (var nameP in nameParameteres.OrderBy(x => x))
             {
                 var name = nameP;

@@ -15,35 +15,43 @@ namespace ProjectApiV3.FilterElement
     {
         public void Execute(UIApplication app)
         {
-            var listCategoryChecked = AppPanelFilterElement.myFormFilterElement.listViewCategory.CheckedItems;
-            var listElementType = new FilteredElementCollector(app.ActiveUIDocument.Document).OfClass(typeof(ElementType)).Cast<ElementType>().OrderBy(x => x.Name);
-            List<ElementType> listTypeChecked = new List<ElementType>();
-           
+            var listCategoryChecked = AppPanelFilterElement.myFormFilterElement.listViewCategory.CheckedItems;          
+            List<ElementType> listType = new List<ElementType>();
+            List<Category> listCategory = new List<Category>();
             foreach (ListViewItem item in listCategoryChecked)
             {
-                var name = item.Text;
-                foreach (var ty in listElementType)
+                var name = item.Text;               
+                foreach (var el in AppPanelFilterElement.listAllElement)
                 {
                     try
                     {
                         Category category = null;
-                        category = ty.Category;
+                        category = el.Category;
                         if (category != null)
                         {
                             if (name == category.Name)
                             {
-                                listTypeChecked.Add(ty);                               
+                                ElementType elmentTyp = app.ActiveUIDocument.Document.GetElement(el.GetTypeId()) as ElementType;
+                                if(!listType.Exists(x=>x.FamilyName== elmentTyp.FamilyName && x.Name == elmentTyp.Name))
+                                {
+                                    listType.Add(elmentTyp);
+                                }                               
+                                if (!listCategory.Exists(x => x.Name == name))
+                                {
+                                    listCategory.Add(category);
+                                }
                             }
                         }
                     }
                     catch { continue; }
                 }
             }
-            
+            listType = listType.OrderBy(x => x.FamilyName).ToList();
             ////Load typeName
             AppPanelFilterElement.myFormFilterElement.listViewTypeName.Items.Clear();
-            AppPanelFilterElement.listTypeOfCategory = listTypeChecked;
-            foreach (var type in listTypeChecked)
+            AppPanelFilterElement.listTypeOfCategory = listType;
+            AppPanelFilterElement.listCategoryChecked = listCategory;
+            foreach (var type in listType)
             {
                 var name = type.FamilyName + "/" + type.Name;
                 var row = new string[] { name };

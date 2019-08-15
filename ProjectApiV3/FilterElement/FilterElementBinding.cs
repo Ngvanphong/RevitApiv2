@@ -29,8 +29,12 @@ namespace ProjectApiV3.FilterElement
         }
         public void CategoryInfor(Document doc)
         {
-            var listCategories = doc.Settings.Categories.Cast<Category>().OrderBy(x=>x.Name);
-            foreach (var cate in listCategories)
+            //Create collector to collect all elements on active view
+            FilteredElementCollector collector = new FilteredElementCollector(doc, doc.ActiveView.Id);
+            AppPanelFilterElement.listAllElement = collector.ToElements().ToList();
+            //get distinct categories of elements in the active view
+            var categories =collector.ToElements().Select(x => x.Category).Distinct(new CategoryComparer()).OrderBy(x=>x.Name).ToList();      
+            foreach (var cate in categories)
             {
                 var name = cate.Name;
                 var row = new string[] {name };
@@ -39,5 +43,23 @@ namespace ProjectApiV3.FilterElement
                 AppPanelFilterElement.myFormFilterElement.listViewCategory.Items.Add(lvi);
             }
         }
+    }
+    class CategoryComparer : IEqualityComparer<Category>
+    {
+        #region Implementation of IEqualityComparer<in Category>
+
+        public bool Equals(Category x, Category y)
+        {
+            if (x == null || y == null) return false;
+
+            return x.Id.Equals(y.Id);
+        }
+
+        public int GetHashCode(Category obj)
+        {
+            return obj.Id.IntegerValue;
+        }
+
+        #endregion
     }
 }
