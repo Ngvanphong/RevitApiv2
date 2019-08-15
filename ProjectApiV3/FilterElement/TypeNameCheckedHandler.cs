@@ -19,7 +19,8 @@ namespace ProjectApiV3.FilterElement
             List<ElementType> elementTypeSelect = new List<ElementType>();
             foreach (ListViewItem item in listTypeChecked)
             {
-                string[] typeFa = item.Text.Split('/');
+                
+                string[] typeFa = Regex.Split(item.Text,"#@");
                 string fami = typeFa[0];
                 string nameType = typeFa[1];
                 foreach (var type in AppPanelFilterElement.listTypeOfCategory)

@@ -51,7 +51,7 @@ namespace ProjectApiV3.FilterElement
                                     if (paE.Definition.Name == name)
                                     {
                                         string valuestring = ParameterRevit.ParameterToString(paE);
-                                        string value = name + "/" + valuestring;
+                                        string value = name + "#@" + valuestring;
                                         if (!valueParameteres.Exists(x => x == value))
                                         {
                                             valueParameteres.Add(value);
@@ -70,7 +70,6 @@ namespace ProjectApiV3.FilterElement
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
                 AppPanelFilterElement.myFormFilterElement.listViewValueParameter.Items.Add(lvi);
-
             }
         }
 

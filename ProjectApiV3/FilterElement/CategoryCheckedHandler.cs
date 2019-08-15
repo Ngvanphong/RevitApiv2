@@ -53,7 +53,7 @@ namespace ProjectApiV3.FilterElement
             AppPanelFilterElement.listCategoryChecked = listCategory;
             foreach (var type in listType)
             {
-                var name = type.FamilyName + "/" + type.Name;
+                var name = type.FamilyName + "#@" + type.Name;
                 var row = new string[] { name };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;

@@ -51,27 +51,19 @@ namespace ProjectApiV3.FilterElement
             _event.Raise();
         }
 
-        private void btnFilterElement1_Click(object sender, EventArgs e)
+        
+
+        private void btnFilterElement2_Click(object sender, EventArgs e)
         {
             AppPanelFilterElement.numberButtonClick = 1;
             _event.Raise();
         }
 
-        private void btnFilterElement2_Click(object sender, EventArgs e)
-        {
-            AppPanelFilterElement.numberButtonClick = 2;
-            _event.Raise();
-        }
-
-        private void btnFilterElement3_Click(object sender, EventArgs e)
-        {
-            AppPanelFilterElement.numberButtonClick = 3;
-            _event.Raise();
-        }
+      
 
         private void btnFilterElement4_Click(object sender, EventArgs e)
         {
-            AppPanelFilterElement.numberButtonClick = 4;
+            AppPanelFilterElement.numberButtonClick = 2;
             _event.Raise();
         }
 
@@ -86,8 +78,6 @@ namespace ProjectApiV3.FilterElement
             }
 
         }
-
-
 
         private void listViewTypeName_ItemChecked(object sender, ItemCheckedEventArgs e)
         {

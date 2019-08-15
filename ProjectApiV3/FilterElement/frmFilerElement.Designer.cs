@@ -40,7 +40,6 @@
             this.checkBoxTypeNameAll = new System.Windows.Forms.CheckBox();
             this.btnFilterElement = new System.Windows.Forms.Button();
             this.btnFilterElement2 = new System.Windows.Forms.Button();
-            this.btnFilterElement3 = new System.Windows.Forms.Button();
             this.btnFilterElement4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -49,9 +48,9 @@
             this.listViewCategory.CheckBoxes = true;
             this.listViewCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listViewCategory.Location = new System.Drawing.Point(8, 9);
+            this.listViewCategory.Location = new System.Drawing.Point(2, 9);
             this.listViewCategory.Name = "listViewCategory";
-            this.listViewCategory.Size = new System.Drawing.Size(164, 323);
+            this.listViewCategory.Size = new System.Drawing.Size(170, 323);
             this.listViewCategory.TabIndex = 0;
             this.listViewCategory.UseCompatibleStateImageBehavior = false;
             this.listViewCategory.View = System.Windows.Forms.View.Details;
@@ -105,7 +104,7 @@
             this.columnHeader5});
             this.listViewValueParameter.Location = new System.Drawing.Point(610, 9);
             this.listViewValueParameter.Name = "listViewValueParameter";
-            this.listViewValueParameter.Size = new System.Drawing.Size(173, 323);
+            this.listViewValueParameter.Size = new System.Drawing.Size(187, 323);
             this.listViewValueParameter.TabIndex = 4;
             this.listViewValueParameter.UseCompatibleStateImageBehavior = false;
             this.listViewValueParameter.View = System.Windows.Forms.View.Details;
@@ -157,16 +156,6 @@
             this.btnFilterElement2.UseVisualStyleBackColor = true;
             this.btnFilterElement2.Click += new System.EventHandler(this.btnFilterElement2_Click);
             // 
-            // btnFilterElement3
-            // 
-            this.btnFilterElement3.Location = new System.Drawing.Point(510, 337);
-            this.btnFilterElement3.Name = "btnFilterElement3";
-            this.btnFilterElement3.Size = new System.Drawing.Size(51, 23);
-            this.btnFilterElement3.TabIndex = 6;
-            this.btnFilterElement3.Text = "Select";
-            this.btnFilterElement3.UseVisualStyleBackColor = true;
-            this.btnFilterElement3.Click += new System.EventHandler(this.btnFilterElement3_Click);
-            // 
             // btnFilterElement4
             // 
             this.btnFilterElement4.Location = new System.Drawing.Point(672, 337);
@@ -181,9 +170,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 366);
+            this.ClientSize = new System.Drawing.Size(799, 366);
             this.Controls.Add(this.btnFilterElement4);
-            this.Controls.Add(this.btnFilterElement3);
             this.Controls.Add(this.btnFilterElement2);
             this.Controls.Add(this.btnFilterElement);
             this.Controls.Add(this.checkBoxTypeNameAll);
@@ -216,7 +204,6 @@
         public System.Windows.Forms.ListView listViewValueParameter;
         private System.Windows.Forms.Button btnFilterElement;
         private System.Windows.Forms.Button btnFilterElement2;
-        private System.Windows.Forms.Button btnFilterElement3;
         private System.Windows.Forms.Button btnFilterElement4;
     }
 }

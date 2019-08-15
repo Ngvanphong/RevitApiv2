@@ -9,6 +9,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using ProjectApiV3.Helper;
 
 namespace ProjectApiV3.FilterElement
 {
@@ -16,12 +17,79 @@ namespace ProjectApiV3.FilterElement
     {
         public void Execute(UIApplication app)
         {
-           
+            List<ElementId> listSelectIds = new List<ElementId>();
+            switch (AppPanelFilterElement.numberButtonClick)
+            {
+                case 0:
+                    foreach (var item in AppPanelFilterElement.listAllElement)
+                    {
+
+                        try
+                        {
+                            string categoryName = item.Category.Name;
+                            foreach (var ca in AppPanelFilterElement.listCategoryChecked)
+                            {
+                                if (categoryName == ca.Name)
+                                {
+                                    listSelectIds.Add(item.Id);
+                                }
+                            }
+
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                    break;
+                case 1:
+                    foreach (var item in AppPanelFilterElement.listElementName)
+                    {
+                        listSelectIds.Add(item.Id);
+                    }
+                    break;
+                case 2:
+                    List<string> listValuePa = new List<string>();
+                    foreach (ListViewItem viewItem in AppPanelFilterElement.myFormFilterElement.listViewValueParameter.CheckedItems)
+                    {
+                        listValuePa.Add(viewItem.Text);
+                    }
+                    foreach (var el in AppPanelFilterElement.listElementName)
+                    {
+                        var parametes = el.Parameters;
+                        int count = 0;
+                        int countChecked = AppPanelFilterElement.listParameterChecked.Count;
+                        foreach (var pa in AppPanelFilterElement.listParameterChecked)
+                        {
+                            foreach (Parameter paE in el.Parameters)
+                            {
+                                if (pa.Definition.Name == paE.Definition.Name)
+                                {
+                                    string valueString = ParameterRevit.ParameterToString(paE);
+                                    string value = paE.Definition.Name + "#@" + valueString;
+                                    if (listValuePa.Exists(x => x == value))
+                                    {
+                                        count = count + 1;
+                                    }
+                                }
+                            }
+
+                        }
+                        if (countChecked == count)
+                        {
+                            listSelectIds.Add(el.Id);
+                        }
+                    }
+                    break;
+
+            }
+            app.ActiveUIDocument.Selection.SetElementIds(listSelectIds);
         }
 
         public string GetName()
         {
             return "FilterElement";
         }
+       
     }
 }
