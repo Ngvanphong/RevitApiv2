@@ -30,7 +30,7 @@ namespace ProjectApiV3.FilterElement
         public void CategoryInfor(Document doc)
         {
             //Create collector to collect all elements on active view
-            FilteredElementCollector collector = new FilteredElementCollector(doc, doc.ActiveView.Id);               
+            FilteredElementCollector collector = new FilteredElementCollector(doc, doc.ActiveView.Id);          
             //get distinct categories of elements in the active view
             var categories =collector.ToElements().Select(x => x.Category).Distinct(new CategoryComparer()).OrderBy(x=>x.Name).ToList();      
             foreach (var cate in categories)

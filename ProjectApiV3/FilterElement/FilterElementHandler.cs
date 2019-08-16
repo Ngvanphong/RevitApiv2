@@ -36,7 +36,6 @@ namespace ProjectApiV3.FilterElement
                                     listSelectIds.Add(item.Id);
                                 }
                             }
-
                         }
                         catch
                         {
@@ -45,12 +44,14 @@ namespace ProjectApiV3.FilterElement
                     }
                     break;
                 case 1:
+                    UpdateElementTypeName(doc);
                     foreach (var item in AppPanelFilterElement.listElementName)
-                    {
-                        listSelectIds.Add(item.Id);
+                    {                       
+                        listSelectIds.Add(item.Id);                       
                     }
                     break;
                 case 2:
+                    UpdateElementTypeName(doc);
                     List<string> listValuePa = new List<string>();
                     foreach (ListViewItem viewItem in AppPanelFilterElement.myFormFilterElement.listViewValueParameter.CheckedItems)
                     {
@@ -91,6 +92,60 @@ namespace ProjectApiV3.FilterElement
         public string GetName()
         {
             return "FilterElement";
+        }
+        public void UpdateElementTypeName(Document doc)
+        {            
+            List<string> nameParameteres = new List<string>();
+            var listCollection = new FilteredElementCollector(doc, doc.ActiveView.Id).ToElements().ToList();         
+            List<Element> listElemnetCa = new List<Element>();                     
+            foreach (var cat in AppPanelFilterElement.listCategoryChecked)
+            {
+                foreach (var ele in listCollection)
+                {
+                    try
+                    {
+                        Category catss = null;
+                        catss = ele.Category;
+                        if (catss != null)
+                        {
+                            if (catss.Name == cat.Name)
+                            {
+                                listElemnetCa.Add(ele);
+                            }
+                        }
+                    }
+                    catch { continue; }
+                }
+            }
+            List<Element> listElementSe = new List<Element>();
+            foreach (var type in AppPanelFilterElement.listTypeChecked)
+            {
+                foreach (var fa in listElemnetCa)
+                {
+                    if (type.Name == fa.Name)
+                    {
+                        try
+                        {
+                            FamilyInstance faInctance = null;
+                            faInctance = fa as FamilyInstance;
+                            if (fa != null && faInctance.Symbol.FamilyName == type.FamilyName)
+                            {
+                                listElementSe.Add(faInctance);
+                            }
+                            if (faInctance == null)
+                            {
+                                listElementSe.Add(fa);
+                            }
+                        }
+                        catch
+                        {
+                            listElementSe.Add(fa);
+                            continue;
+                        }
+                    }
+                }
+            }
+            AppPanelFilterElement.listElementName = listElementSe;
         }
        
     }
