@@ -22,7 +22,6 @@ namespace ProjectApiV3.FilterElement
         public static List<Parameter> listParameter = new List<Parameter>();
         public static List<Parameter> listParameterChecked = new List<Parameter>();       
         public static List<Element> listElementName = new List<Element>();       
-        public static List<Element> listAllElement = new List<Element>();
 
         public static void ShowFormFilterElement()
         {

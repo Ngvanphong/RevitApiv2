@@ -17,11 +17,13 @@ namespace ProjectApiV3.FilterElement
     {
         public void Execute(UIApplication app)
         {
+            Document doc = app.ActiveUIDocument.Document;
             List<ElementId> listSelectIds = new List<ElementId>();
+            List<Element> listElementAll = new FilteredElementCollector(doc, doc.ActiveView.Id).ToElements().ToList();
             switch (AppPanelFilterElement.numberButtonClick)
             {
                 case 0:
-                    foreach (var item in AppPanelFilterElement.listAllElement)
+                    foreach (var item in listElementAll)
                     {
 
                         try

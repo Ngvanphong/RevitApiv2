@@ -41,6 +41,8 @@
             this.btnFilterElement = new System.Windows.Forms.Button();
             this.btnFilterElement2 = new System.Windows.Forms.Button();
             this.btnFilterElement4 = new System.Windows.Forms.Button();
+            this.checkBoxParameterNone = new System.Windows.Forms.CheckBox();
+            this.checkBoxValueParameterNone = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listViewCategory
@@ -158,13 +160,35 @@
             // 
             // btnFilterElement4
             // 
-            this.btnFilterElement4.Location = new System.Drawing.Point(672, 337);
+            this.btnFilterElement4.Location = new System.Drawing.Point(715, 337);
             this.btnFilterElement4.Name = "btnFilterElement4";
             this.btnFilterElement4.Size = new System.Drawing.Size(51, 23);
             this.btnFilterElement4.TabIndex = 6;
             this.btnFilterElement4.Text = "Select";
             this.btnFilterElement4.UseVisualStyleBackColor = true;
             this.btnFilterElement4.Click += new System.EventHandler(this.btnFilterElement4_Click);
+            // 
+            // checkBoxParameterNone
+            // 
+            this.checkBoxParameterNone.AutoSize = true;
+            this.checkBoxParameterNone.Location = new System.Drawing.Point(508, 341);
+            this.checkBoxParameterNone.Name = "checkBoxParameterNone";
+            this.checkBoxParameterNone.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxParameterNone.TabIndex = 5;
+            this.checkBoxParameterNone.Text = "None";
+            this.checkBoxParameterNone.UseVisualStyleBackColor = true;
+            this.checkBoxParameterNone.CheckedChanged += new System.EventHandler(this.checkBoxParameterNone_CheckedChanged);
+            // 
+            // checkBoxValueParameterNone
+            // 
+            this.checkBoxValueParameterNone.AutoSize = true;
+            this.checkBoxValueParameterNone.Location = new System.Drawing.Point(657, 341);
+            this.checkBoxValueParameterNone.Name = "checkBoxValueParameterNone";
+            this.checkBoxValueParameterNone.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxValueParameterNone.TabIndex = 5;
+            this.checkBoxValueParameterNone.Text = "None";
+            this.checkBoxValueParameterNone.UseVisualStyleBackColor = true;
+            this.checkBoxValueParameterNone.CheckedChanged += new System.EventHandler(this.checkBoxValueParameterNone_CheckedChanged);
             // 
             // frmFilerElement
             // 
@@ -174,6 +198,8 @@
             this.Controls.Add(this.btnFilterElement4);
             this.Controls.Add(this.btnFilterElement2);
             this.Controls.Add(this.btnFilterElement);
+            this.Controls.Add(this.checkBoxValueParameterNone);
+            this.Controls.Add(this.checkBoxParameterNone);
             this.Controls.Add(this.checkBoxTypeNameAll);
             this.Controls.Add(this.checkBoxCategoryAll);
             this.Controls.Add(this.listViewValueParameter);
@@ -205,5 +231,7 @@
         private System.Windows.Forms.Button btnFilterElement;
         private System.Windows.Forms.Button btnFilterElement2;
         private System.Windows.Forms.Button btnFilterElement4;
+        public System.Windows.Forms.CheckBox checkBoxParameterNone;
+        public System.Windows.Forms.CheckBox checkBoxValueParameterNone;
     }
 }

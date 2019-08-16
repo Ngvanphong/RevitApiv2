@@ -51,7 +51,7 @@ namespace ProjectApiV3.FilterElement
             _event.Raise();
         }
 
-        
+
 
         private void btnFilterElement2_Click(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace ProjectApiV3.FilterElement
             _event.Raise();
         }
 
-      
+
 
         private void btnFilterElement4_Click(object sender, EventArgs e)
         {
@@ -102,12 +102,13 @@ namespace ProjectApiV3.FilterElement
         {
             var listItem = this.listViewCategory.Items;
             if (this.checkBoxCategoryAll.Checked == false)
-            {             
+            {
                 foreach (ListViewItem item in listItem)
                 {
                     item.Checked = false;
                 }
-            }else
+            }
+            else
             {
 
                 foreach (ListViewItem item in listItem)
@@ -115,7 +116,7 @@ namespace ProjectApiV3.FilterElement
                     item.Checked = true;
                 }
             }
-           
+
         }
 
         private void checkBoxTypeNameAll_CheckedChanged(object sender, EventArgs e)
@@ -138,8 +139,22 @@ namespace ProjectApiV3.FilterElement
             }
         }
 
-       
+        private void checkBoxParameterNone_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewParameter.Items;
+            foreach (ListViewItem item in listItem)
+            {
+                item.Checked = false;
+            }
+        }
 
-       
+        private void checkBoxValueParameterNone_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewValueParameter.Items;
+            foreach (ListViewItem item in listItem)
+            {
+                item.Checked = false;
+            }
+        }
     }
 }

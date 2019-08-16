@@ -18,10 +18,11 @@ namespace ProjectApiV3.FilterElement
             var listCategoryChecked = AppPanelFilterElement.myFormFilterElement.listViewCategory.CheckedItems;          
             List<ElementType> listType = new List<ElementType>();
             List<Category> listCategory = new List<Category>();
+            List<Element> listElementAll = new FilteredElementCollector(app.ActiveUIDocument.Document, app.ActiveUIDocument.Document.ActiveView.Id).ToElements().ToList();
             foreach (ListViewItem item in listCategoryChecked)
             {
                 var name = item.Text;               
-                foreach (var el in AppPanelFilterElement.listAllElement)
+                foreach (var el in listElementAll)
                 {
                     try
                     {

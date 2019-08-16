@@ -37,7 +37,7 @@ namespace ProjectApiV3.FilterElement
             AppPanelFilterElement.listTypeChecked = elementTypeSelect;
             AppPanelFilterElement.myFormFilterElement.listViewParameter.Items.Clear();
             List<string> nameParameteres = new List<string>();
-            var listCollection = AppPanelFilterElement.listAllElement;
+            var listCollection = new FilteredElementCollector(app.ActiveUIDocument.Document, app.ActiveUIDocument.Document.ActiveView.Id).ToElements().ToList();
             List<Element> listElemnetCa = new List<Element>();
             foreach (var cat in AppPanelFilterElement.listCategoryChecked)
             {
