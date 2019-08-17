@@ -95,7 +95,9 @@
     <None Include="Resources\iconfinder_61_62718.png" />
     <None Include="Resources\download-button.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Revision\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FilterElement\frmFilerElement.resx">
       <DependentUpon>frmFilerElement.cs</DependentUpon>
