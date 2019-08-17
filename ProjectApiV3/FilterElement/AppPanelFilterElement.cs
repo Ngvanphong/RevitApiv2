@@ -38,7 +38,11 @@ namespace ProjectApiV3.FilterElement
             ParameterTypeCheckedHandler _handlerParameterType= new ParameterTypeCheckedHandler();
             ExternalEvent _eventParameterType= ExternalEvent.Create(_handlerParameterType);
 
-            myFormFilterElement = new frmFilerElement(myEvent, handler,_eventCategory,_handlerCategory,_eventTypeName,_handlerTypeName,_eventParameterType,_handlerParameterType);
+            UpdateValueParameterHandler _updateValueParameter = new UpdateValueParameterHandler();
+            ExternalEvent _eventValueParameter = ExternalEvent.Create(_updateValueParameter);
+
+            myFormFilterElement = new frmFilerElement(myEvent, handler,_eventCategory,_handlerCategory,_eventTypeName,_handlerTypeName,
+                _eventParameterType,_handlerParameterType,_eventValueParameter,_updateValueParameter);
             myFormFilterElement.Show();
 
         }

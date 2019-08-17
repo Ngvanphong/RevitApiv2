@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="FilterElement\ParameterTypeCheckedHandler.cs" />
     <Compile Include="FilterElement\TypeNameCheckedHandler.cs" />
+    <Compile Include="FilterElement\UpdateValueParameterHandler.cs" />
     <Compile Include="Helper\CheckAccess.cs" />
     <Compile Include="Helper\Extension.cs" />
     <Compile Include="Helper\ParameterRevit.cs" />

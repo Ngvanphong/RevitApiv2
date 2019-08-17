@@ -6,3 +6,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\Pr
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.FilterElement.frmFilerElement.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.csprojResolveAssemblyReference.cache

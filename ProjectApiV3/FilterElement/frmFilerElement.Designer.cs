@@ -43,6 +43,7 @@
             this.btnFilterElement4 = new System.Windows.Forms.Button();
             this.checkBoxParameterNone = new System.Windows.Forms.CheckBox();
             this.checkBoxValueParameterNone = new System.Windows.Forms.CheckBox();
+            this.btnUpdateValueParameter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewCategory
@@ -160,7 +161,7 @@
             // 
             // btnFilterElement4
             // 
-            this.btnFilterElement4.Location = new System.Drawing.Point(715, 337);
+            this.btnFilterElement4.Location = new System.Drawing.Point(736, 337);
             this.btnFilterElement4.Name = "btnFilterElement4";
             this.btnFilterElement4.Size = new System.Drawing.Size(51, 23);
             this.btnFilterElement4.TabIndex = 6;
@@ -182,7 +183,7 @@
             // checkBoxValueParameterNone
             // 
             this.checkBoxValueParameterNone.AutoSize = true;
-            this.checkBoxValueParameterNone.Location = new System.Drawing.Point(657, 341);
+            this.checkBoxValueParameterNone.Location = new System.Drawing.Point(684, 341);
             this.checkBoxValueParameterNone.Name = "checkBoxValueParameterNone";
             this.checkBoxValueParameterNone.Size = new System.Drawing.Size(52, 17);
             this.checkBoxValueParameterNone.TabIndex = 5;
@@ -190,11 +191,22 @@
             this.checkBoxValueParameterNone.UseVisualStyleBackColor = true;
             this.checkBoxValueParameterNone.CheckedChanged += new System.EventHandler(this.checkBoxValueParameterNone_CheckedChanged);
             // 
+            // btnUpdateValueParameter
+            // 
+            this.btnUpdateValueParameter.Location = new System.Drawing.Point(610, 337);
+            this.btnUpdateValueParameter.Name = "btnUpdateValueParameter";
+            this.btnUpdateValueParameter.Size = new System.Drawing.Size(62, 23);
+            this.btnUpdateValueParameter.TabIndex = 7;
+            this.btnUpdateValueParameter.Text = "Update";
+            this.btnUpdateValueParameter.UseVisualStyleBackColor = true;
+            this.btnUpdateValueParameter.Click += new System.EventHandler(this.btnUpdateValueParameter_Click);
+            // 
             // frmFilerElement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 366);
+            this.Controls.Add(this.btnUpdateValueParameter);
             this.Controls.Add(this.btnFilterElement4);
             this.Controls.Add(this.btnFilterElement2);
             this.Controls.Add(this.btnFilterElement);
@@ -233,5 +245,6 @@
         private System.Windows.Forms.Button btnFilterElement4;
         public System.Windows.Forms.CheckBox checkBoxParameterNone;
         public System.Windows.Forms.CheckBox checkBoxValueParameterNone;
+        private System.Windows.Forms.Button btnUpdateValueParameter;
     }
 }

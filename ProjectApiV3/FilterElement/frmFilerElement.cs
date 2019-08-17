@@ -25,9 +25,11 @@ namespace ProjectApiV3.FilterElement
         private TypeNameCheckedHandler _handlerTypeName;
         private ExternalEvent _eventParameterType;
         private ParameterTypeCheckedHandler _handlerParameterType;
+        private ExternalEvent _eventValueParameter;
+        private UpdateValueParameterHandler _handlerValueParameter;
         public frmFilerElement(ExternalEvent myevent, FilterElementHandler handler, ExternalEvent eventCategory,
             CategoryCheckedHandler handlerCategory, ExternalEvent eventTypeName, TypeNameCheckedHandler handlerTypeName,
-            ExternalEvent eventParameterType, ParameterTypeCheckedHandler handlerParameterType)
+            ExternalEvent eventParameterType, ParameterTypeCheckedHandler handlerParameterType, ExternalEvent eventValueParameter, UpdateValueParameterHandler handlerValueParameter)
         {
             InitializeComponent();
             _event = myevent;
@@ -38,6 +40,8 @@ namespace ProjectApiV3.FilterElement
             _handlerTypeName = handlerTypeName;
             _eventParameterType = eventParameterType;
             _handlerParameterType = handlerParameterType;
+            _eventValueParameter = eventValueParameter;
+            _handlerValueParameter = handlerValueParameter;
         }
 
         private void frmFilerElement_Load(object sender, EventArgs e)
@@ -155,6 +159,11 @@ namespace ProjectApiV3.FilterElement
             {
                 item.Checked = false;
             }
+        }
+
+        private void btnUpdateValueParameter_Click(object sender, EventArgs e)
+        {
+            _eventValueParameter.Raise();
         }
     }
 }

@@ -44,14 +44,14 @@ namespace ProjectApiV3.FilterElement
                     }
                     break;
                 case 1:
-                    UpdateElementTypeName(doc);
+                    UpdateInformation.UpdateElementTypeName(doc);
                     foreach (var item in AppPanelFilterElement.listElementName)
                     {                       
                         listSelectIds.Add(item.Id);                       
                     }
                     break;
                 case 2:
-                    UpdateElementTypeName(doc);
+                    UpdateInformation.UpdateElementTypeName(doc);
                     List<string> listValuePa = new List<string>();
                     foreach (ListViewItem viewItem in AppPanelFilterElement.myFormFilterElement.listViewValueParameter.CheckedItems)
                     {
@@ -93,11 +93,16 @@ namespace ProjectApiV3.FilterElement
         {
             return "FilterElement";
         }
-        public void UpdateElementTypeName(Document doc)
-        {            
+      
+       
+    }
+    public static class UpdateInformation
+    {
+        public static void UpdateElementTypeName(Document doc)
+        {
             List<string> nameParameteres = new List<string>();
-            var listCollection = new FilteredElementCollector(doc, doc.ActiveView.Id).ToElements().ToList();         
-            List<Element> listElemnetCa = new List<Element>();                     
+            var listCollection = new FilteredElementCollector(doc, doc.ActiveView.Id).ToElements().ToList();
+            List<Element> listElemnetCa = new List<Element>();
             foreach (var cat in AppPanelFilterElement.listCategoryChecked)
             {
                 foreach (var ele in listCollection)
@@ -147,6 +152,5 @@ namespace ProjectApiV3.FilterElement
             }
             AppPanelFilterElement.listElementName = listElementSe;
         }
-       
     }
 }
