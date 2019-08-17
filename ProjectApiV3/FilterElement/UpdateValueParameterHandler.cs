@@ -60,6 +60,7 @@ namespace ProjectApiV3.FilterElement
                                         if (!valueParameteres.Exists(x => x == value))
                                         {
                                             newValueParameter.Add(value);
+                                            valueParameteres.Add(value);
                                         }
                                     }
                                 }
