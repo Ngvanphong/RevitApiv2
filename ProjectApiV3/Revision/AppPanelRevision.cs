@@ -16,6 +16,7 @@ namespace ProjectApiV3.Revision
    public static class AppPanelRevision
     {
         public static frmRevision myFormRevision;
+        public static int buttonCilick;
         public static void ShowFormRevision()
         {
             RevisionHandler handler = new RevisionHandler();

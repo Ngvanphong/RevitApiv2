@@ -42,5 +42,17 @@ namespace ProjectApiV3.Revision
             }
            
         }
+
+        private void btnAssignRevision_Click(object sender, EventArgs e)
+        {
+            AppPanelRevision.buttonCilick = 0;
+            _myEvent.Raise();
+        }
+
+        private void btnRemoveRevision_Click(object sender, EventArgs e)
+        {
+            AppPanelRevision.buttonCilick = 1;
+            _myEvent.Raise();
+        }
     }
 }
