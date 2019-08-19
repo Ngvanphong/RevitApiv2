@@ -18,6 +18,8 @@ namespace ProjectApiV3
             allignBeam.CreateAlllignBeam(a);
             FilterElementButton filterClass = new FilterElementButton();
             filterClass.FilterElement(a);
+            RevisionButton revisionClass = new RevisionButton();
+            revisionClass.CreateRevision(a);
             return Result.Succeeded;
         }
 

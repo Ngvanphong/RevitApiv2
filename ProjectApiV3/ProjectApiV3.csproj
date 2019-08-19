@@ -66,6 +66,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Button\AllignBeamFloorButton.cs" />
     <Compile Include="Button\FilterElementButton.cs" />
+    <Compile Include="Button\RevisionButton.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="FilterElement\AppPanelFilterElement.cs" />
     <Compile Include="FilterElement\CategoryCheckedHandler.cs" />
@@ -89,15 +90,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Revision\AppPanelRevision.cs" />
+    <Compile Include="Revision\frmRevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Revision\frmRevision.Designer.cs">
+      <DependentUpon>frmRevision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Revision\RevisionBinding.cs" />
+    <Compile Include="Revision\RevisionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="Resources\iconfinder_Modify_132685.png" />
     <None Include="Resources\iconfinder_61_62718.png" />
     <None Include="Resources\download-button.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Revision\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="FilterElement\frmFilerElement.resx">
       <DependentUpon>frmFilerElement.cs</DependentUpon>
@@ -105,6 +114,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Revision\frmRevision.resx">
+      <DependentUpon>frmRevision.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
