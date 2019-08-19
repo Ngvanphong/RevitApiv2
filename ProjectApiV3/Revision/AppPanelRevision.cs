@@ -20,7 +20,9 @@ namespace ProjectApiV3.Revision
         {
             RevisionHandler handler = new RevisionHandler();
             ExternalEvent myEvent = ExternalEvent.Create(handler);
-            myFormRevision = new frmRevision(myEvent, handler);
+            GetSheetByRevisionHandler getSheetHandler = new GetSheetByRevisionHandler();
+            ExternalEvent myEventSheet = ExternalEvent.Create( getSheetHandler);
+            myFormRevision = new frmRevision(myEvent, handler,myEventSheet,getSheetHandler);
             myFormRevision.Show();           
         }
 

@@ -97,6 +97,7 @@
     <Compile Include="Revision\frmRevision.Designer.cs">
       <DependentUpon>frmRevision.cs</DependentUpon>
     </Compile>
+    <Compile Include="Revision\GetSheetByRevisionHandler.cs" />
     <Compile Include="Revision\RevisionBinding.cs" />
     <Compile Include="Revision\RevisionHandler.cs" />
   </ItemGroup>

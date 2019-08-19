@@ -17,16 +17,30 @@ namespace ProjectApiV3.Revision
     {
         private RevisionHandler _revisionHandler;
         private ExternalEvent _myEvent;
-        public frmRevision(ExternalEvent myEvent, RevisionHandler revisionHandler)
+        private GetSheetByRevisionHandler _getSheetHandler;
+        private ExternalEvent _myGetSheetEvent;
+        public frmRevision(ExternalEvent myEvent, RevisionHandler revisionHandler, ExternalEvent myGetSheetEvent, GetSheetByRevisionHandler getSheetHandler)
         {
             InitializeComponent();
             _myEvent = myEvent;
             _revisionHandler = revisionHandler;
+            _myGetSheetEvent = myGetSheetEvent;
+            _getSheetHandler = getSheetHandler;
         }
 
         private void frmRevision_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void listViewRevisionInfor_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {         
+            var listItem = AppPanelRevision.myFormRevision.listViewRevisionInfor.CheckedItems;
+            if (listItem.Count > 0)
+            {
+                _myGetSheetEvent.Raise();
+            }
+           
         }
     }
 }
