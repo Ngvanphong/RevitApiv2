@@ -19,13 +19,18 @@ namespace ProjectApiV3.Revision
         private ExternalEvent _myEvent;
         private GetSheetByRevisionHandler _getSheetHandler;
         private ExternalEvent _myGetSheetEvent;
-        public frmRevision(ExternalEvent myEvent, RevisionHandler revisionHandler, ExternalEvent myGetSheetEvent, GetSheetByRevisionHandler getSheetHandler)
+        private ExportExcelHandler _excelHandler;
+        private ExternalEvent _eventExcel;
+        public frmRevision(ExternalEvent myEvent, RevisionHandler revisionHandler, ExternalEvent myGetSheetEvent,
+            GetSheetByRevisionHandler getSheetHandler, ExternalEvent eventExcel, ExportExcelHandler excelHandler)
         {
             InitializeComponent();
             _myEvent = myEvent;
             _revisionHandler = revisionHandler;
             _myGetSheetEvent = myGetSheetEvent;
             _getSheetHandler = getSheetHandler;
+            _eventExcel = eventExcel;
+            _excelHandler = excelHandler;
         }
 
         private void frmRevision_Load(object sender, EventArgs e)
@@ -53,6 +58,11 @@ namespace ProjectApiV3.Revision
         {
             AppPanelRevision.buttonCilick = 1;
             _myEvent.Raise();
+        }
+
+        private void btnExportRevision_Click(object sender, EventArgs e)
+        {
+            _eventExcel.Raise();
         }
     }
 }

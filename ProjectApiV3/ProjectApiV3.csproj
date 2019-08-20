@@ -39,6 +39,10 @@
     <StartProgram>$(ProgramW6432)\Autodesk\Revit 2018\Revit.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FoxLearn.License">
       <HintPath>..\..\..\..\Downloads\FoxLearn.License\FoxLearn.License.dll</HintPath>
     </Reference>
@@ -52,9 +56,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
@@ -91,6 +97,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Revision\AppPanelRevision.cs" />
+    <Compile Include="Revision\ExportExcelHandler.cs" />
     <Compile Include="Revision\frmRevision.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="packages.config" />
     <None Include="Resources\iconfinder_Modify_132685.png" />
     <None Include="Resources\iconfinder_61_62718.png" />
     <None Include="Resources\download-button.png" />

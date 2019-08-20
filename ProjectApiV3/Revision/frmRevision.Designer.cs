@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listViewRevisionInfor = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewSheetInfor = new System.Windows.Forms.ListView();
             this.SheetNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listViewRevisionAssign = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewRevisionInfor = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExportRevision = new System.Windows.Forms.Button();
+            this.btnRemoveRevision = new System.Windows.Forms.Button();
+            this.btnAssignRevision = new System.Windows.Forms.Button();
             this.listViewSheetAssign = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAssignRevision = new System.Windows.Forms.Button();
-            this.btnRemoveRevision = new System.Windows.Forms.Button();
-            this.btnExportRevision = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewRevisionAssign = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -61,19 +61,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Revision information";
             // 
-            // groupBox2
+            // listViewSheetInfor
             // 
-            this.groupBox2.Controls.Add(this.btnExportRevision);
-            this.groupBox2.Controls.Add(this.btnRemoveRevision);
-            this.groupBox2.Controls.Add(this.btnAssignRevision);
-            this.groupBox2.Controls.Add(this.listViewSheetAssign);
-            this.groupBox2.Controls.Add(this.listViewRevisionAssign);
-            this.groupBox2.Location = new System.Drawing.Point(653, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(668, 476);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Assign or remove revision";
+            this.listViewSheetInfor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SheetNumber,
+            this.columnHeader7,
+            this.columnHeader2});
+            this.listViewSheetInfor.Location = new System.Drawing.Point(252, 18);
+            this.listViewSheetInfor.Name = "listViewSheetInfor";
+            this.listViewSheetInfor.Size = new System.Drawing.Size(387, 451);
+            this.listViewSheetInfor.TabIndex = 1;
+            this.listViewSheetInfor.UseCompatibleStateImageBehavior = false;
+            this.listViewSheetInfor.View = System.Windows.Forms.View.Details;
+            // 
+            // SheetNumber
+            // 
+            this.SheetNumber.Text = "Sheet Number";
+            this.SheetNumber.Width = 80;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Revision Current";
+            this.columnHeader7.Width = 119;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Sheet Name";
+            this.columnHeader2.Width = 207;
             // 
             // listViewRevisionInfor
             // 
@@ -94,45 +108,54 @@
             this.columnHeader1.Text = "Revision";
             this.columnHeader1.Width = 100;
             // 
-            // listViewSheetInfor
+            // columnHeader6
             // 
-            this.listViewSheetInfor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.SheetNumber,
-            this.columnHeader7,
-            this.columnHeader2});
-            this.listViewSheetInfor.Location = new System.Drawing.Point(252, 18);
-            this.listViewSheetInfor.Name = "listViewSheetInfor";
-            this.listViewSheetInfor.Size = new System.Drawing.Size(387, 451);
-            this.listViewSheetInfor.TabIndex = 1;
-            this.listViewSheetInfor.UseCompatibleStateImageBehavior = false;
-            this.listViewSheetInfor.View = System.Windows.Forms.View.Details;
+            this.columnHeader6.Text = "Date";
+            this.columnHeader6.Width = 150;
             // 
-            // SheetNumber
+            // groupBox2
             // 
-            this.SheetNumber.Text = "Sheet Number";
-            this.SheetNumber.Width = 80;
+            this.groupBox2.Controls.Add(this.btnExportRevision);
+            this.groupBox2.Controls.Add(this.btnRemoveRevision);
+            this.groupBox2.Controls.Add(this.btnAssignRevision);
+            this.groupBox2.Controls.Add(this.listViewSheetAssign);
+            this.groupBox2.Controls.Add(this.listViewRevisionAssign);
+            this.groupBox2.Location = new System.Drawing.Point(653, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(668, 476);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Assign or remove revision";
             // 
-            // columnHeader2
+            // btnExportRevision
             // 
-            this.columnHeader2.Text = "Sheet Name";
-            this.columnHeader2.Width = 207;
+            this.btnExportRevision.Location = new System.Drawing.Point(176, 173);
+            this.btnExportRevision.Name = "btnExportRevision";
+            this.btnExportRevision.Size = new System.Drawing.Size(64, 36);
+            this.btnExportRevision.TabIndex = 3;
+            this.btnExportRevision.Text = "Export excel";
+            this.btnExportRevision.UseVisualStyleBackColor = true;
+            this.btnExportRevision.Click += new System.EventHandler(this.btnExportRevision_Click);
             // 
-            // listViewRevisionAssign
+            // btnRemoveRevision
             // 
-            this.listViewRevisionAssign.CheckBoxes = true;
-            this.listViewRevisionAssign.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listViewRevisionAssign.Location = new System.Drawing.Point(7, 20);
-            this.listViewRevisionAssign.Name = "listViewRevisionAssign";
-            this.listViewRevisionAssign.Size = new System.Drawing.Size(158, 450);
-            this.listViewRevisionAssign.TabIndex = 0;
-            this.listViewRevisionAssign.UseCompatibleStateImageBehavior = false;
-            this.listViewRevisionAssign.View = System.Windows.Forms.View.Details;
+            this.btnRemoveRevision.Location = new System.Drawing.Point(175, 138);
+            this.btnRemoveRevision.Name = "btnRemoveRevision";
+            this.btnRemoveRevision.Size = new System.Drawing.Size(65, 28);
+            this.btnRemoveRevision.TabIndex = 2;
+            this.btnRemoveRevision.Text = "Remove";
+            this.btnRemoveRevision.UseVisualStyleBackColor = true;
+            this.btnRemoveRevision.Click += new System.EventHandler(this.btnRemoveRevision_Click);
             // 
-            // columnHeader3
+            // btnAssignRevision
             // 
-            this.columnHeader3.Text = "Revision";
-            this.columnHeader3.Width = 196;
+            this.btnAssignRevision.Location = new System.Drawing.Point(175, 104);
+            this.btnAssignRevision.Name = "btnAssignRevision";
+            this.btnAssignRevision.Size = new System.Drawing.Size(65, 28);
+            this.btnAssignRevision.TabIndex = 2;
+            this.btnAssignRevision.Text = "Assign";
+            this.btnAssignRevision.UseVisualStyleBackColor = true;
+            this.btnAssignRevision.Click += new System.EventHandler(this.btnAssignRevision_Click);
             // 
             // listViewSheetAssign
             // 
@@ -153,54 +176,32 @@
             this.columnHeader4.Text = "Sheet Number";
             this.columnHeader4.Width = 91;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Revision Current";
+            this.columnHeader8.Width = 114;
+            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Sheet Name";
             this.columnHeader5.Width = 298;
             // 
-            // btnAssignRevision
+            // listViewRevisionAssign
             // 
-            this.btnAssignRevision.Location = new System.Drawing.Point(175, 104);
-            this.btnAssignRevision.Name = "btnAssignRevision";
-            this.btnAssignRevision.Size = new System.Drawing.Size(65, 28);
-            this.btnAssignRevision.TabIndex = 2;
-            this.btnAssignRevision.Text = "Assign";
-            this.btnAssignRevision.UseVisualStyleBackColor = true;
-            this.btnAssignRevision.Click += new System.EventHandler(this.btnAssignRevision_Click);
+            this.listViewRevisionAssign.CheckBoxes = true;
+            this.listViewRevisionAssign.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3});
+            this.listViewRevisionAssign.Location = new System.Drawing.Point(7, 20);
+            this.listViewRevisionAssign.Name = "listViewRevisionAssign";
+            this.listViewRevisionAssign.Size = new System.Drawing.Size(158, 450);
+            this.listViewRevisionAssign.TabIndex = 0;
+            this.listViewRevisionAssign.UseCompatibleStateImageBehavior = false;
+            this.listViewRevisionAssign.View = System.Windows.Forms.View.Details;
             // 
-            // btnRemoveRevision
+            // columnHeader3
             // 
-            this.btnRemoveRevision.Location = new System.Drawing.Point(175, 138);
-            this.btnRemoveRevision.Name = "btnRemoveRevision";
-            this.btnRemoveRevision.Size = new System.Drawing.Size(65, 28);
-            this.btnRemoveRevision.TabIndex = 2;
-            this.btnRemoveRevision.Text = "Remove";
-            this.btnRemoveRevision.UseVisualStyleBackColor = true;
-            this.btnRemoveRevision.Click += new System.EventHandler(this.btnRemoveRevision_Click);
-            // 
-            // btnExportRevision
-            // 
-            this.btnExportRevision.Location = new System.Drawing.Point(176, 173);
-            this.btnExportRevision.Name = "btnExportRevision";
-            this.btnExportRevision.Size = new System.Drawing.Size(64, 36);
-            this.btnExportRevision.TabIndex = 3;
-            this.btnExportRevision.Text = "Export excel";
-            this.btnExportRevision.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Date";
-            this.columnHeader6.Width = 150;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Revision Current";
-            this.columnHeader7.Width = 119;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Revision Current";
-            this.columnHeader8.Width = 114;
+            this.columnHeader3.Text = "Revision";
+            this.columnHeader3.Width = 196;
             // 
             // frmRevision
             // 

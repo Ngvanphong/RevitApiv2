@@ -23,7 +23,9 @@ namespace ProjectApiV3.Revision
             ExternalEvent myEvent = ExternalEvent.Create(handler);
             GetSheetByRevisionHandler getSheetHandler = new GetSheetByRevisionHandler();
             ExternalEvent myEventSheet = ExternalEvent.Create( getSheetHandler);
-            myFormRevision = new frmRevision(myEvent, handler,myEventSheet,getSheetHandler);
+            ExportExcelHandler exportExcelHandler = new ExportExcelHandler();
+            ExternalEvent eventExportExcel = ExternalEvent.Create(exportExcelHandler);
+            myFormRevision = new frmRevision(myEvent, handler,myEventSheet,getSheetHandler, eventExportExcel, exportExcelHandler );
             myFormRevision.Show();           
         }
 
