@@ -98,6 +98,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RevisionCloud\AppPanelRevisionCloud.cs" />
+    <Compile Include="RevisionCloud\Constants.cs" />
     <Compile Include="RevisionCloud\FilterRevisionCloudHandler.cs" />
     <Compile Include="RevisionCloud\frmRevisionCloud.cs">
       <SubType>Form</SubType>

@@ -22,7 +22,7 @@ namespace ProjectApiV3.RevisionCloud
             if (CheckAccess.CheckLicense() == true)
             {
                 AppPanelRevisionCloud.ShowFormRevisionCloud();
-                GetInforRevisionCloud.GetInforRevionCloud(doc);
+                GetInforRevisionCloud.GetInforRevionCloud(doc,Constants.all);
                 GetInforRevisionCloud.GetInforChoice(doc);
             }
             return Result.Succeeded;
@@ -32,7 +32,7 @@ namespace ProjectApiV3.RevisionCloud
 
     public class GetInforRevisionCloud
     {
-        public static void GetInforRevionCloud(Document doc)
+        public static void GetInforRevionCloud(Document doc, string filter= Constants.all)
         {
             var revisionClouds = new FilteredElementCollector(doc).OfClass(typeof(Autodesk.Revit.DB.RevisionCloud)).Cast<Autodesk.Revit.DB.RevisionCloud>().ToList();
             List<RevisionInfor> listCloud = new List<RevisionInfor>();
@@ -67,8 +67,7 @@ namespace ProjectApiV3.RevisionCloud
                             RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
                             listCloud.Add(infor);
                         }
-                    }
-                    
+                    }   
 
                 }
                 catch
@@ -77,7 +76,20 @@ namespace ProjectApiV3.RevisionCloud
                     listCloud.Add(infor);
                 }
             }
-            foreach (var item in listCloud.OrderBy(x=>x.RevisionNumber))
+            List<RevisionInfor> listCloudResut = new List<RevisionInfor>();
+            switch (filter)
+            {
+                case Constants.haveSheet:
+                    listCloudResut = listCloud.Where(x => x.SheetNumber != null && x.SheetNumber != "" && x.SheetNumber != string.Empty).ToList();
+                    break;
+                case Constants.havenotSheet:
+                    listCloudResut = listCloud.Where(x => x.SheetNumber == null || x.SheetNumber == "" || x.SheetNumber == string.Empty).ToList();
+                    break;
+                default:
+                    listCloudResut = listCloud;
+                    break;
+            }
+            foreach (var item in listCloudResut.OrderBy(x=>x.RevisionNumber))
             {
 
                 var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
@@ -91,9 +103,9 @@ namespace ProjectApiV3.RevisionCloud
         {
             List<string> listChoice = new List<string>()
             {
-               "All",
-               "Cloud revision have on sheet",
-               "Cloud revision haven't on sheet",
+               Constants.all,
+               Constants.haveSheet,
+               Constants.havenotSheet,
             };
             foreach (var item in listChoice)
             {    

@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,21 @@ namespace ProjectApiV3.RevisionCloud
     {
         public void Execute(UIApplication app)
         {
-            throw new NotImplementedException();
+            Document doc = app.ActiveUIDocument.Document;
+            AppPanelRevisionCloud.myFormRevisionCloud.listViewRevisionCloud.Items.Clear();
+            var valueChoice = AppPanelRevisionCloud.myFormRevisionCloud.dropChooseFilterCloud.SelectedItem.ToString();
+            if (valueChoice == Constants.all)
+            {
+                GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.all);
+            }else if (valueChoice == Constants.haveSheet)
+            {
+                GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.haveSheet);
+            }
+            else if (valueChoice == Constants.havenotSheet)
+            {
+                GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.havenotSheet);
+            }
+            
         }
 
         public string GetName()
