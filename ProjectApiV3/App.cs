@@ -20,6 +20,8 @@ namespace ProjectApiV3
             filterClass.FilterElement(a);
             RevisionButton revisionClass = new RevisionButton();
             revisionClass.CreateRevision(a);
+            RevisionCloudButton revisionCloud = new RevisionCloudButton();
+            revisionCloud.CreateRevisionCloud(a);
             return Result.Succeeded;
         }
 

@@ -73,6 +73,7 @@
     <Compile Include="Button\AllignBeamFloorButton.cs" />
     <Compile Include="Button\FilterElementButton.cs" />
     <Compile Include="Button\RevisionButton.cs" />
+    <Compile Include="Button\RevisionCloudButton.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="FilterElement\AppPanelFilterElement.cs" />
     <Compile Include="FilterElement\CategoryCheckedHandler.cs" />
@@ -96,6 +97,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RevisionCloud\AppPanelRevisionCloud.cs" />
+    <Compile Include="RevisionCloud\FilterRevisionCloudHandler.cs" />
+    <Compile Include="RevisionCloud\frmRevisionCloud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevisionCloud\frmRevisionCloud.Designer.cs">
+      <DependentUpon>frmRevisionCloud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevisionCloud\ReloadRevisionCloudHandler.cs" />
+    <Compile Include="RevisionCloud\RevisionCloudBinding.cs" />
+    <Compile Include="RevisionCloud\SelectRevisionCloudHandler.cs" />
     <Compile Include="Revision\AppPanelRevision.cs" />
     <Compile Include="Revision\ExportExcelHandler.cs" />
     <Compile Include="Revision\frmRevision.cs">
@@ -110,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="Resources\cloud-computing.png" />
     <None Include="packages.config" />
     <None Include="Resources\iconfinder_Modify_132685.png" />
     <None Include="Resources\iconfinder_61_62718.png" />
@@ -123,6 +136,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevisionCloud\frmRevisionCloud.resx">
+      <DependentUpon>frmRevisionCloud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Revision\frmRevision.resx">
       <DependentUpon>frmRevision.cs</DependentUpon>
