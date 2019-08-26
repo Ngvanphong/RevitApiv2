@@ -23,6 +23,7 @@ namespace ProjectApiV3.RevisionCloud
             {
                 AppPanelRevisionCloud.ShowFormRevisionCloud();
                 GetInforRevisionCloud.GetInforRevionCloud(doc);
+                GetInforRevisionCloud.GetInforChoice(doc);
             }
             return Result.Succeeded;
         }
@@ -53,7 +54,7 @@ namespace ProjectApiV3.RevisionCloud
                     var sheetIds = cloud.GetSheetIds();
                     if (sheetIds.Count() == 0)
                     {
-                        RevisionInfor infor = new RevisionInfor(revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                        RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
                         listCloud.Add(infor);
                     }
                     else
@@ -63,28 +64,41 @@ namespace ProjectApiV3.RevisionCloud
                             ViewSheet sheet = doc.GetElement(id) as ViewSheet;
                             sheetName = sheet.Name;
                             sheetNumber = sheet.SheetNumber;
-                            RevisionInfor infor = new RevisionInfor(revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                            RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
                             listCloud.Add(infor);
                         }
                     }
                     
 
                 }
-                catch(Exception ex)
+                catch
                 {
-                    RevisionInfor infor = new RevisionInfor(revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                    RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
                     listCloud.Add(infor);
                 }
             }
             foreach (var item in listCloud.OrderBy(x=>x.RevisionNumber))
             {
 
-                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.SheetNumber,item.SheetName,item.Comments,item.Mark};
+                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
                 AppPanelRevisionCloud.myFormRevisionCloud.listViewRevisionCloud.Items.Add(lvi);
             }
 
+        }
+        public static void GetInforChoice(Document doc)
+        {
+            List<string> listChoice = new List<string>()
+            {
+               "All",
+               "Cloud revision have on sheet",
+               "Cloud revision haven't on sheet",
+            };
+            foreach (var item in listChoice)
+            {    
+                AppPanelRevisionCloud.myFormRevisionCloud.dropChooseFilterCloud.Items.Add(item);
+            }
         }
     }
     public class RevisionInfor
@@ -93,9 +107,10 @@ namespace ProjectApiV3.RevisionCloud
         {
 
         }
-        public RevisionInfor(string revisionNumber, string revisionDate, string issuedBy, string issuedTo,
+        public RevisionInfor(ElementId id,string revisionNumber, string revisionDate, string issuedBy, string issuedTo,
             string sheetNumber, string sheetName, string comments, string mark)
         {
+            Id = id;
             RevisionNumber = revisionNumber;
             RevisionDate = revisionDate;
             IssuedBy = issuedBy;
@@ -105,6 +120,7 @@ namespace ProjectApiV3.RevisionCloud
             Comments = comments;
             Mark = mark;
         }
+        public ElementId Id { set; get; }
         public string RevisionNumber { set; get; }
         public string RevisionDate { get; set; }
         public string IssuedBy { set; get; }

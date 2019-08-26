@@ -17,12 +17,15 @@ namespace ProjectApiV3.RevisionCloud
     {
         public static frmRevisionCloud myFormRevisionCloud;
         public static void ShowFormRevisionCloud()
-        {            
+        {
+            FilterRevisionCloudHandler handlerFilterRevisonCloud = new FilterRevisionCloudHandler();
+            ExternalEvent eventFilterCloud = ExternalEvent.Create(handlerFilterRevisonCloud);
             ReloadRevisionCloudHandler handlerReloadRevisonCloud = new ReloadRevisionCloudHandler();
             ExternalEvent eventReloadCloud = ExternalEvent.Create(handlerReloadRevisonCloud);
             SelectRevisionCloudHandler handlerSelectRevisionClound = new SelectRevisionCloudHandler();
             ExternalEvent eventSelectCloud = ExternalEvent.Create(handlerSelectRevisionClound);
-            myFormRevisionCloud = new frmRevisionCloud(eventReloadCloud,handlerReloadRevisonCloud,eventSelectCloud,handlerSelectRevisionClound);
+            myFormRevisionCloud = new frmRevisionCloud(eventReloadCloud,handlerReloadRevisonCloud,
+                eventSelectCloud,handlerSelectRevisionClound, eventFilterCloud, handlerFilterRevisonCloud);
             myFormRevisionCloud.Show();
         }
     }

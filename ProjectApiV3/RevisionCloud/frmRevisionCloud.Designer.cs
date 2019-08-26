@@ -42,6 +42,7 @@
             this.btnReloadRevisionCloud = new System.Windows.Forms.Button();
             this.dropChooseFilterCloud = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewRevisionCloud
@@ -55,7 +56,8 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader8,
+            this.columnHeader9});
             this.listViewRevisionCloud.Location = new System.Drawing.Point(12, 42);
             this.listViewRevisionCloud.Name = "listViewRevisionCloud";
             this.listViewRevisionCloud.Size = new System.Drawing.Size(1146, 352);
@@ -66,7 +68,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Revision Number";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Width = 110;
             // 
             // columnHeader2
             // 
@@ -122,6 +124,7 @@
             this.checkBoxCheckAllRevisionCloud.TabIndex = 2;
             this.checkBoxCheckAllRevisionCloud.Text = "Check All";
             this.checkBoxCheckAllRevisionCloud.UseVisualStyleBackColor = true;
+            this.checkBoxCheckAllRevisionCloud.CheckedChanged += new System.EventHandler(this.checkBoxCheckAllRevisionCloud_CheckedChanged);
             // 
             // btnReloadRevisionCloud
             // 
@@ -140,6 +143,7 @@
             this.dropChooseFilterCloud.Name = "dropChooseFilterCloud";
             this.dropChooseFilterCloud.Size = new System.Drawing.Size(184, 21);
             this.dropChooseFilterCloud.TabIndex = 4;
+            this.dropChooseFilterCloud.SelectedIndexChanged += new System.EventHandler(this.dropChooseFilterCloud_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -149,6 +153,11 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Filter:";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Id";
+            this.columnHeader9.Width = 0;
             // 
             // frmRevisionCloud
             // 
@@ -187,5 +196,6 @@
         public System.Windows.Forms.ListView listViewRevisionCloud;
         public System.Windows.Forms.ComboBox dropChooseFilterCloud;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }
