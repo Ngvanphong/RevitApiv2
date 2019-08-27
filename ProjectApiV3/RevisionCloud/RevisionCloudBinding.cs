@@ -91,7 +91,6 @@ namespace ProjectApiV3.RevisionCloud
             }
             foreach (var item in listCloudResut.OrderBy(x=>x.RevisionNumber))
             {
-
                 var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
@@ -111,6 +110,7 @@ namespace ProjectApiV3.RevisionCloud
             {    
                 AppPanelRevisionCloud.myFormRevisionCloud.dropChooseFilterCloud.Items.Add(item);
             }
+            AppPanelRevisionCloud.myFormRevisionCloud.dropChooseFilterCloud.SelectedIndex = 0;
         }
     }
     public class RevisionInfor

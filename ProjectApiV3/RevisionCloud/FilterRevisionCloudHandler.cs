@@ -15,10 +15,7 @@ namespace ProjectApiV3.RevisionCloud
             Document doc = app.ActiveUIDocument.Document;
             AppPanelRevisionCloud.myFormRevisionCloud.listViewRevisionCloud.Items.Clear();
             var valueChoice = AppPanelRevisionCloud.myFormRevisionCloud.dropChooseFilterCloud.SelectedItem.ToString();
-            if (valueChoice == Constants.all)
-            {
-                GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.all);
-            }else if (valueChoice == Constants.haveSheet)
+            if (valueChoice == Constants.haveSheet)
             {
                 GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.haveSheet);
             }
@@ -26,7 +23,11 @@ namespace ProjectApiV3.RevisionCloud
             {
                 GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.havenotSheet);
             }
-            
+            else
+            {
+                GetInforRevisionCloud.GetInforRevionCloud(doc, Constants.all);
+            }
+
         }
 
         public string GetName()
