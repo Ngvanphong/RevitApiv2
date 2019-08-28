@@ -3,7 +3,6 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\FoxLearn.License.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.csprojResolveAssemblyReference.cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.AssignView.frmAssignView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.ChangeSheetNumber.frmChangeSheetNumber.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.DuplicateSheet.frmDuplicateSheet.resources
@@ -14,3 +13,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\Debug\MainProjectApi.csprojResolveAssemblyReference.cache

@@ -22,6 +22,8 @@ namespace ProjectApiV3
             revisionClass.CreateRevision(a);
             RevisionCloudButton revisionCloud = new RevisionCloudButton();
             revisionCloud.CreateRevisionCloud(a);
+            DimOffsetButton dimOffsetClass = new DimOffsetButton();
+            dimOffsetClass.DimOffset(a);
             return Result.Succeeded;
         }
 
