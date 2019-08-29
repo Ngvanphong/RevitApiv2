@@ -98,7 +98,7 @@
             this.textBoxOffsetTextDimY.Name = "textBoxOffsetTextDimY";
             this.textBoxOffsetTextDimY.Size = new System.Drawing.Size(80, 20);
             this.textBoxOffsetTextDimY.TabIndex = 5;
-            this.textBoxOffsetTextDimY.Text = "320";
+            this.textBoxOffsetTextDimY.Text = "330";
             this.textBoxOffsetTextDimY.TextChanged += new System.EventHandler(this.textBoxOffsetTextDimY_TextChanged);
             // 
             // frmDimOffset

@@ -89,7 +89,7 @@ namespace ProjectApiV3.DimOffset
                                 {
                                     if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
                                     {
-                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(-Constants.TrasformDistanceY,Constants.TrasformDistance, 0.0))
                                             .OfPoint(pointOrigin);
                                         dimension.TextPosition = newTextPosition;
                                         isModifiledAdd = true;
@@ -119,7 +119,7 @@ namespace ProjectApiV3.DimOffset
                                     {
                                         if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
                                         {
-                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(-Constants.TrasformDistanceY,Constants.TrasformDistance, 0.0))
                                                 .OfPoint(pointOrigin);
                                             item.DemissionSeg.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
@@ -150,7 +150,14 @@ namespace ProjectApiV3.DimOffset
                                     {
                                         if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
                                         {
-                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, -Constants.TrasformDistanceY, 0.0)).OfPoint(pointOrigin);
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(-Constants.TrasformDistanceY, -Constants.TrasformDistance, 0.0)).OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                        else if (pointOrigin.Y - pointNowDim.Y > 0)
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0, -Constants.TrasformDistance, 0.0))
+                                                .OfPoint(new XYZ(pointOrigin.X, pointNowDim.Y, pointOrigin.Z));
                                             item.DemissionSeg.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
@@ -199,8 +206,38 @@ namespace ProjectApiV3.DimOffset
             }
             else if (vectorY == true)
             {
-                
-            }else
+                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.Y).ToList();
+                List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
+                for (int i = 0; i < listSegment.Count; i++)
+                {
+                    double valueText = double.Parse(listSegment[i].ValueString);
+                    if (valueText <= Constants.MinimumDistance)
+                    {
+                        DimensionPosition item = new DimensionPosition();
+                        item.DemissionSeg = listSegment[i];
+                        item.index = i;
+                        listSegmentNeed.Add(item);
+                    }
+                }
+                listSegmentNeed = listSegmentNeed.OrderBy(x => x.index).ToList();
+                for (int i = 0; i < listSegmentNeed.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        listSegmentNeed[i].right = false;
+                    }
+                    else
+                    {
+                        if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
+                        {
+                            listSegmentNeed[i].right = true;
+                        }
+                    }
+                }
+                listResult = listSegmentNeed;
+
+            }
+            else
             {
                 
             }
