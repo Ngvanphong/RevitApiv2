@@ -28,30 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBoxPositionDim = new System.Windows.Forms.CheckBox();
             this.btnDimOffsetCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMinimunDistanceDim = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxOffsetTextDimX = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxOffsetTextDimY = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // checkBoxPositionDim
-            // 
-            this.checkBoxPositionDim.AutoSize = true;
-            this.checkBoxPositionDim.Location = new System.Drawing.Point(115, 12);
-            this.checkBoxPositionDim.Name = "checkBoxPositionDim";
-            this.checkBoxPositionDim.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxPositionDim.TabIndex = 0;
-            this.checkBoxPositionDim.Text = "Bottom";
-            this.checkBoxPositionDim.UseVisualStyleBackColor = true;
-            // 
             // btnDimOffsetCancel
             // 
-            this.btnDimOffsetCancel.Location = new System.Drawing.Point(115, 110);
+            this.btnDimOffsetCancel.Location = new System.Drawing.Point(115, 82);
             this.btnDimOffsetCancel.Name = "btnDimOffsetCancel";
             this.btnDimOffsetCancel.Size = new System.Drawing.Size(80, 23);
             this.btnDimOffsetCancel.TabIndex = 3;
@@ -62,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Location = new System.Drawing.Point(17, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 4;
@@ -70,26 +58,17 @@
             // 
             // txtMinimunDistanceDim
             // 
-            this.txtMinimunDistanceDim.Location = new System.Drawing.Point(115, 33);
+            this.txtMinimunDistanceDim.Location = new System.Drawing.Point(115, 5);
             this.txtMinimunDistanceDim.Name = "txtMinimunDistanceDim";
             this.txtMinimunDistanceDim.Size = new System.Drawing.Size(80, 20);
             this.txtMinimunDistanceDim.TabIndex = 5;
-            this.txtMinimunDistanceDim.Text = "200";
+            this.txtMinimunDistanceDim.Text = "500";
             this.txtMinimunDistanceDim.TextChanged += new System.EventHandler(this.txtMinimunDistanceDim_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Position text dim:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 62);
+            this.label3.Location = new System.Drawing.Point(17, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 4;
@@ -97,17 +76,17 @@
             // 
             // textBoxOffsetTextDimX
             // 
-            this.textBoxOffsetTextDimX.Location = new System.Drawing.Point(115, 59);
+            this.textBoxOffsetTextDimX.Location = new System.Drawing.Point(115, 31);
             this.textBoxOffsetTextDimX.Name = "textBoxOffsetTextDimX";
             this.textBoxOffsetTextDimX.Size = new System.Drawing.Size(80, 20);
             this.textBoxOffsetTextDimX.TabIndex = 5;
-            this.textBoxOffsetTextDimX.Text = "200";
+            this.textBoxOffsetTextDimX.Text = "800";
             this.textBoxOffsetTextDimX.TextChanged += new System.EventHandler(this.textBoxOffsetTextDimX_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 87);
+            this.label4.Location = new System.Drawing.Point(17, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 4;
@@ -115,28 +94,26 @@
             // 
             // textBoxOffsetTextDimY
             // 
-            this.textBoxOffsetTextDimY.Location = new System.Drawing.Point(115, 84);
+            this.textBoxOffsetTextDimY.Location = new System.Drawing.Point(115, 56);
             this.textBoxOffsetTextDimY.Name = "textBoxOffsetTextDimY";
             this.textBoxOffsetTextDimY.Size = new System.Drawing.Size(80, 20);
             this.textBoxOffsetTextDimY.TabIndex = 5;
-            this.textBoxOffsetTextDimY.Text = "200";
+            this.textBoxOffsetTextDimY.Text = "320";
             this.textBoxOffsetTextDimY.TextChanged += new System.EventHandler(this.textBoxOffsetTextDimY_TextChanged);
             // 
             // frmDimOffset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(207, 138);
+            this.ClientSize = new System.Drawing.Size(204, 112);
             this.ControlBox = false;
             this.Controls.Add(this.textBoxOffsetTextDimY);
             this.Controls.Add(this.textBoxOffsetTextDimX);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMinimunDistanceDim);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDimOffsetCancel);
-            this.Controls.Add(this.checkBoxPositionDim);
             this.MaximizeBox = false;
             this.Name = "frmDimOffset";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -151,9 +128,7 @@
         #endregion
         public System.Windows.Forms.Button btnDimOffsetCancel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtMinimunDistanceDim;
-        public System.Windows.Forms.CheckBox checkBoxPositionDim;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBoxOffsetTextDimX;
         private System.Windows.Forms.Label label4;

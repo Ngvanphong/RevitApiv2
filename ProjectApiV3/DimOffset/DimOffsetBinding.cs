@@ -80,11 +80,21 @@ namespace ProjectApiV3.DimOffset
                                 {
                                     if (Math.Abs(pointNowDim.X - pointOrigin.X) < (0.0001))
                                     {
-                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0)).OfPoint(pointOrigin);
+                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                            .OfPoint(pointOrigin);
+                                        dimension.TextPosition = newTextPosition;                                       
+                                        isModifiledAdd = true;
+                                    }
+                                } else if (vectorY)
+                                {
+                                    if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
+                                    {
+                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                            .OfPoint(pointOrigin);
                                         dimension.TextPosition = newTextPosition;
                                         isModifiledAdd = true;
                                     }
-                                }                               
+                                }                             
                             }
                         }
                         else
@@ -92,7 +102,7 @@ namespace ProjectApiV3.DimOffset
                             List<DimensionPosition> listPositon = PositionDim(listSegments, vectorX, vectorY);
                             foreach (var item in listPositon)
                             {
-                                if (item.left == true)
+                                if (item.right == true)
                                 {
                                     var pointOrigin = item.DemissionSeg.TextPosition;
                                     var pointNowDim = item.DemissionSeg.Origin;
@@ -100,7 +110,17 @@ namespace ProjectApiV3.DimOffset
                                     {
                                         if (Math.Abs(pointNowDim.X - pointOrigin.X) < (0.0001))
                                         {
-                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0)).OfPoint(pointOrigin);
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                                .OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        } 
+                                    }else if (vectorY == true)
+                                    {
+                                        if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, Constants.TrasformDistanceY, 0.0))
+                                                .OfPoint(pointOrigin);
                                             item.DemissionSeg.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
@@ -118,6 +138,22 @@ namespace ProjectApiV3.DimOffset
                                             item.DemissionSeg.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
+                                        else if(pointOrigin.X-pointNowDim.X > 0)
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(-Constants.TrasformDistance, 0.0, 0.0))
+                                                .OfPoint(new XYZ(pointNowDim.X, pointOrigin.Y, pointOrigin.Z));
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                    }
+                                    else if (vectorY == true)
+                                    {
+                                        if (Math.Abs(pointNowDim.Y - pointOrigin.Y) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistance, -Constants.TrasformDistanceY, 0.0)).OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
                                     }
                                 }
                             }
@@ -131,7 +167,7 @@ namespace ProjectApiV3.DimOffset
             List<DimensionPosition> listResult = new List<DimensionPosition>();
             if (vectorX == true)
             {
-                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.TextPosition.X).ToList();
+                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.X).ToList();
                 List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
                 for (int i = 0; i < listSegment.Count; i++)
                 {
@@ -140,7 +176,7 @@ namespace ProjectApiV3.DimOffset
                     {
                         DimensionPosition item = new DimensionPosition();
                         item.DemissionSeg = listSegment[i];
-                        item.index = i;
+                        item.index = i;                       
                         listSegmentNeed.Add(item);
                     }
                 }
@@ -149,13 +185,13 @@ namespace ProjectApiV3.DimOffset
                 {
                     if (i == 0)
                     {
-                        listSegmentNeed[i].left = false;
+                        listSegmentNeed[i].right = false;
                     }
                     else
                     {
-                        if (listSegmentNeed[i - 1].left == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
+                        if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
                         {
-                            listSegmentNeed[i].left = true;
+                            listSegmentNeed[i].right = true;
                         }
                     }
                 }
@@ -163,7 +199,10 @@ namespace ProjectApiV3.DimOffset
             }
             else if (vectorY == true)
             {
-
+                
+            }else
+            {
+                
             }
             return listResult;
         }
@@ -181,13 +220,24 @@ namespace ProjectApiV3.DimOffset
                 if (isModified == true)
                 {
                     breakEvent = true;
-                }                
+                }else
+                {
+                    breakEvent = false;
+                }
+                                
             }
             else if (listElementModifile.Count == 1 && breakEvent == false)
             {
                 bool isModified = false;
                 DimOffset(doc, listElementModifile,out isModified );
-                breakEvent = true;     
+                if (isModified == true)
+                {
+                    breakEvent = true;
+                }
+                else
+                {
+                    breakEvent = false;
+                }
             }
             else if(breakEvent==true) 
             {
@@ -220,6 +270,6 @@ namespace ProjectApiV3.DimOffset
     {
         public DimensionSegment DemissionSeg { get; set; }
         public int index { get; set; }
-        public bool left { get; set; }
+        public bool right { get; set; }
     }
 }
