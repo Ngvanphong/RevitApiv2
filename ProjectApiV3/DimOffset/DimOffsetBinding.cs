@@ -113,12 +113,12 @@ namespace ProjectApiV3.DimOffset
                         {
                             List<DimensionPosition> listPositon = PositionDim(listSegments, vectorX, vectorY);
                             foreach (var item in listPositon)
-                            {    
+                            {
                                 if (item.right == true)
                                 {
                                     var pointOrigin = item.DemissionSeg.TextPosition;
                                     var pointNowDim = item.DemissionSeg.Origin;
-   
+
                                     if (vectorX == true)
                                     {
                                         if (Math.Abs(pointNowDim.X - pointOrigin.X) < (0.0001))
@@ -375,15 +375,15 @@ namespace ProjectApiV3.DimOffset
             double a = v.X;
             double b = v.Y;
             double cos = Math.Sqrt(1 / (b * b / a * a + 1));
-
             double xk1 = T.X + Math.Sqrt(y * y / (1 + a * a / (b * b)));
             double xk2 = T.X - Math.Sqrt(y * y / (1 + a * a / (b * b)));
             double yk1 = T.Y - (xk1 - T.X) * a / b;
             double yk2 = T.Y - (xk2 - T.X) * a / b;
             double xk = xk1;
             double yk = yk1;
-            double d1 = Math.Abs(b * xk1 - a * yk1 - b * O.X + a * O.Y) / Math.Sqrt(a * a + b * b);           
-            if (d1 < y)
+            double d1 = Math.Abs(b * xk1 - a * yk1 - b * O.X + a * O.Y) / Math.Sqrt(a * a + b * b);
+            double d2 = Math.Abs(b * xk2 - a * yk2 - b * O.X + a * O.Y) / Math.Sqrt(a * a + b * b);
+            if (d1 < d2)
             {
                 xk = xk2;
                 yk = yk2;
@@ -399,9 +399,9 @@ namespace ProjectApiV3.DimOffset
                 xg = xg2;
                 yg = yg2;
             }
-            double kg = (yk - yg + (xg - xk) / a) / (a + b / a);
+            double kg = (yk - yg + b * (xg - xk) / a) / (a + b * b / a);
             XYZ Tn = new XYZ(xg - b * kg, yg + a * kg, T.Z);
-            double k = (O.Y + b * (T.X - O.X) / a - T.Y) / (a + b * b / a);     
+            double k = (O.Y + b * (T.X - O.X) / a - T.Y) / (a + b * b / a);
             result.Oorigin = new XYZ(T.X - k * b, T.Y + k * a, T.Z);
             result.Toffset = Tn;
             return result;
