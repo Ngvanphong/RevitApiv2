@@ -7,7 +7,6 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
-
 using ProjectApiV3.Helper;
 using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.ApplicationServices;
@@ -149,7 +148,6 @@ namespace ProjectApiV3.DimOffset
                                             item.DemissionSeg.TextPosition = dimNotXy.Toffset;
                                             isModifiledAdd = true;
                                         }
-
                                     }
                                 }
                                 else
@@ -198,7 +196,6 @@ namespace ProjectApiV3.DimOffset
                                             item.DemissionSeg.TextPosition = dimNotXy.Toffset;
                                             isModifiledAdd = true;
                                         }
-
                                     }
                                 }
                             }
@@ -273,7 +270,6 @@ namespace ProjectApiV3.DimOffset
                     }
                 }
                 listResult = listSegmentNeed;
-
             }
             else
             {
@@ -328,7 +324,6 @@ namespace ProjectApiV3.DimOffset
                 {
                     breakEvent = false;
                 }
-
             }
             else if (listElementModifile.Count == 1 && breakEvent == false)
             {

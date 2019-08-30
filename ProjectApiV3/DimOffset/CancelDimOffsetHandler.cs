@@ -13,7 +13,7 @@ namespace ProjectApiV3.DimOffset
     {
         public void Execute(UIApplication app)
         {
-            //app.Application.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>(ChangeElement.CreateDimension);
+        
             UpdaterRegistry.UnregisterUpdater(AppPanelDimOffset._updater.GetUpdaterId());
         }
 
