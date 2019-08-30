@@ -93,6 +93,26 @@ namespace ProjectApiV3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_application_side_expand_4965 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_application_side_expand_4965", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_application_sidebar_expand_25531 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_application_sidebar_expand_25531", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_Modify_132685 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Modify_132685", resourceCulture);

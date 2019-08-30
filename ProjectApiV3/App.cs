@@ -24,6 +24,10 @@ namespace ProjectApiV3
             revisionCloud.CreateRevisionCloud(a);
             DimOffsetButton dimOffsetClass = new DimOffsetButton();
             dimOffsetClass.DimOffset(a);
+            Trim2DGridLevelButton trim2Dclass = new Trim2DGridLevelButton();
+            trim2Dclass.Trim2D(a);
+            Trim3DGridLevelButton trim3Dclass = new Trim3DGridLevelButton();
+            trim3Dclass.Trim3D(a);
             return Result.Succeeded;
         }
 
