@@ -17,7 +17,6 @@ namespace ProjectApiV3.TrimGridLevel
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
 
-
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
             if (CheckAccess.CheckLicense() == true)
