@@ -70,7 +70,7 @@ namespace ProjectApiV3.TrimGridLevel
                                     AssigTowPoint(doc, listPoint[0], listPoint[1], grid);
                                 }else
                                 {
-
+                                    AssignManyPoint(doc, listPoint.ToList(), grid);
                                 }
                                 t.Commit();
                             }
@@ -133,8 +133,36 @@ namespace ProjectApiV3.TrimGridLevel
             catch (Exception e){ };
         }
 
-        public void AssginManyPoint(Document doc, List<XYZ> listPoints, Grid grid)
+        public void AssignManyPoint(Document doc, List<XYZ> listPoints, Grid grid)
         {
+            Curve curegr = grid.GetCurvesInView(DatumExtentType.ViewSpecific, doc.ActiveView).First();
+            XYZ g1 = curegr.GetEndPoint(0);
+            XYZ g2 = curegr.GetEndPoint(1);
+            XYZ u = (g1 - g2).Normalize();
+            double hmin = 100000000000;
+            XYZ G= new XYZ(0,0,0);
+            foreach(var p in listPoints)
+            {
+                double k = (u.X * p.X + u.Y * p.Y + u.Z * p.Z - u.X * g1.X - u.Y * g1.Y - u.Z * g1.Z) / (u.X * u.X + u.Y * u.Y + u.Z * u.Z);
+                XYZ H = new XYZ(g1.X + u.X * k, g1.Y + u.Y * k, g1.Z + u.Z * k);
+                double h = (p.X - H.X) * (p.X - H.X) + (p.Y - H.Y) * (p.Y - H.Y) + (p.Z - H.Z) * (p.Z - H.Z);
+                if (h < hmin)
+                {
+                    hmin = h;
+                    G = H;
+                }
+            }  
+            double d1 = (g1.X - G.X) * (g1.X - G.X) + (g1.Y - G.Y) * (g1.Y - G.Y) + (g1.Z - G.Z) * (g1.Z - G.Z);
+            double d2 = (g2.X - G.X) * (g2.X - G.X) + (g2.Y - G.Y) * (g2.Y - G.Y) + (g2.Z - G.Z) * (g2.Z - G.Z);
+            if (Math.Sqrt(d1) < 10000000 && Math.Sqrt(d2) < 10000000)
+            {
+                Curve curve = Line.CreateBound(g1, G);
+                if (d1 < d2)
+                {
+                    curve = Line.CreateBound(G, g2);
+                }
+                grid.SetCurveInView(DatumExtentType.ViewSpecific, doc.ActiveView, curve);
+            }
 
         }
 
