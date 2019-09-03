@@ -75,6 +75,7 @@
     <Compile Include="Button\FilterElementButton.cs" />
     <Compile Include="Button\RevisionButton.cs" />
     <Compile Include="Button\RevisionCloudButton.cs" />
+    <Compile Include="Button\ShowHideHeaderButton.cs" />
     <Compile Include="Button\Trim2DGridLevelButton.cs" />
     <Compile Include="Button\Trim3DGridLevelButton.cs" />
     <Compile Include="Command.cs" />
@@ -133,11 +134,13 @@
     <Compile Include="Revision\GetSheetByRevisionHandler.cs" />
     <Compile Include="Revision\RevisionBinding.cs" />
     <Compile Include="Revision\RevisionHandler.cs" />
+    <Compile Include="TrimGridLevel\ShowHideHeaderBinding.cs" />
     <Compile Include="TrimGridLevel\Trim2DGridLevelBinding.cs" />
     <Compile Include="TrimGridLevel\Trim3DGridLevelBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="Resources\icons8-project-management-16.png" />
     <None Include="Resources\iconfinder_application_side_expand_4965.png" />
     <None Include="Resources\iconfinder_application-sidebar-expand_25531.png" />
     <None Include="Resources\ruler-16.png" />

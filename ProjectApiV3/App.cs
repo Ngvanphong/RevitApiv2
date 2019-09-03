@@ -28,6 +28,8 @@ namespace ProjectApiV3
             trim2Dclass.Trim2D(a);
             Trim3DGridLevelButton trim3Dclass = new Trim3DGridLevelButton();
             trim3Dclass.Trim3D(a);
+            ShowHideHeaderButton showHideButton = new ShowHideHeaderButton();
+            showHideButton.ShowHideHeader(a);
             return Result.Succeeded;
         }
 

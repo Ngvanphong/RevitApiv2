@@ -210,7 +210,6 @@ namespace ProjectApiV3.TrimGridLevel
                         }
                         level.SetCurveInView(DatumExtentType.ViewSpecific, doc.ActiveView, curve);
                     }
-
                 }
                 catch { };
             }
