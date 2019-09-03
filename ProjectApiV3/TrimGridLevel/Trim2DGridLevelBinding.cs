@@ -53,8 +53,6 @@ namespace ProjectApiV3.TrimGridLevel
                     {
                         curve = refplance.GetCurvesInView(DatumExtentType.ViewSpecific, doc.ActiveView).First();
                     }
-
-
                     if (listGrid.Count > 0)
                     {
                         foreach (Grid grid in listGrid)
@@ -75,7 +73,6 @@ namespace ProjectApiV3.TrimGridLevel
                                 }
                                 t.Commit();
                             }
-
                         }
                     }
                     if (listLevel.Count > 0)

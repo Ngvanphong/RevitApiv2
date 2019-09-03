@@ -64,8 +64,7 @@ namespace ProjectApiV3.TrimGridLevel
                                 {
                                     t.Commit();
                                     continue;
-                                }
-                                
+                                }                               
                             }
                         }
                     }else if (listLevel.Count > 0)
@@ -85,7 +84,6 @@ namespace ProjectApiV3.TrimGridLevel
                                     t.Commit();
                                     continue;
                                 }
-
                             }
                         }
                     }

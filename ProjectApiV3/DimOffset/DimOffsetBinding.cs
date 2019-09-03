@@ -67,6 +67,7 @@ namespace ProjectApiV3.DimOffset
                         XYZ vector = dimLine.Direction.Normalize();
                         bool vectorX = vector.IsAlmostEqualTo(XYZ.BasisX) || vector.IsAlmostEqualTo(-XYZ.BasisX);
                         bool vectorY = vector.IsAlmostEqualTo(XYZ.BasisY) || vector.IsAlmostEqualTo(-XYZ.BasisY);
+                        bool vectorZ = vector.IsAlmostEqualTo(XYZ.BasisZ) || vector.IsAlmostEqualTo(-XYZ.BasisZ);
                         var listSegments = dimension.Segments;
                         if (listSegments.Size == 0)
                         {
@@ -95,6 +96,30 @@ namespace ProjectApiV3.DimOffset
                                         isModifiledAdd = true;
                                     }
                                 }
+                                //code z 
+                                else if (vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisX)
+                                        || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX)))
+                                {
+                                    if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < 0.0001)
+                                    {
+                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0,Constants.TrasformDistanceY, Constants.TrasformDistance))
+                                            .OfPoint(pointOrigin);
+                                        dimension.TextPosition = newTextPosition;
+                                        isModifiledAdd = true;
+                                    }
+                                }
+                                //code z 
+                                else if (vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisY)
+                                        || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY)))
+                                {
+                                    if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < 0.0001)
+                                    {
+                                        XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistanceY,0.0, Constants.TrasformDistance))
+                                            .OfPoint(pointOrigin);
+                                        dimension.TextPosition = newTextPosition;
+                                        isModifiledAdd = true;
+                                    }
+                                }
                                 //code
                                 else
                                 {
@@ -110,7 +135,7 @@ namespace ProjectApiV3.DimOffset
                         }
                         else
                         {
-                            List<DimensionPosition> listPositon = PositionDim(listSegments, vectorX, vectorY);
+                            List<DimensionPosition> listPositon = PositionDim(listSegments, vectorX, vectorY,vectorZ);
                             foreach (var item in listPositon)
                             {
                                 if (item.right == true)
@@ -137,6 +162,32 @@ namespace ProjectApiV3.DimOffset
                                             item.DemissionSeg.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
+                                    }
+                                    //code z
+                                    else if (vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisX)
+                                        || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX)))
+                                    {
+                                        if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0, Constants.TrasformDistanceY, Constants.TrasformDistance))
+                                                 .OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                       
+
+                                    }
+                                    else if (vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisY)
+                                       || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY)))
+                                    {
+                                        if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistanceY, 0.0, Constants.TrasformDistance))
+                                                 .OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                        
                                     }
                                     //code 
                                     else
@@ -186,6 +237,43 @@ namespace ProjectApiV3.DimOffset
                                             isModifiledAdd = true;
                                         }
                                     }
+                                    //code z
+                                    else if (vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisX)
+                                        || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisX)))
+                                    {
+                                        if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0, Constants.TrasformDistanceY, -Constants.TrasformDistance))
+                                                 .OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                        else if (pointOrigin.Z - pointNowDim.Z > 0)
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0, 0.0, -Constants.TrasformDistance))
+                                                .OfPoint(new XYZ(pointOrigin.X, pointOrigin.Y, pointNowDim.Z));
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+
+                                    }else if(vectorZ && (doc.ActiveView.ViewDirection.IsAlmostEqualTo(XYZ.BasisY)
+                                        || doc.ActiveView.ViewDirection.IsAlmostEqualTo(-XYZ.BasisY)))
+                                    {
+                                        if (Math.Abs(pointNowDim.Z - pointOrigin.Z) < (0.0001))
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(Constants.TrasformDistanceY,0.0,-Constants.TrasformDistance))
+                                                 .OfPoint(pointOrigin);
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                        else if (pointOrigin.Z - pointNowDim.Z > 0)
+                                        {
+                                            XYZ newTextPosition = Transform.CreateTranslation(new XYZ(0.0, 0.0,-Constants.TrasformDistance))
+                                                .OfPoint(new XYZ(pointOrigin.X, pointOrigin.Y, pointNowDim.Z));
+                                            item.DemissionSeg.TextPosition = newTextPosition;
+                                            isModifiledAdd = true;
+                                        }
+                                    }
                                     //code
                                     else
                                     {
@@ -204,105 +292,55 @@ namespace ProjectApiV3.DimOffset
                 }
             };
         }
-        private static List<DimensionPosition> PositionDim(DimensionSegmentArray arrayDim, bool vectorX, bool vectorY)
+        private static List<DimensionPosition> PositionDim(DimensionSegmentArray arrayDim, bool vectorX, bool vectorY,bool vectorZ)
         {
             List<DimensionPosition> listResult = new List<DimensionPosition>();
+            List<DimensionSegment> listSegment = new List<DimensionSegment>();
             if (vectorX == true)
             {
-                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.X).ToList();
-                List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
-                for (int i = 0; i < listSegment.Count; i++)
-                {
-                    double valueText = double.Parse(listSegment[i].ValueString);
-                    if (valueText <= Constants.MinimumDistance)
-                    {
-                        DimensionPosition item = new DimensionPosition();
-                        item.DemissionSeg = listSegment[i];
-                        item.index = i;
-                        listSegmentNeed.Add(item);
-                    }
-                }
-                listSegmentNeed = listSegmentNeed.OrderBy(x => x.index).ToList();
-                for (int i = 0; i < listSegmentNeed.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        listSegmentNeed[i].right = false;
-                    }
-                    else
-                    {
-                        if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
-                        {
-                            listSegmentNeed[i].right = true;
-                        }
-                    }
-                }
-                listResult = listSegmentNeed;
+               listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.X).ToList();    
             }
             else if (vectorY == true)
             {
-                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.Y).ToList();
-                List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
-                for (int i = 0; i < listSegment.Count; i++)
-                {
-                    double valueText = double.Parse(listSegment[i].ValueString);
-                    if (valueText <= Constants.MinimumDistance)
-                    {
-                        DimensionPosition item = new DimensionPosition();
-                        item.DemissionSeg = listSegment[i];
-                        item.index = i;
-                        listSegmentNeed.Add(item);
-                    }
-                }
-                listSegmentNeed = listSegmentNeed.OrderBy(x => x.index).ToList();
-                for (int i = 0; i < listSegmentNeed.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        listSegmentNeed[i].right = false;
-                    }
-                    else
-                    {
-                        if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
-                        {
-                            listSegmentNeed[i].right = true;
-                        }
-                    }
-                }
-                listResult = listSegmentNeed;
+                listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.Y).ToList();   
+            }
+            //code z
+            else if (vectorZ)
+            {
+              listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.Z).ToList();   
             }
             else
-            {
-                List<DimensionSegment> listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.X).ToList();
-                List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
-                for (int i = 0; i < listSegment.Count; i++)
-                {
-                    double valueText = double.Parse(listSegment[i].ValueString);
-                    if (valueText <= Constants.MinimumDistance)
-                    {
-                        DimensionPosition item = new DimensionPosition();
-                        item.DemissionSeg = listSegment[i];
-                        item.index = i;
-                        listSegmentNeed.Add(item);
-                    }
-                }
-                listSegmentNeed = listSegmentNeed.OrderBy(x => x.index).ToList();
-                for (int i = 0; i < listSegmentNeed.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        listSegmentNeed[i].right = false;
-                    }
-                    else
-                    {
-                        if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
-                        {
-                            listSegmentNeed[i].right = true;
-                        }
-                    }
-                }
-                listResult = listSegmentNeed;
+            {                
+               listSegment = arrayDim.Cast<DimensionSegment>().OrderBy(x => x.Origin.X).ToList();  
             }
+            List<DimensionPosition> listSegmentNeed = new List<DimensionPosition>();
+            for (int i = 0; i < listSegment.Count; i++)
+            {
+                double valueText = double.Parse(listSegment[i].ValueString);
+                if (valueText <= Constants.MinimumDistance)
+                {
+                    DimensionPosition item = new DimensionPosition();
+                    item.DemissionSeg = listSegment[i];
+                    item.index = i;
+                    listSegmentNeed.Add(item);
+                }
+            }
+            listSegmentNeed = listSegmentNeed.OrderBy(x => x.index).ToList();
+            for (int i = 0; i < listSegmentNeed.Count; i++)
+            {
+                if (i == 0)
+                {
+                    listSegmentNeed[i].right = false;
+                }
+                else
+                {
+                    if (listSegmentNeed[i - 1].right == false && listSegmentNeed[i - 1].index == (listSegmentNeed[i].index - 1))
+                    {
+                        listSegmentNeed[i].right = true;
+                    }
+                }
+            }
+            listResult = listSegmentNeed;
             return listResult;
         }
         public static bool breakEvent = false;
