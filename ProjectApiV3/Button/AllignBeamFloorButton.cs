@@ -35,7 +35,7 @@ namespace ProjectApiV3.Button
             {
                 panel = application.CreateRibbonPanel(ribbonTag, ribbonPanel);
             }
-            Image img = ProjectApiV3.Properties.Resources.download_button;
+            Image img = ProjectApiV3.Properties.Resources.back;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
             PushButtonData btnData = new PushButtonData("BeamFloor", "BeamFloor",
                 Assembly.GetExecutingAssembly().Location, "ProjectApiV3.AllignBeamFloor.AllignBeamFloorBinding")

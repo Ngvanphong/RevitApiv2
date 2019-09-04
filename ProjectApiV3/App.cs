@@ -30,6 +30,8 @@ namespace ProjectApiV3
             trim3Dclass.Trim3D(a);
             ShowHideHeaderButton showHideButton = new ShowHideHeaderButton();
             showHideButton.ShowHideHeader(a);
+            CropViewButton cropViewButton = new CropViewButton();
+            cropViewButton.CropView(a);
             return Result.Succeeded;
         }
 

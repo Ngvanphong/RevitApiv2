@@ -51,7 +51,7 @@ namespace ProjectApiV3.RevisionCloud
                 string sheetNumber = string.Empty;
                 try
                 {
-                    var sheetIds = cloud.GetSheetIds();
+                    var sheetIds = cloud.GetSheetIds();                    
                     if (sheetIds.Count() == 0)
                     {
                         RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);

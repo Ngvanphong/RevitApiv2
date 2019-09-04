@@ -94,7 +94,6 @@ namespace ProjectApiV3.DimOffset
                                             dimension.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
-
                                     }
 
                                 }
@@ -115,7 +114,6 @@ namespace ProjectApiV3.DimOffset
                                             dimension.TextPosition = newTextPosition;
                                             isModifiledAdd = true;
                                         }
-
                                     }
                                 }
                                 //code z 
@@ -206,8 +204,7 @@ namespace ProjectApiV3.DimOffset
                                                 .OfPoint(pointOrigin);
                                                 item.DemissionSeg.TextPosition = newTextPosition;
                                                 isModifiledAdd = true;
-                                            }
-                                                
+                                            }                                                
                                         }
                                     }
                                     //code z

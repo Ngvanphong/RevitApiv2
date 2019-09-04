@@ -3,6 +3,7 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\Pr
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\EPPlus.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\FoxLearn.License.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\EPPlus.xml
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.CropView.frmCropView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.DimOffset.frmDimOffset.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.FilterElement.frmFilerElement.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\Debug\ProjectApiV3.Properties.Resources.resources
