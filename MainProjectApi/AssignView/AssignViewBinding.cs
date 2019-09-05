@@ -83,7 +83,7 @@ namespace MainProjectApi.AssignView
             foreach (var sheet in listViewSheet.OrderByDescending(x => x.SheetNumber))
             {
                 var sheetNumber = sheet.SheetNumber;
-                var sheetName = sheet.ViewName;
+                var sheetName = sheet.Name;
                 var row = new string[] { sheetNumber, sheetName };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;

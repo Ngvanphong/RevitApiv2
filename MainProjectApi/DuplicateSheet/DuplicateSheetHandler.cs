@@ -153,7 +153,7 @@ namespace MainProjectApi.DuplicateSheet
                         {
                             var id = item.ScheduleId;
                             ViewSchedule schedule = doc.GetElement(id) as ViewSchedule;
-                            if (schedule.Name != Constant.NameScheduleRevisiion)
+                            if (schedule.Name.Substring(0,19) != Constant.NameScheduleRevisiion)
                             {
                                 listSchedule.Add(schedule);
                             }                            

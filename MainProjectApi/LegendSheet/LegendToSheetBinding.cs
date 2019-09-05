@@ -62,7 +62,7 @@ namespace MainProjectApi.LegendSheet
             foreach(var item in listViewSheet)
             {  
                     var sheetNumber = item.SheetNumber;
-                    var sheetName = item.ViewName;
+                    var sheetName = item.Name;
                     var row = new string[] { sheetNumber, sheetName };
                     var lvi = new ListViewItem(row);
                     lvi.Tag = lvi;
@@ -71,7 +71,7 @@ namespace MainProjectApi.LegendSheet
             foreach (var item in listViewSheet)
             {
                 var sheetNumber = item.SheetNumber;
-                var sheetName = item.ViewName;
+                var sheetName = item.Name;
                 var row = new string[] { sheetNumber, sheetName };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
