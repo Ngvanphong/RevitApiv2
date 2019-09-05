@@ -2,7 +2,6 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\2018\M
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\2018\FoxLearn.License.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\2018\Newtonsoft.Json.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\2018\Newtonsoft.Json.xml
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.csprojResolveAssemblyReference.cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.AssignView.frmAssignView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.ChangeSheetNumber.frmChangeSheetNumber.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.DuplicateSheet.frmDuplicateSheet.resources

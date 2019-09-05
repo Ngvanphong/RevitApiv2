@@ -10,7 +10,6 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\Pro
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.Revision.frmRevision.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.dll
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.csprojResolveAssemblyReference.cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\ProjectApiV3.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\ProjectApiV3.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\Debug\EPPlus.dll
