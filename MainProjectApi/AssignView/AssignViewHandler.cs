@@ -160,7 +160,7 @@ namespace MainProjectApi.AssignView
                                     isExistView = true;
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.SheetNumber = sheetNumberStart;
-                                    viewSheet.ViewName = view.Name;
+                                    viewSheet.Name = view.Name;
                                     if (AppPenalAssignView.myFormAssignView.checkBoxFixPosition.Checked==false
                                         && AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked == false)
                                     {
@@ -178,7 +178,7 @@ namespace MainProjectApi.AssignView
                                     {
                                         ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                         viewSheet.SheetNumber = sheetNumberStart;
-                                        viewSheet.ViewName = view.Name;
+                                        viewSheet.Name = view.Name;
                                         BoundingBoxXYZ newvpbb = titleblock.get_BoundingBox(sheet);
                                         XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
                                         locationPoint = newCenter;
@@ -186,7 +186,7 @@ namespace MainProjectApi.AssignView
                                     }
                                     else
                                     {
-                                        sheet.ViewName = view.Name;
+                                        sheet.Name = view.Name;
                                         BoundingBoxXYZ newvpbb = titleblock.get_BoundingBox(sheet);
                                         XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
                                         locationPoint = newCenter;
@@ -203,7 +203,7 @@ namespace MainProjectApi.AssignView
                                 {
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
                                     viewSheet.SheetNumber = sheetNumberStart;
-                                    viewSheet.ViewName = view.Name;
+                                    viewSheet.Name = view.Name;
                                     BoundingBoxXYZ newvpbb = titleblock.get_BoundingBox(sheet);
                                     XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
                                     locationPoint = newCenter;
@@ -211,7 +211,7 @@ namespace MainProjectApi.AssignView
                                 }
                                 else
                                 {
-                                    sheet.ViewName = view.Name;
+                                    sheet.Name = view.Name;
                                     BoundingBoxXYZ newvpbb = titleblock.get_BoundingBox(sheet);
                                     XYZ newCenter = (newvpbb.Max + newvpbb.Min) / 2;
                                     locationPoint = newCenter;
@@ -229,7 +229,7 @@ namespace MainProjectApi.AssignView
                                 int countEnd2 = end2.ToString().Length;
                                 string sheetNumberStart2 = numberSheet.Remove(sheetNumberStart.Length - countEnd2) + end2.ToString();
                                 ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
-                                viewSheet.ViewName = view.Name;
+                                viewSheet.Name = view.Name;
                                 viewSheet.SheetNumber = sheetNumberStart2;
                                 Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
                                 isCreate = true;
@@ -240,14 +240,14 @@ namespace MainProjectApi.AssignView
                                     || AppPenalAssignView.myFormAssignView.checkBoxFixPositionNotBox.Checked))
                                 {                                   
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
-                                    viewSheet.ViewName = view.Name;
+                                    viewSheet.Name = view.Name;
                                     Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
                                     viewNew.ChangeTypeId(viewPortOldMain.GetTypeId());
                                 }
                                 else
                                 {
                                     ViewSheet viewSheet = ViewSheet.Create(doc, titleblock.GetTypeId());
-                                    viewSheet.ViewName = view.Name;
+                                    viewSheet.Name = view.Name;
                                     Viewport viewNew = Viewport.Create(doc, viewSheet.Id, view.Id, locationPoint);
                                 }                               
                             }

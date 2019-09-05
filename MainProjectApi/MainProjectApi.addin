@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
   <AddIn Type="Command">
+    
     <Text>Command MainProjectApi</Text>
     <Description>Some description for MainProjectApi</Description>
     <Assembly>MainProjectApi.dll</Assembly>

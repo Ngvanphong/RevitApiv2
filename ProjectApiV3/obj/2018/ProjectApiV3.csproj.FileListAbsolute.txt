@@ -1,0 +1,13 @@
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\2018\ProjectApiV3.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\2018\EPPlus.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\2018\FoxLearn.License.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\bin\2018\EPPlus.xml
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.CropView.frmCropView.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.DimOffset.frmDimOffset.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.FilterElement.frmFilerElement.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.Properties.Resources.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.RevisionCloud.frmRevisionCloud.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.Revision.frmRevision.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.csproj.GenerateResource.Cache
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2018\ProjectApiV3.csprojResolveAssemblyReference.cache

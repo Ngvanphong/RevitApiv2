@@ -33,7 +33,7 @@ namespace MainProjectApi.DuplicateSheet
             foreach (var sheet in listSheet.OrderByDescending(x => x.SheetNumber))
             {
                 var sheetNumber = sheet.SheetNumber;
-                var sheetName = sheet.ViewName;
+                var sheetName = sheet.Name;
                 var row = new string[] { sheetNumber, sheetName };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;

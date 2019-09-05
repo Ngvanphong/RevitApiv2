@@ -35,7 +35,7 @@ namespace MainProjectApi.DuplicateSheet
                         sheet = ViewSheet.Create(doc, titleblock.GetTypeId());
 
                         sheet.SheetNumber = CompareString(item.Sheet.SheetNumber, endNumber);
-                        sheet.ViewName = CompareString(item.Sheet.ViewName, endName);
+                        sheet.Name = CompareString(item.Sheet.Name, endName);
                         t.Commit();
                     }
 
@@ -153,7 +153,10 @@ namespace MainProjectApi.DuplicateSheet
                         {
                             var id = item.ScheduleId;
                             ViewSchedule schedule = doc.GetElement(id) as ViewSchedule;
-                            listSchedule.Add(schedule);
+                            if (schedule.Name != Constant.NameScheduleRevisiion)
+                            {
+                                listSchedule.Add(schedule);
+                            }                            
                         }
                         sheetView.ListView = listViewSheet;
                         sheetView.ListSchedule = listSchedule;
