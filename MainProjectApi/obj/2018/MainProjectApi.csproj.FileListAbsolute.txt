@@ -149,3 +149,5 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\ru-RU\AdWindows.resources.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\zh-CN\AdWindows.resources.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\zh-TW\AdWindows.resources.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\MainProjectApi.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.pdb

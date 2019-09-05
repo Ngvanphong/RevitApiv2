@@ -13,6 +13,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProjectApi32018", "Set
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SeupSheetAddin2019", "SeupSheetAddin2019\SeupSheetAddin2019.vdproj", "{2650FB65-9DD5-4E91-B818-F4ABA76F9E8A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProjectApi32019", "SetupProjectApi32019\SetupProjectApi32019.vdproj", "{32C5FF66-0E48-4A17-B91C-0F74E390AB6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		2018|Any CPU = 2018|Any CPU
@@ -53,6 +55,10 @@ Global
 		{2650FB65-9DD5-4E91-B818-F4ABA76F9E8A}.2019|Any CPU.ActiveCfg = Release
 		{2650FB65-9DD5-4E91-B818-F4ABA76F9E8A}.Debug|Any CPU.ActiveCfg = Debug
 		{2650FB65-9DD5-4E91-B818-F4ABA76F9E8A}.Release|Any CPU.ActiveCfg = Release
+		{32C5FF66-0E48-4A17-B91C-0F74E390AB6F}.2018|Any CPU.ActiveCfg = Release
+		{32C5FF66-0E48-4A17-B91C-0F74E390AB6F}.2019|Any CPU.ActiveCfg = Release
+		{32C5FF66-0E48-4A17-B91C-0F74E390AB6F}.Debug|Any CPU.ActiveCfg = Debug
+		{32C5FF66-0E48-4A17-B91C-0F74E390AB6F}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
