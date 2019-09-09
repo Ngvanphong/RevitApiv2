@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace ProjectApiV3.DimOffset
 {
 
-    public class AppPanelDimOffset
+    public static class AppPanelDimOffset
     {
         public static frmDimOffset myFormDimOffset;
         public static ElevationWatcherUpdater _updater = null;

@@ -13,8 +13,13 @@ namespace ProjectApiV3.DimOffset
     {
         public void Execute(UIApplication app)
         {
-        
-            UpdaterRegistry.UnregisterUpdater(AppPanelDimOffset._updater.GetUpdaterId());
+            try
+            {
+                UpdaterRegistry.UnregisterUpdater(AppPanelDimOffset._updater.GetUpdaterId());
+                AppPanelDimOffset._updater = null;
+            }
+            catch (Exception e) { AppPanelDimOffset._updater = null; }
+
         }
 
         public string GetName()

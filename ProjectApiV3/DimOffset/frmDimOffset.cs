@@ -35,7 +35,8 @@ namespace ProjectApiV3.DimOffset
 
         private void btnDimOffsetCancel_Click(object sender, EventArgs e)
         {
-            _cancelEvent.Raise();
+            
+            _cancelEvent.Raise();            
             this.Hide();
         }
 

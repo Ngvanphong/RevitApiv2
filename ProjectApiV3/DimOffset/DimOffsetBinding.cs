@@ -16,19 +16,24 @@ namespace ProjectApiV3.DimOffset
     [Transaction(TransactionMode.Manual)]
     public class DimOffsetBinding : IExternalCommand
     {
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiapp = commandData.Application;
             Application app = uiapp.Application;
+
             if (CheckAccess.CheckLicense() == true)
             {
+            
                 AppPanelDimOffset.ShowFormDimOffset();
-                ElevationWatcherUpdater updater = new ElevationWatcherUpdater(app.ActiveAddInId);
-                UpdaterRegistry.RegisterUpdater(updater);
-                ElementCategoryFilter f = new ElementCategoryFilter(BuiltInCategory.OST_Dimensions);
-                UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), f, Element.GetChangeTypeElementAddition());
-                UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), f, Element.GetChangeTypeAny());
-                AppPanelDimOffset._updater = updater;
+                if (AppPanelDimOffset._updater == null)
+                {
+                    AppPanelDimOffset._updater = new ElevationWatcherUpdater(app.ActiveAddInId);
+                    UpdaterRegistry.RegisterUpdater(AppPanelDimOffset._updater);                  
+                    ElementCategoryFilter f = new ElementCategoryFilter(BuiltInCategory.OST_Dimensions);
+                    UpdaterRegistry.AddTrigger(AppPanelDimOffset._updater.GetUpdaterId(), f, Element.GetChangeTypeElementAddition());
+                    UpdaterRegistry.AddTrigger(AppPanelDimOffset._updater.GetUpdaterId(), f, Element.GetChangeTypeAny());                   
+                }
             }
             return Result.Succeeded;
         }
