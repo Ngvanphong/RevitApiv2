@@ -92,7 +92,7 @@ namespace ProjectApiV3.RevisionCloud
             }
             foreach (var item in listCloudResut.OrderBy(x=>x.RevisionNumber))
             {
-                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.ViewRevision,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
+                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.ViewRevision,item.SheetNumber,item.SheetName, item.Mark,item.Comments,item.Id.ToString()};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
                 AppPanelRevisionCloud.myFormRevisionCloud.listViewRevisionCloud.Items.Add(lvi);
