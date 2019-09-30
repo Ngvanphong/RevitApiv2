@@ -9,6 +9,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Autodesk.Revit.UI.Selection;
 
 namespace ProjectApiV3.RevisionCloud
 {
@@ -22,11 +23,17 @@ namespace ProjectApiV3.RevisionCloud
             List<ElementId> listIdCloud = new List<ElementId>();
             foreach (ListViewItem item in listItemChecked)
             {        
-                int elemntIdInt = int.Parse(item.SubItems[8].Text);
+                int elemntIdInt = int.Parse(item.SubItems[9].Text);
                 ElementId id = new ElementId(elemntIdInt);
                 listIdCloud.Add(id);
             }
-            app.ActiveUIDocument.Selection.SetElementIds(listIdCloud);
+            if (listIdCloud.Count > 0)
+            {
+                app.ActiveUIDocument.Selection.SetElementIds(listIdCloud);
+                var rev = doc.GetElement(listIdCloud.First()) as Autodesk.Revit.DB.RevisionCloud;
+                app.ActiveUIDocument.ActiveView = doc.GetElement(rev.OwnerViewId) as Autodesk.Revit.DB.View;
+                app.ActiveUIDocument.ShowElements(rev);
+            }
         }
 
         public string GetName()

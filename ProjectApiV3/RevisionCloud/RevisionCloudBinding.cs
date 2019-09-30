@@ -47,6 +47,7 @@ namespace ProjectApiV3.RevisionCloud
                 string comments = para.AsString();
                 Parameter paraMark = cloud.LookupParameter("Mark");
                 string mark = paraMark.AsString();
+                string viewName = doc.GetElement(cloud.OwnerViewId).Name;
                 string sheetName = string.Empty;
                 string sheetNumber = string.Empty;
                 try
@@ -54,7 +55,7 @@ namespace ProjectApiV3.RevisionCloud
                     var sheetIds = cloud.GetSheetIds();                    
                     if (sheetIds.Count() == 0)
                     {
-                        RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                        RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo,viewName, sheetNumber, sheetName, comments, mark);
                         listCloud.Add(infor);
                     }
                     else
@@ -64,7 +65,7 @@ namespace ProjectApiV3.RevisionCloud
                             ViewSheet sheet = doc.GetElement(id) as ViewSheet;
                             sheetName = sheet.Name;
                             sheetNumber = sheet.SheetNumber;
-                            RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                            RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo,viewName, sheetNumber, sheetName, comments, mark);
                             listCloud.Add(infor);
                         }
                     }   
@@ -72,7 +73,7 @@ namespace ProjectApiV3.RevisionCloud
                 }
                 catch
                 {
-                    RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo, sheetNumber, sheetName, comments, mark);
+                    RevisionInfor infor = new RevisionInfor(cloud.Id,revisionNumber, revisionDate, issuedBy, issuedTo,viewName, sheetNumber, sheetName, comments, mark);
                     listCloud.Add(infor);
                 }
             }
@@ -91,7 +92,7 @@ namespace ProjectApiV3.RevisionCloud
             }
             foreach (var item in listCloudResut.OrderBy(x=>x.RevisionNumber))
             {
-                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
+                var row = new string[] { item.RevisionNumber,item.RevisionDate,item.IssuedBy,item.IssuedTo,item.ViewRevision,item.SheetNumber,item.SheetName,item.Comments,item.Mark,item.Id.ToString()};
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;
                 AppPanelRevisionCloud.myFormRevisionCloud.listViewRevisionCloud.Items.Add(lvi);
@@ -120,13 +121,14 @@ namespace ProjectApiV3.RevisionCloud
 
         }
         public RevisionInfor(ElementId id,string revisionNumber, string revisionDate, string issuedBy, string issuedTo,
-            string sheetNumber, string sheetName, string comments, string mark)
+            string viewRevision, string sheetNumber, string sheetName, string comments, string mark)
         {
             Id = id;
             RevisionNumber = revisionNumber;
             RevisionDate = revisionDate;
             IssuedBy = issuedBy;
             IssuedTo = issuedTo;
+            ViewRevision = viewRevision;
             SheetNumber = sheetNumber;
             SheetName = sheetName;
             Comments = comments;
@@ -137,6 +139,7 @@ namespace ProjectApiV3.RevisionCloud
         public string RevisionDate { get; set; }
         public string IssuedBy { set; get; }
         public string IssuedTo { get; set; }
+        public string ViewRevision { set; get; }
         public string SheetNumber { set; get; }
         public string SheetName { get; set; }
         public string Comments { set; get; }
