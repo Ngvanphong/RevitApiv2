@@ -20,7 +20,7 @@ namespace ProjectApiV3.Button
             {
                 application.CreateRibbonTab(ribbonTag);
             }
-            catch (Exception ex) { }
+            catch { }
             RibbonPanel panel = null;
             List<RibbonPanel> panels = application.GetRibbonPanels(ribbonTag);
             foreach (RibbonPanel pl in panels)
@@ -35,6 +35,7 @@ namespace ProjectApiV3.Button
             {
                 panel = application.CreateRibbonPanel(ribbonTag, ribbonPanel);
             }
+
             Image img = ProjectApiV3.Properties.Resources.iconfinder_Modify_132685;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
             PushButtonData btnData = new PushButtonData("RevisionSheet", "RevisionSheet",
@@ -46,8 +47,23 @@ namespace ProjectApiV3.Button
                 LargeImage = imgSrc,
             };
 
-            PushButton button = panel.AddItem(btnData) as PushButton;
-            button.Enabled = true;
+            Image img2 = ProjectApiV3.Properties.Resources.cloud_computing;
+            ImageSource imgSrc2 = Helper.Extension.GetImageSource(img2);
+            PushButtonData btnData2 = new PushButtonData("RevisionCloud", "RevisionCloud",
+                Assembly.GetExecutingAssembly().Location, "ProjectApiV3.RevisionCloud.RevisionCloudBinding")
+            {
+                ToolTip = "Revision cloud",
+                LongDescription = "Revision cloud",
+                Image = imgSrc2,
+                LargeImage = imgSrc2,
+            };
+
+            SplitButtonData splitData = new SplitButtonData("Revisions", "Revisions");
+            SplitButton splitButton = panel.AddItem(splitData) as SplitButton;
+            splitButton.IsSynchronizedWithCurrentItem = true;
+            splitButton.AddPushButton(btnData);
+            splitButton.AddPushButton(btnData2);
+
         }
     }
 }

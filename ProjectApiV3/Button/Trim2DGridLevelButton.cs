@@ -47,8 +47,34 @@ namespace ProjectApiV3.Button
                 LargeImage = imgSrc,
             };
 
-            PushButton button = panel.AddItem(btnData) as PushButton;
-            button.Enabled = true;
+            Image img2 = ProjectApiV3.Properties.Resources.iconfinder_application_side_expand_4965;
+            ImageSource imgSrc2 = Helper.Extension.GetImageSource(img2);
+            PushButtonData btnData2 = new PushButtonData("Extend3D", "Extend3D",
+                Assembly.GetExecutingAssembly().Location, "ProjectApiV3.TrimGridLevel.Trim3DGridLevelBinding")
+            {
+                ToolTip = "Trim 3D grid and level",
+                LongDescription = "Trim 3D grid and level",
+                Image = imgSrc2,
+                LargeImage = imgSrc2,
+            };
+
+            Image img3 = ProjectApiV3.Properties.Resources.icons8_project_management_16;
+            ImageSource imgSrc3 = Helper.Extension.GetImageSource(img3);
+            PushButtonData btnData3 = new PushButtonData("ShowHide", "ShowHide",
+                Assembly.GetExecutingAssembly().Location, "ProjectApiV3.TrimGridLevel.ShowHideHeaderBinding")
+            {
+                ToolTip = "Show or hide header of grid and level",
+                LongDescription = "Show or hide header of grid and level",
+                Image = imgSrc3,
+                LargeImage = imgSrc3,
+            };
+
+            SplitButtonData splitData = new SplitButtonData("Grid&Level", "Grid&Level");
+            SplitButton splitButton = panel.AddItem(splitData) as SplitButton;
+            splitButton.IsSynchronizedWithCurrentItem = true;
+            splitButton.AddPushButton(btnData);
+            splitButton.AddPushButton(btnData2);
+            splitButton.AddPushButton(btnData3);
         }
     }
 }
