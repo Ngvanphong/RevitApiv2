@@ -36,7 +36,7 @@ namespace ProjectApiV3.Button
             {
                 panel = application.CreateRibbonPanel(ribbonTag, ribbonPanel);
             }
-            Image img = ProjectApiV3.Properties.Resources.iconfinder_application_sidebar_expand_25531;
+            Image img = ProjectApiV3.Properties.Resources.iconfinder_application_side_expand_4965;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
             PushButtonData btnData = new PushButtonData("Extend2D", "Extend2D",
                 Assembly.GetExecutingAssembly().Location, "ProjectApiV3.TrimGridLevel.Trim2DGridLevelBinding")
@@ -47,7 +47,7 @@ namespace ProjectApiV3.Button
                 LargeImage = imgSrc,
             };
 
-            Image img2 = ProjectApiV3.Properties.Resources.iconfinder_application_side_expand_4965;
+            Image img2 = ProjectApiV3.Properties.Resources.iconfinder_application_sidebar_expand_25531;
             ImageSource imgSrc2 = Helper.Extension.GetImageSource(img2);
             PushButtonData btnData2 = new PushButtonData("Extend3D", "Extend3D",
                 Assembly.GetExecutingAssembly().Location, "ProjectApiV3.TrimGridLevel.Trim3DGridLevelBinding")

@@ -173,13 +173,14 @@
     <Content Include="MainProjectApi.addin">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\iconfinder_62_62719.png" />
+    <None Include="Resources\sort_by_numeric_order.png" />
+    <None Include="Resources\rename.png" />
     <None Include="Resources\insurance.png" />
+    <None Include="Resources\Copy.png" />
     <None Include="Resources\sort-by-numeric-order.png" />
     <None Include="Resources\numbered-list.png" />
-    <None Include="Resources\rename.png" />
-    <None Include="Resources\Copy.png" />
     <None Include="packages.config" />
-    <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\icon.png" />
     <None Include="Resources\icons8-color-16.png" />
   </ItemGroup>

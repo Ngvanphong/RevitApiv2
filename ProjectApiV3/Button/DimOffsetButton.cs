@@ -15,7 +15,7 @@ namespace ProjectApiV3.Button
         public void DimOffset(UIControlledApplication application)
         {
             const string ribbonTag = "ArmoApiVn";
-            const string ribbonPanel = "Dimensions";
+            const string ribbonPanel = "View&Sheet";
             try
             {
                 application.CreateRibbonTab(ribbonTag);
@@ -37,10 +37,10 @@ namespace ProjectApiV3.Button
             }
             Image img = ProjectApiV3.Properties.Resources.ruler_16;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
-            PushButtonData btnData = new PushButtonData("DimensionOffset", "DimensionOffset",
+            PushButtonData btnData = new PushButtonData("DimOffset", "DimOffset",
                 Assembly.GetExecutingAssembly().Location, "ProjectApiV3.DimOffset.DimOffsetBinding")
             {
-                ToolTip = "Offset for dimension",
+                ToolTip = "Offset for dimensions",
                 LongDescription = "Offset for dimentions",
                 Image = imgSrc,
                 LargeImage = imgSrc,
