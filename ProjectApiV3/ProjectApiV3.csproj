@@ -168,8 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
-    <None Include="Resources\cloud_computing.png" />
     <None Include="Resources\back.png" />
+    <None Include="Resources\crop_16.png" />
+    <None Include="Resources\cloud_computing.png" />
     <None Include="Resources\ruler_16.png" />
     <None Include="Resources\icons8_project_management_16.png" />
     <None Include="Resources\iconfinder_Modify_132685.png" />
