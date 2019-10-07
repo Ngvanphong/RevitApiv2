@@ -40,7 +40,7 @@ namespace MainProjectApi.NoNumberSheet
                 paraRevit.SetValueParameter(para, newNoNumber);
                 inputNumber = newNoNumber;
             }
-
+            AppPanelNoNumberSheet.myFormNoNumberSheet.txtNoStartNumber.Text = SetNumber(inputNumber, ref isBegin);
         }
 
         public string GetName()
@@ -51,8 +51,7 @@ namespace MainProjectApi.NoNumberSheet
         public string SetNumber(string noNumber, ref bool isBegin)
         {
             string noNumberResult = null;
-            int lengthNumber = noNumber.Length;
-            string start = Regex.Replace(noNumber, @"[\d-]", string.Empty);
+            int lengthNumber = noNumber.Length;     
             int end = int.Parse(Regex.Match(noNumber, @"\d+").Value);
             if (isBegin == false)
             {

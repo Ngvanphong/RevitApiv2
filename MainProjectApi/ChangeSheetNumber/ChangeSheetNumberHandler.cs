@@ -118,7 +118,6 @@ namespace MainProjectApi.ChangeSheetNumber
            
             string sheetNumberResult = null;
             int lengthNumber = sheetNumber.Length;
-            string start = Regex.Replace(sheetNumber, @"[\d-]", string.Empty);
             int end = int.Parse(Regex.Match(sheetNumber, @"\d+").Value);
             if (isBegin==false)
             {
