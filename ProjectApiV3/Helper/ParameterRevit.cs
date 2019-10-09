@@ -98,8 +98,6 @@ namespace ProjectApiV3.Helper
                 return val;
             }
 
-            // To get to the parameter value, we need to pause it depending on its storage type 
-
             switch (param.StorageType)
             {
                 case StorageType.Double:
@@ -107,7 +105,7 @@ namespace ProjectApiV3.Helper
                     val = dVal.ToString();
                     break;
                 case StorageType.Integer:
-                    int iVal = param.AsInteger();
+                    string iVal = param.AsValueString();
                     val = iVal.ToString();
                     break;
                 case StorageType.String:
@@ -115,8 +113,8 @@ namespace ProjectApiV3.Helper
                     val = sVal;
                     break;
                 case StorageType.ElementId:
-                    ElementId idVal = param.AsElementId();
-                    val = idVal.IntegerValue.ToString();
+                    string idVal = param.AsValueString();
+                    val = idVal.ToString();
                     break;
                 case StorageType.None:
                     break;

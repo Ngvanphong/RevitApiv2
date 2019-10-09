@@ -73,6 +73,7 @@ namespace ProjectApiV3.FilterElement
                                     if (listValuePa.Exists(x => x == value))
                                     {
                                         count = count + 1;
+                                        break;
                                     }
                                 }
                             }
