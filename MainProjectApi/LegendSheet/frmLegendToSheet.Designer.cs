@@ -158,7 +158,6 @@
             this.Controls.Add(this.listViewSheetSimilar);
             this.Controls.Add(this.listViewLegend);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmLegendToSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLegendToSheet";

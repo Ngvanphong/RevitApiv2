@@ -190,7 +190,6 @@
             this.Controls.Add(this.listViewSelect);
             this.Controls.Add(this.listViewView);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmAssignView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAssignView";

@@ -256,7 +256,6 @@
             this.Controls.Add(this.btnStartDuplicate);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmDuplicateSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDuplicateSheet";
