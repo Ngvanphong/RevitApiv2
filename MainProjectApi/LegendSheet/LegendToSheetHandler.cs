@@ -17,49 +17,86 @@ namespace MainProjectApi.LegendSheet
     {
         public void Execute(UIApplication app)
         {
-           
+
             Document doc = app.ActiveUIDocument.Document;
             List<Autodesk.Revit.DB.View> listLegends = GetLegendCheked(doc);
             List<ViewSheet> listSheetAssign = GetSheets(doc);
-            ViewSheet sheetSimilar = null;
-            bool similar = GetLegendSimilar(doc, listLegends,out sheetSimilar);
-            if (similar)
+            if (AppPanelLegendToSheet.AddLegend == true)
             {
-                var listViewPortId = sheetSimilar.GetAllViewports().ToList();
-                foreach(var legend in listLegends)
+                ViewSheet sheetSimilar = null;
+                bool similar = GetLegendSimilar(doc, listLegends, out sheetSimilar);
+                if (similar)
                 {
-                    XYZ location=null;
-                    ElementId typeView = null;
-                    foreach(var id in listViewPortId)
+                    var listViewPortId = sheetSimilar.GetAllViewports().ToList();
+                    foreach (var legend in listLegends)
                     {
-                        Viewport viewPort = doc.GetElement(id) as Viewport;
-                        if (viewPort.ViewId == legend.Id)
+                        XYZ location = null;
+                        ElementId typeView = null;
+                        foreach (var id in listViewPortId)
                         {
-                            location = viewPort.GetBoxCenter();
-                            typeView = viewPort.GetTypeId();
-                            break;
-                        }
-                    }
-                    foreach(var sheet in listSheetAssign)
-                    {
-                        try
-                        {
-                            using (Transaction t = new Transaction(doc, "Assginlegend"))
+                            Viewport viewPort = doc.GetElement(id) as Viewport;
+                            if (viewPort.ViewId == legend.Id)
                             {
-                                t.Start();
-                                Viewport viewNew = Viewport.Create(doc, sheet.Id, legend.Id, location);
-                                viewNew.ChangeTypeId(typeView);                       
-                                t.Commit();
+                                location = viewPort.GetBoxCenter();
+                                typeView = viewPort.GetTypeId();
+                                break;
                             }
                         }
-                        catch
+                        foreach (var sheet in listSheetAssign)
                         {
-                            continue;
-                        }
-                        
-                    }
-                }
+                            try
+                            {
+                                using (Transaction t = new Transaction(doc, "Assginlegend"))
+                                {
+                                    t.Start();
+                                    Viewport viewNew = Viewport.Create(doc, sheet.Id, legend.Id, location);
+                                    viewNew.ChangeTypeId(typeView);
+                                    t.Commit();
+                                }
+                            }
+                            catch
+                            {
+                                continue;
+                            }
 
+                        }
+                    }
+                    MessageBox.Show("Adding legend is finished");
+
+                }
+            }
+            else if (AppPanelLegendToSheet.AddLegend == false)
+            {
+                foreach (var sheet in listSheetAssign)
+                {
+                    var viewPortIds = sheet.GetAllViewports();
+                    foreach (ElementId id in viewPortIds)
+                    {
+                        Viewport viewport = doc.GetElement(id) as Viewport;
+                        if (viewport != null)
+                        {
+                            var legendId = viewport.ViewId;
+                            if (listLegends.Exists(x => x.Id==legendId))
+                            {
+                                try
+                                {
+                                    using (Transaction t2 = new Transaction(doc, "Removelegend"))
+                                    {
+                                        t2.Start();
+                                        doc.Delete(viewport.Id);
+                                        t2.Commit();
+                                    }
+                                }
+                                catch
+                                {
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+                   
+                }
+                MessageBox.Show("Removing legend is finished");
             }
 
         }
@@ -108,8 +145,8 @@ namespace MainProjectApi.LegendSheet
             return listViewSheet;
         }
 
-        public bool GetLegendSimilar(Document doc,List<Autodesk.Revit.DB.View> listLegend, out ViewSheet sheetout)
-        {                
+        public bool GetLegendSimilar(Document doc, List<Autodesk.Revit.DB.View> listLegend, out ViewSheet sheetout)
+        {
             ViewSheet sheetChecked = null;
             List<Autodesk.Revit.DB.View> listLegendSimilar = new List<Autodesk.Revit.DB.View>();
             var itemSheet = AppPanelLegendToSheet.myFormLegendToSheet.listViewSheetSimilar.CheckedItems;
@@ -120,7 +157,7 @@ namespace MainProjectApi.LegendSheet
                 {
                     if (sheet.SheetNumber == item.Text)
                     {
-                        sheetChecked = sheet;                        
+                        sheetChecked = sheet;
                         break;
                     }
                 }
@@ -131,10 +168,10 @@ namespace MainProjectApi.LegendSheet
                 TaskDialog.Show("Error", "You seclect a sheet similar");
                 return false;
             }
-            var listViewPortId = sheetChecked.GetAllViewports().ToList();           
-            foreach(var legend in listLegend)
+            var listViewPortId = sheetChecked.GetAllViewports().ToList();
+            foreach (var legend in listLegend)
             {
-                foreach(var id in listViewPortId)
+                foreach (var id in listViewPortId)
                 {
                     Viewport viewPort = doc.GetElement(id) as Viewport;
                     if (viewPort.ViewId == legend.Id)
@@ -142,19 +179,20 @@ namespace MainProjectApi.LegendSheet
                         listLegendSimilar.Add(legend);
                         break;
                     }
-                }                               
+                }
             }
-           
+
             if (listLegendSimilar.Count() == listLegend.Count())
             {
                 return true;
-            }else
+            }
+            else
             {
                 TaskDialog.Show("Error", "Legend must add sheet similar");
                 return false;
             }
         }
 
-       
+
     }
 }

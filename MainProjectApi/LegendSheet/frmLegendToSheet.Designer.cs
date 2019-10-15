@@ -154,6 +154,7 @@
             this.btnRemoveRevision.TabIndex = 7;
             this.btnRemoveRevision.Text = "Remove";
             this.btnRemoveRevision.UseVisualStyleBackColor = true;
+            this.btnRemoveRevision.Click += new System.EventHandler(this.btnRemoveRevision_Click);
             // 
             // frmLegendToSheet
             // 
