@@ -37,7 +37,7 @@ namespace ProjectApiV3.DimOffset
         {
             
             _cancelEvent.Raise();            
-            this.Hide();
+            this.Close();
         }
 
         private void txtMinimunDistanceDim_TextChanged(object sender, EventArgs e)
