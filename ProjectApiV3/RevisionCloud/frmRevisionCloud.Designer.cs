@@ -33,17 +33,17 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSelectRevisionCloud = new System.Windows.Forms.Button();
             this.checkBoxCheckAllRevisionCloud = new System.Windows.Forms.CheckBox();
             this.btnReloadRevisionCloud = new System.Windows.Forms.Button();
             this.dropChooseFilterCloud = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewRevisionCloud
@@ -62,7 +62,7 @@
             this.columnHeader9});
             this.listViewRevisionCloud.Location = new System.Drawing.Point(12, 42);
             this.listViewRevisionCloud.Name = "listViewRevisionCloud";
-            this.listViewRevisionCloud.Size = new System.Drawing.Size(1146, 352);
+            this.listViewRevisionCloud.Size = new System.Drawing.Size(1146, 462);
             this.listViewRevisionCloud.TabIndex = 0;
             this.listViewRevisionCloud.UseCompatibleStateImageBehavior = false;
             this.listViewRevisionCloud.View = System.Windows.Forms.View.Details;
@@ -87,9 +87,13 @@
             this.columnHeader4.Text = "Issued To";
             this.columnHeader4.Width = 110;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "View Name";
+            this.columnHeader10.Width = 203;
+            // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 5;
             this.columnHeader5.Text = "Sheet Number";
             this.columnHeader5.Width = 116;
             // 
@@ -98,17 +102,15 @@
             this.columnHeader6.Text = "Sheet Name";
             this.columnHeader6.Width = 167;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.DisplayIndex = 8;
-            this.columnHeader7.Text = "Commnents";
-            this.columnHeader7.Width = 183;
-            // 
             // columnHeader8
             // 
-            this.columnHeader8.DisplayIndex = 7;
             this.columnHeader8.Text = "Mark";
             this.columnHeader8.Width = 70;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Commnents";
+            this.columnHeader7.Width = 183;
             // 
             // columnHeader9
             // 
@@ -164,17 +166,11 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Filter:";
             // 
-            // columnHeader10
-            // 
-            this.columnHeader10.DisplayIndex = 4;
-            this.columnHeader10.Text = "View Name";
-            this.columnHeader10.Width = 203;
-            // 
             // frmRevisionCloud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 406);
+            this.ClientSize = new System.Drawing.Size(1168, 516);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dropChooseFilterCloud);
             this.Controls.Add(this.btnReloadRevisionCloud);
