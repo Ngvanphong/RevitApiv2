@@ -32,6 +32,8 @@ namespace ProjectApiV3
             //showHideButton.ShowHideHeader(a);
             CropViewButton cropViewButton = new CropViewButton();
             cropViewButton.CropView(a);
+            AlignBeamFloor3DButton alignBeam3d = new AlignBeamFloor3DButton();
+            alignBeam3d.CreateAllignBeam3D(a);
             return Result.Succeeded;
         }
 

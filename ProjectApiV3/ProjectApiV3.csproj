@@ -85,9 +85,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlignBeamFloor3D\AlignBeamFloor3DBinding.cs" />
     <Compile Include="AllignBeamFloor\AllignBeamFloor.cs" />
     <Compile Include="AllignBeamFloor\AllignBeamFloorBinding.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Button\AlignBeamFloor3D Button.cs" />
     <Compile Include="Button\AllignBeamFloorButton.cs" />
     <Compile Include="Button\CropViewButton.cs" />
     <Compile Include="Button\DimOffsetButton.cs" />
@@ -168,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProjectApiV3.addin" />
+    <None Include="Resources\icons8-ceiling-light-32.png" />
     <None Include="Resources\back.png" />
     <None Include="Resources\crop_16.png" />
     <None Include="Resources\cloud_computing.png" />
