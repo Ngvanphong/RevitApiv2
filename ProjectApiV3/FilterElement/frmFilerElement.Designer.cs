@@ -48,6 +48,7 @@
             // 
             // listViewCategory
             // 
+            this.listViewCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewCategory.CheckBoxes = true;
             this.listViewCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
@@ -66,6 +67,7 @@
             // 
             // listViewTypeName
             // 
+            this.listViewTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewTypeName.CheckBoxes = true;
             this.listViewTypeName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
@@ -84,6 +86,7 @@
             // 
             // listViewParameter
             // 
+            this.listViewParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewParameter.CheckBoxes = true;
             this.listViewParameter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
@@ -102,6 +105,7 @@
             // 
             // listViewValueParameter
             // 
+            this.listViewValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewValueParameter.CheckBoxes = true;
             this.listViewValueParameter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5});
@@ -119,6 +123,7 @@
             // 
             // checkBoxCategoryAll
             // 
+            this.checkBoxCategoryAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxCategoryAll.AutoSize = true;
             this.checkBoxCategoryAll.Location = new System.Drawing.Point(35, 341);
             this.checkBoxCategoryAll.Name = "checkBoxCategoryAll";
@@ -130,6 +135,7 @@
             // 
             // checkBoxTypeNameAll
             // 
+            this.checkBoxTypeNameAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxTypeNameAll.AutoSize = true;
             this.checkBoxTypeNameAll.Location = new System.Drawing.Point(264, 341);
             this.checkBoxTypeNameAll.Name = "checkBoxTypeNameAll";
@@ -141,6 +147,7 @@
             // 
             // btnFilterElement
             // 
+            this.btnFilterElement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFilterElement.Location = new System.Drawing.Point(78, 337);
             this.btnFilterElement.Name = "btnFilterElement";
             this.btnFilterElement.Size = new System.Drawing.Size(51, 23);
@@ -151,6 +158,7 @@
             // 
             // btnFilterElement2
             // 
+            this.btnFilterElement2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFilterElement2.Location = new System.Drawing.Point(307, 337);
             this.btnFilterElement2.Name = "btnFilterElement2";
             this.btnFilterElement2.Size = new System.Drawing.Size(51, 23);
@@ -161,6 +169,7 @@
             // 
             // btnFilterElement4
             // 
+            this.btnFilterElement4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFilterElement4.Location = new System.Drawing.Point(736, 337);
             this.btnFilterElement4.Name = "btnFilterElement4";
             this.btnFilterElement4.Size = new System.Drawing.Size(51, 23);
@@ -171,6 +180,7 @@
             // 
             // checkBoxParameterNone
             // 
+            this.checkBoxParameterNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxParameterNone.AutoSize = true;
             this.checkBoxParameterNone.Location = new System.Drawing.Point(508, 341);
             this.checkBoxParameterNone.Name = "checkBoxParameterNone";
@@ -182,6 +192,7 @@
             // 
             // checkBoxValueParameterNone
             // 
+            this.checkBoxValueParameterNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxValueParameterNone.AutoSize = true;
             this.checkBoxValueParameterNone.Location = new System.Drawing.Point(684, 341);
             this.checkBoxValueParameterNone.Name = "checkBoxValueParameterNone";
@@ -193,6 +204,7 @@
             // 
             // btnUpdateValueParameter
             // 
+            this.btnUpdateValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdateValueParameter.Location = new System.Drawing.Point(610, 337);
             this.btnUpdateValueParameter.Name = "btnUpdateValueParameter";
             this.btnUpdateValueParameter.Size = new System.Drawing.Size(62, 23);

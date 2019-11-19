@@ -55,6 +55,9 @@
             // 
             // listViewSheet
             // 
+            this.listViewSheet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewSheet.CheckBoxes = true;
             this.listViewSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -78,6 +81,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -135,6 +141,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.Controls.Add(this.radioButtonSchechuleNone);
             this.groupBox3.Controls.Add(this.radioButtonScheduleYes);
             this.groupBox3.Location = new System.Drawing.Point(238, 281);
@@ -169,6 +176,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.radioButtonLegnedNone);
             this.groupBox2.Controls.Add(this.radioButtonLegendYes);
             this.groupBox2.Location = new System.Drawing.Point(12, 281);
@@ -202,6 +210,7 @@
             // 
             // btnStartDuplicate
             // 
+            this.btnStartDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnStartDuplicate.Location = new System.Drawing.Point(385, 370);
             this.btnStartDuplicate.Name = "btnStartDuplicate";
             this.btnStartDuplicate.Size = new System.Drawing.Size(89, 32);
@@ -212,6 +221,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 380);
             this.label1.Name = "label1";
@@ -221,6 +231,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(178, 380);
             this.label3.Name = "label3";
@@ -230,6 +241,7 @@
             // 
             // textBoxEndNumber
             // 
+            this.textBoxEndNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxEndNumber.Location = new System.Drawing.Point(114, 377);
             this.textBoxEndNumber.Name = "textBoxEndNumber";
             this.textBoxEndNumber.Size = new System.Drawing.Size(61, 20);
@@ -238,6 +250,7 @@
             // 
             // textBoxEndName
             // 
+            this.textBoxEndName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxEndName.Location = new System.Drawing.Point(270, 377);
             this.textBoxEndName.Name = "textBoxEndName";
             this.textBoxEndName.Size = new System.Drawing.Size(109, 20);

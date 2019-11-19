@@ -63,6 +63,8 @@
             // 
             // listViewSheetInfor
             // 
+            this.listViewSheetInfor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewSheetInfor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.SheetNumber,
             this.columnHeader7,
@@ -91,6 +93,8 @@
             // 
             // listViewRevisionInfor
             // 
+            this.listViewRevisionInfor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewRevisionInfor.CheckBoxes = true;
             this.listViewRevisionInfor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -159,6 +163,8 @@
             // 
             // listViewSheetAssign
             // 
+            this.listViewSheetAssign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewSheetAssign.CheckBoxes = true;
             this.listViewSheetAssign.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
@@ -188,6 +194,8 @@
             // 
             // listViewRevisionAssign
             // 
+            this.listViewRevisionAssign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewRevisionAssign.CheckBoxes = true;
             this.listViewRevisionAssign.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});

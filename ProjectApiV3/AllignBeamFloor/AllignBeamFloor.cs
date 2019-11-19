@@ -21,31 +21,34 @@ namespace ProjectApiV3.AllignBeamFloor
         }
         public void AllignBeamToFloor()
         {
-            List<ElementId> listIds= _uiApp.ActiveUIDocument.Selection.GetElementIds().ToList();
-            List<FamilyInstance> listBeam = new List<FamilyInstance>();           
-            foreach(var id in listIds)
+            try
             {
-                FamilyInstance element = null;
-                 element = _doc.GetElement(id) as FamilyInstance;
-                if (element != null)
+                List<ElementId> listIds = _uiApp.ActiveUIDocument.Selection.GetElementIds().ToList();
+                List<FamilyInstance> listBeam = new List<FamilyInstance>();
+                foreach (var id in listIds)
                 {
-                    if (element.Category.Name == "Structural Framing")
+                    FamilyInstance element = null;
+                    element = _doc.GetElement(id) as FamilyInstance;
+                    if (element != null)
                     {
-                        listBeam.Add(element);
-                    }                   
-                }              
-            }            
-            XYZ point1 = _uiApp.ActiveUIDocument.Selection.PickPoint();
-            XYZ point2= _uiApp.ActiveUIDocument.Selection.PickPoint();            
-            foreach (var item in listBeam)
-            {
-                try
-                {
-                    PointBeamAllign(point1,point2, item);
+                        if (element.Category.Name == "Structural Framing")
+                        {
+                            listBeam.Add(element);
+                        }
+                    }
                 }
-                catch { continue; }
+                XYZ point1 = _uiApp.ActiveUIDocument.Selection.PickPoint();
+                XYZ point2 = _uiApp.ActiveUIDocument.Selection.PickPoint();
+                foreach (var item in listBeam)
+                {
+                    try
+                    {
+                        PointBeamAllign(point1, point2, item);
+                    }
+                    catch { continue; }
+                }
             }
-           
+            catch { } 
 
         }
 
@@ -138,8 +141,8 @@ namespace ProjectApiV3.AllignBeamFloor
                     t.Start();
                     XYZ v1 = point1 - point2;                  
                     XYZ v2 = new XYZ(0, 1, 0);
-                    double cos = (v1.Y) * 1 / (Math.Sqrt(v1.Y * v1.Y + v1.Z * v1.Z));
-                    double radian = Math.Acos(cos);
+                    //double cos = (v1.Y) * 1 / (Math.Sqrt(v1.Y * v1.Y + v1.Z * v1.Z));
+                    //double radian = Math.Acos(cos);
                     XYZ A = new XYZ(0, pointBeam1.Y, pointBeam1.Z);
                     XYZ Ag = new XYZ(0, A.Y, point1.Z + v1.Z * (A.Y - point1.Y) / v1.Y);
                     XYZ At = new XYZ(pointBeam1.X, pointBeam1.Y, Ag.Z);
@@ -152,14 +155,14 @@ namespace ProjectApiV3.AllignBeamFloor
                     Parameter parameterEnd = beam.LookupParameter("End Level Offset");
                     double valueEnd = parameterEnd.AsDouble() - offset / (0.3048 * 1000);
                     SetValueParameterDouble(_doc, parameterEnd, valueEnd);
-                    Parameter parameterBeam = beam.LookupParameter("Cross-Section Rotation");
-                    if (cos > 0)
-                    {
-                        parameterBeam.Set(radian);
-                    }else
-                    {
-                        parameterBeam.Set(radian-Math.PI);
-                    }
+                    //Parameter parameterBeam = beam.LookupParameter("Cross-Section Rotation");
+                    //if (cos > 0)
+                    //{
+                    //    parameterBeam.Set(radian);
+                    //}else
+                    //{
+                    //    parameterBeam.Set(radian-Math.PI);
+                    //}
                    
                     t.Commit();
                 }    
@@ -172,8 +175,8 @@ namespace ProjectApiV3.AllignBeamFloor
                     t.Start();
                     XYZ v1 = point1 - point2;
                     XYZ v2 = new XYZ(1, 0, 0);
-                    double cos = (v1.X) * 1 / (Math.Sqrt(v1.X * v1.X + v1.Z * v1.Z));
-                    double radian = Math.Acos(cos);
+                    //double cos = (v1.X) * 1 / (Math.Sqrt(v1.X * v1.X + v1.Z * v1.Z));
+                    //double radian = Math.Acos(cos);
                     XYZ A = new XYZ(pointBeam1.X, 0, pointBeam1.Z);
                     XYZ Ag = new XYZ(A.X, 0, point1.Z + v1.Z * (A.X - point1.X) / v1.X);
                     XYZ At = new XYZ(pointBeam1.X, pointBeam1.Y, Ag.Z);
@@ -186,15 +189,15 @@ namespace ProjectApiV3.AllignBeamFloor
                     Parameter parameterEnd = beam.LookupParameter("End Level Offset");
                     double valueEnd = parameterEnd.AsDouble() - offset / (0.3048 * 1000);
                     SetValueParameterDouble(_doc, parameterEnd, valueEnd);
-                    Parameter parameterBeam = beam.LookupParameter("Cross-Section Rotation");
-                    if (cos > 0)
-                    {
-                        parameterBeam.Set(radian);
-                    }
-                    else
-                    {
-                        parameterBeam.Set(radian - Math.PI);
-                    }
+                    //Parameter parameterBeam = beam.LookupParameter("Cross-Section Rotation");
+                    //if (cos > 0)
+                    //{
+                    //    parameterBeam.Set(radian);
+                    //}
+                    //else
+                    //{
+                    //    parameterBeam.Set(radian - Math.PI);
+                    //}
 
                     t.Commit();
                 }
