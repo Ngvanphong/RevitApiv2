@@ -36,7 +36,7 @@ namespace MainProjectApi.LegendSheet
 
         private void btnAssignLegend_Click(object sender, EventArgs e)
         {
-            AppPanelLegendToSheet.AddLegend = true;
+            AppPanelLegendToSheet.AddLegend = 0;
             _event.Raise();
         }
 
@@ -62,7 +62,13 @@ namespace MainProjectApi.LegendSheet
 
         private void btnRemoveRevision_Click(object sender, EventArgs e)
         {
-            AppPanelLegendToSheet.AddLegend = false;
+            AppPanelLegendToSheet.AddLegend = 1;
+            _event.Raise();
+        }
+
+        private void btnAlignLegend_Click(object sender, EventArgs e)
+        {
+            AppPanelLegendToSheet.AddLegend = 2;
             _event.Raise();
         }
     }

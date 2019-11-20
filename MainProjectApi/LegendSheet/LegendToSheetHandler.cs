@@ -21,7 +21,7 @@ namespace MainProjectApi.LegendSheet
             Document doc = app.ActiveUIDocument.Document;
             List<Autodesk.Revit.DB.View> listLegends = GetLegendCheked(doc);
             List<ViewSheet> listSheetAssign = GetSheets(doc);
-            if (AppPanelLegendToSheet.AddLegend == true)
+            if (AppPanelLegendToSheet.AddLegend == 0)
             {
                 ViewSheet sheetSimilar = null;
                 bool similar = GetLegendSimilar(doc, listLegends, out sheetSimilar);
@@ -65,7 +65,7 @@ namespace MainProjectApi.LegendSheet
 
                 }
             }
-            else if (AppPanelLegendToSheet.AddLegend == false)
+            else if (AppPanelLegendToSheet.AddLegend == 1)
             {
                 foreach (var sheet in listSheetAssign)
                 {
@@ -76,7 +76,7 @@ namespace MainProjectApi.LegendSheet
                         if (viewport != null)
                         {
                             var legendId = viewport.ViewId;
-                            if (listLegends.Exists(x => x.Id==legendId))
+                            if (listLegends.Exists(x => x.Id == legendId))
                             {
                                 try
                                 {
@@ -94,9 +94,64 @@ namespace MainProjectApi.LegendSheet
                             }
                         }
                     }
-                   
+
                 }
                 MessageBox.Show("Removing legend is finished");
+            }
+            else if (AppPanelLegendToSheet.AddLegend == 2)
+            {
+                ViewSheet sheetSimilar = null;
+                bool similar = GetLegendSimilar(doc, listLegends, out sheetSimilar);
+                if (similar)
+                {
+                    var listViewPortId = sheetSimilar.GetAllViewports().ToList();
+                    foreach (var legend in listLegends)
+                    {
+                        XYZ location = null;
+                        ElementId typeView = null;
+                        foreach (var id in listViewPortId)
+                        {
+                            Viewport viewPort = doc.GetElement(id) as Viewport;
+                            if (viewPort.ViewId == legend.Id)
+                            {
+                                location = viewPort.GetBoxCenter();
+                                typeView = viewPort.GetTypeId();
+                                break;
+                            }
+                        }
+                        foreach (var sheet in listSheetAssign)
+                        {
+                            var viewPortIds = sheet.GetAllViewports();
+                            foreach (ElementId id in viewPortIds)
+                            {
+                                Viewport viewport = doc.GetElement(id) as Viewport;
+                                if (viewport != null)
+                                {
+                                    var legendId = viewport.ViewId;
+                                    if (legend.Id== legendId)
+                                    {
+                                        try
+                                        {
+                                            using (Transaction t2 = new Transaction(doc, "Alignlegend"))
+                                            {
+                                                t2.Start();
+                                                viewport.SetBoxCenter(location);
+                                                viewport.ChangeTypeId(typeView);
+                                                t2.Commit();
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    MessageBox.Show("Align legend is finished");
+                }
             }
 
         }

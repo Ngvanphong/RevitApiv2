@@ -17,7 +17,7 @@ namespace MainProjectApi.LegendSheet
     {
         public static frmLegendToSheet myFormLegendToSheet;
         public static ListViewItem mySelectItemLegend;
-        public static bool AddLegend = true;
+        public static int AddLegend = 0;
         public static void ShowFormAssignLegend()
         {
             LegendToSheetHandler handler = new LegendToSheetHandler();
