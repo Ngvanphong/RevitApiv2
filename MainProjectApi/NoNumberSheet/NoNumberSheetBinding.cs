@@ -19,10 +19,10 @@ namespace MainProjectApi.NoNumberSheet
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelNoNumberSheet.ShowFormNoNumber();
-            } 
+            //} 
             return Result.Succeeded;
         }
     }

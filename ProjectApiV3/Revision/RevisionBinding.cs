@@ -19,12 +19,12 @@ namespace ProjectApiV3.Revision
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelRevision.ShowFormRevision();
                 GetInformation.GetRevision(doc);
                 GetInformation.GetAllSheet(doc);
-            }
+            //}
             return Result.Succeeded;
         }
         

@@ -20,11 +20,11 @@ namespace MainProjectApi.AssignView
 
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPenalAssignView.ShowFormAssignView();
                 GetViewInfor.UpdateFormInformation(doc);
-            }
+            //}
             return Result.Succeeded;
         }
        

@@ -19,11 +19,11 @@ namespace MainProjectApi.LegendSheet
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelLegendToSheet.ShowFormAssignLegend();
                 GetInforLegend.GetInforToForm(doc);
-            }
+            //}
             return Result.Succeeded;
         }
     }

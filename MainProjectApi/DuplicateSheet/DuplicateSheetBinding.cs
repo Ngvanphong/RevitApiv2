@@ -19,11 +19,11 @@ namespace MainProjectApi.DuplicateSheet
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelDuplicateSheet.ShowFormDuplicate();
                 GetSheetForForm(doc);
-            }
+            //}
             return Result.Succeeded;
         }
         public void GetSheetForForm(Document doc)

@@ -19,12 +19,12 @@ namespace ProjectApiV3.RevisionCloud
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelRevisionCloud.ShowFormRevisionCloud();
                 GetInforRevisionCloud.GetInforRevionCloud(doc,Constants.all);
                 GetInforRevisionCloud.GetInforChoice(doc);
-            }
+            //}
             return Result.Succeeded;
         }
 

@@ -22,8 +22,8 @@ namespace ProjectApiV3.DimOffset
             UIApplication uiapp = commandData.Application;
             Application app = uiapp.Application;
 
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
             
                 AppPanelDimOffset.ShowFormDimOffset();
                 if (AppPanelDimOffset._updater == null)
@@ -34,7 +34,7 @@ namespace ProjectApiV3.DimOffset
                     UpdaterRegistry.AddTrigger(AppPanelDimOffset._updater.GetUpdaterId(), f, Element.GetChangeTypeElementAddition());
                     UpdaterRegistry.AddTrigger(AppPanelDimOffset._updater.GetUpdaterId(), f, Element.GetChangeTypeAny());                   
                 }
-            }
+            //}
             return Result.Succeeded;
         }
     }

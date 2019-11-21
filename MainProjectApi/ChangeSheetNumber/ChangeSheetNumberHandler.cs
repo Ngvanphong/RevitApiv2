@@ -81,6 +81,7 @@ namespace MainProjectApi.ChangeSheetNumber
                         
                     }
                 }
+                //doc.Regenerate();
 
             }
             catch(Exception ex)
@@ -88,8 +89,6 @@ namespace MainProjectApi.ChangeSheetNumber
                 MessageBox.Show("Error: Not success, You must input start number");                
                 return;                
             }
-
-
         }
 
         public List<ViewSheet> GetListSheet(UIApplication uIapp)

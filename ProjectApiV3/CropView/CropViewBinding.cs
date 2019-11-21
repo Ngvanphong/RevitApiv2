@@ -19,11 +19,11 @@ namespace ProjectApiV3.CropView
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelCropView.ShowFromCropView();
                 GetViewInfor.InformationForm(doc);               
-            }
+            //}
             return Result.Succeeded;
         }
     }

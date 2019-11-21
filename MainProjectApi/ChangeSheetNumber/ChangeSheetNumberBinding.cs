@@ -18,10 +18,10 @@ namespace MainProjectApi.ChangeSheetNumber
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelChangeSheetNumber.ShowFormChange();
-            }                
+            //}                
             return Result.Succeeded;
         }
     }

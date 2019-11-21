@@ -17,10 +17,10 @@ namespace ProjectApiV3.AlignBeamFloor3D
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AlignBeam3d(uiApp);
-            }
+            //}
             return Result.Succeeded;
         }
         public void AlignBeam3d(UIApplication _uiApp)

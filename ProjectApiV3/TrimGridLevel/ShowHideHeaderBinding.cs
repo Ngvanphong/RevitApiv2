@@ -18,8 +18,8 @@ namespace ProjectApiV3.TrimGridLevel
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 var selectElmentIds = uiApp.ActiveUIDocument.Selection.GetElementIds();
                 using (Transaction t = new Transaction(doc, "Create WorkPlane"))
                 {
@@ -89,7 +89,7 @@ namespace ProjectApiV3.TrimGridLevel
                     }
                 }
 
-            }
+            //}
             return Result.Succeeded;
         }
 

@@ -20,11 +20,11 @@ namespace ProjectApiV3.FilterElement
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
 
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 AppPanelFilterElement.ShowFormFilterElement();
                 CategoryInfor(doc);               
-            }
+            //}
             return Result.Succeeded;
         }
         public void CategoryInfor(Document doc)

@@ -18,8 +18,8 @@ namespace ProjectApiV3.TrimGridLevel
         {
             UIApplication uiApp = commandData.Application;
             Document doc = uiApp.ActiveUIDocument.Document;
-            if (CheckAccess.CheckLicense() == true)
-            {
+            //if (CheckAccess.CheckLicense() == true)
+            //{
                 var selectElmentIds = uiApp.ActiveUIDocument.Selection.GetElementIds();
                 List<Grid> listGrid = new List<Grid>();
                 List<Level> listLevel = new List<Level>();
@@ -115,7 +115,7 @@ namespace ProjectApiV3.TrimGridLevel
                 {
                     TaskDialog.Show("error", "Choose grid or level");
                 }
-            }
+            //}
             return Result.Succeeded;
         }
         public void AssigTowPoint(Document doc, XYZ p1, XYZ p2, Element element)
