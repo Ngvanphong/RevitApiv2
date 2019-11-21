@@ -152,3 +152,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\System.Text.RegularExpressions.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\MainProjectApi.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.csprojResolveAssemblyReference.cache
