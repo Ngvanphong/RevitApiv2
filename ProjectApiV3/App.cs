@@ -14,8 +14,8 @@ namespace ProjectApiV3
     {
         public Result OnStartup(UIControlledApplication a)
         {
-            AllignBeamFloorButton allignBeam = new AllignBeamFloorButton();
-            allignBeam.CreateAlllignBeam(a);
+            //AllignBeamFloorButton allignBeam = new AllignBeamFloorButton();
+            //allignBeam.CreateAlllignBeam(a);
             FilterElementButton filterClass = new FilterElementButton();
             filterClass.FilterElement(a);
             RevisionButton revisionClass = new RevisionButton();
