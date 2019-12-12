@@ -128,27 +128,33 @@ namespace ProjectApiV3.FilterElement
             {
                 foreach (var fa in listElemnetCa)
                 {
-                    if (type.Name == fa.Name)
+                    try
                     {
-                        try
+                        ElementType elmentTyp = doc.GetElement(fa.GetTypeId()) as ElementType;
+                        if (type.Name == elmentTyp.Name)
                         {
-                            FamilyInstance faInctance = null;
-                            faInctance = fa as FamilyInstance;
-                            if (fa != null && faInctance.Symbol.FamilyName == type.FamilyName)
+                            try
                             {
-                                listElementSe.Add(faInctance);
+                                FamilyInstance faInctance = null;
+                                faInctance = fa as FamilyInstance;
+                                if (fa != null && faInctance.Symbol.FamilyName == type.FamilyName)
+                                {
+                                    listElementSe.Add(faInctance);
+                                }
+                                if (faInctance == null)
+                                {
+                                    listElementSe.Add(fa);
+                                }
                             }
-                            if (faInctance == null)
+                            catch
                             {
                                 listElementSe.Add(fa);
+                                continue;
                             }
                         }
-                        catch
-                        {
-                            listElementSe.Add(fa);
-                            continue;
-                        }
                     }
+                    catch { continue; }
+                   
                 }
             }
             AppPanelFilterElement.listElementName = listElementSe;
