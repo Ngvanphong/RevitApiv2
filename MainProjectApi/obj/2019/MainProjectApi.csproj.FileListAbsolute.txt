@@ -152,4 +152,5 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\M
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.DuplicateView.frmDuplicateView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.csprojResolveAssemblyReference.cache

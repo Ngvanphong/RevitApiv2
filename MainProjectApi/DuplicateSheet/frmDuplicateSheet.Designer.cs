@@ -118,6 +118,7 @@
             this.radioButtonDuplicatewithdetailing.TabStop = true;
             this.radioButtonDuplicatewithdetailing.Text = "Duplicate with detailing";
             this.radioButtonDuplicatewithdetailing.UseVisualStyleBackColor = true;
+            this.radioButtonDuplicatewithdetailing.CheckedChanged += new System.EventHandler(this.radioButtonDuplicatewithdetailing_CheckedChanged);
             // 
             // radioButtonDuplicate
             // 

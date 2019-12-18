@@ -95,6 +95,17 @@ namespace MainProjectApi.Button
                 LargeImage = imgSrc5,
             };
 
+            Image img6 = MainProjectApi.Properties.Resources.icons8_duplicate_32;
+            ImageSource imgSrc6 = Helper.Extension.GetImageSource(img6);
+            PushButtonData btnData6 = new PushButtonData("DuplicateView", "DuplicateView",
+                Assembly.GetExecutingAssembly().Location, "MainProjectApi.DuplicateView.DuplicateViewBinding")
+            {
+                ToolTip = "Duplicate for view",
+                LongDescription = "Duplicate for view",
+                Image = imgSrc6,
+                LargeImage = imgSrc6,
+            };
+
             SplitButtonData splitData = new SplitButtonData("ViewSheets", "ViewSheets");
             SplitButton splitButton = panel.AddItem(splitData) as SplitButton;
             splitButton.IsSynchronizedWithCurrentItem = true;
@@ -102,7 +113,8 @@ namespace MainProjectApi.Button
             splitButton.AddPushButton(btnData2);
             splitButton.AddPushButton(btnData3);
             splitButton.AddPushButton(btnData4);
-            splitButton.AddPushButton(btnData5);  
+            splitButton.AddPushButton(btnData5);
+            splitButton.AddPushButton(btnData6);
         }
 
     }

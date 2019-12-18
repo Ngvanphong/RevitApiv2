@@ -131,6 +131,16 @@
     <Compile Include="DuplicateSheet\frmDuplicateSheet.Designer.cs">
       <DependentUpon>frmDuplicateSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="DuplicateView\AppPenalDuplicateView.cs" />
+    <Compile Include="DuplicateView\Constants.cs" />
+    <Compile Include="DuplicateView\DuplicateViewBinding.cs" />
+    <Compile Include="DuplicateView\DuplicateViewHandler.cs" />
+    <Compile Include="DuplicateView\frmDuplicateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuplicateView\frmDuplicateView.Designer.cs">
+      <DependentUpon>frmDuplicateView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Family\AppPanelMaterial.cs" />
     <Compile Include="Family\CreateMaterialFamilyBinding.cs" />
     <Compile Include="Family\CreateMaterialFamilyHandler.cs" />
@@ -173,6 +183,7 @@
     <Content Include="MainProjectApi.addin">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\icons8-duplicate-32.png" />
     <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\sort_by_numeric_order.png" />
     <None Include="Resources\rename.png" />
@@ -193,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DuplicateSheet\frmDuplicateSheet.resx">
       <DependentUpon>frmDuplicateSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuplicateView\frmDuplicateView.resx">
+      <DependentUpon>frmDuplicateView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Family\frmCreateMaterialFamily.resx">
       <DependentUpon>frmCreateMaterialFamily.cs</DependentUpon>

@@ -36,5 +36,10 @@ namespace MainProjectApi.DuplicateSheet
         {
             _myEvent.Raise();
         }
+
+        private void radioButtonDuplicatewithdetailing_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
