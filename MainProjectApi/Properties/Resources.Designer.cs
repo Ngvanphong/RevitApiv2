@@ -113,6 +113,16 @@ namespace MainProjectApi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_email_document_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_email_document_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insurance {
             get {
                 object obj = ResourceManager.GetObject("insurance", resourceCulture);

@@ -178,11 +178,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewSheetAsign\AppPenalViewToSheet.cs" />
+    <Compile Include="ViewSheetAsign\frmViewToSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSheetAsign\frmViewToSheet.Designer.cs">
+      <DependentUpon>frmViewToSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSheetAsign\ViewToSheetBinding.cs" />
+    <Compile Include="ViewSheetAsign\ViewToSheetHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\icons8-email-document-32.png" />
     <None Include="Resources\icons8-duplicate-32.png" />
     <None Include="Resources\iconfinder_62_62719.png" />
     <None Include="Resources\sort_by_numeric_order.png" />
@@ -220,6 +230,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSheetAsign\frmViewToSheet.resx">
+      <DependentUpon>frmViewToSheet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

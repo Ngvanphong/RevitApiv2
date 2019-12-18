@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSheetNumber = new System.Windows.Forms.TextBox();
             this.checkBoxFixPositionNotBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewView
@@ -120,9 +121,9 @@
             this.listSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumber,
             this.columnSheetName});
-            this.listSheet.Location = new System.Drawing.Point(784, 96);
+            this.listSheet.Location = new System.Drawing.Point(784, 118);
             this.listSheet.Name = "listSheet";
-            this.listSheet.Size = new System.Drawing.Size(292, 375);
+            this.listSheet.Size = new System.Drawing.Size(292, 353);
             this.listSheet.TabIndex = 8;
             this.listSheet.UseCompatibleStateImageBehavior = false;
             this.listSheet.View = System.Windows.Forms.View.Details;
@@ -180,11 +181,21 @@
             this.checkBoxFixPositionNotBox.CheckedChanged += new System.EventHandler(this.checkBoxFixPositionNotBox_CheckedChanged);
             this.checkBoxFixPositionNotBox.Click += new System.EventHandler(this.checkBoxFixPositionNotBox_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(781, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Choose a sheet similar:";
+            // 
             // frmAssignView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 499);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBoxFixPositionNotBox);
             this.Controls.Add(this.txtSheetNumber);
             this.Controls.Add(this.label1);
@@ -221,5 +232,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtSheetNumber;
         public System.Windows.Forms.CheckBox checkBoxFixPositionNotBox;
+        private System.Windows.Forms.Label label2;
     }
 }

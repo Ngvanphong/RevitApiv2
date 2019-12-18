@@ -106,6 +106,17 @@ namespace MainProjectApi.Button
                 LargeImage = imgSrc6,
             };
 
+            Image img7 = MainProjectApi.Properties.Resources.icons8_email_document_32;
+            ImageSource imgSrc7 = Helper.Extension.GetImageSource(img7);
+            PushButtonData btnData7 = new PushButtonData("ViewToSheet", "ViewToSheet",
+                Assembly.GetExecutingAssembly().Location, "MainProjectApi.ViewSheetAsign.ViewToSheetBinding")
+            {
+                ToolTip = "Assign view to sheet",
+                LongDescription = "Assign view to sheet",
+                Image = imgSrc7,
+                LargeImage = imgSrc7,
+            };
+
             SplitButtonData splitData = new SplitButtonData("ViewSheets", "ViewSheets");
             SplitButton splitButton = panel.AddItem(splitData) as SplitButton;
             splitButton.IsSynchronizedWithCurrentItem = true;
@@ -115,6 +126,7 @@ namespace MainProjectApi.Button
             splitButton.AddPushButton(btnData4);
             splitButton.AddPushButton(btnData5);
             splitButton.AddPushButton(btnData6);
+            splitButton.AddPushButton(btnData7);
         }
 
     }
