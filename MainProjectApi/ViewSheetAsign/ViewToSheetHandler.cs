@@ -16,7 +16,7 @@ namespace MainProjectApi.ViewSheetAsign
             ElementId idSelect = null;
             try
             {
-                idSelect  = app.ActiveUIDocument.Selection.GetElementIds().First();
+                idSelect = app.ActiveUIDocument.Selection.GetElementIds().First();
             }
             catch
             {
@@ -24,10 +24,65 @@ namespace MainProjectApi.ViewSheetAsign
                 return;
             }
             Viewport viewPortChoose = doc.GetElement(idSelect) as Viewport;
+            var viewMain = doc.GetElement(viewPortChoose.ViewId) as Autodesk.Revit.DB.View;
+            using(Transaction t6= new Transaction(doc, "Showline2"))
+            {
+                t6.Start();
+                viewMain.CropBoxActive = true;
+                viewMain.CropBoxVisible = true;
+                t6.Commit();
+            }
+            var locationPoint = viewPortChoose.GetBoxCenter();
+
             List<Autodesk.Revit.DB.View> listViewSelect = GetViewChecked(doc);
             List<ViewSheet> listSheetSelect = GetSheetChecked(doc);
+            if (listSheetSelect.Count != listSheetSelect.Count)
+            {
+                MessageBox.Show("You must choose count of sheets = count of views");
+                return;
+            }
+            List<ViewSectionBox> listBoudingBoxOld = new List<ViewSectionBox>();
+            foreach (var item in listViewSelect)
+            {
+                ViewSectionBox sectionBox = new ViewSectionBox();
+                BoundingBoxXYZ box = new BoundingBoxXYZ();
+                box.Min = item.CropBox.Min;
+                box.Max = item.CropBox.Max;
+                sectionBox.BoudingBoxOld = box;
+                sectionBox.viewAssign = item;
+                listBoudingBoxOld.Add(sectionBox);
+            }
 
+            for (int i = 0; i < listSheetSelect.Count; i++)
+            {
+                using (Transaction t2 = new Transaction(doc, "AssignViewSheet2"))
+                {
+                    t2.Start();
+                    ViewSheet sheet = listSheetSelect[i];
+                    Autodesk.Revit.DB.View view = listViewSelect[i];
+                    BoundingBoxXYZ box = new BoundingBoxXYZ();
+                    box.Min = viewMain.CropBox.Min;
+                    box.Max = viewMain.CropBox.Max;
+                    view.CropBox = box;
+                    view.CropBoxActive = true;
+                    view.CropBoxVisible = true;
+                    Viewport viewNew = Viewport.Create(doc, sheet.Id, view.Id, locationPoint);
+                    viewNew.ChangeTypeId(viewPortChoose.GetTypeId());                   
+                    t2.Commit();
+                }
+            }
+            foreach (var viewBox in listBoudingBoxOld)
+            {
+                using (Transaction t3 = new Transaction(doc, "notCropBox"))
+                {
+                    t3.Start();
+                    viewBox.viewAssign.CropBox = viewBox.BoudingBoxOld;
+                    viewBox.viewAssign.CropBoxActive = true;
+                    viewBox.viewAssign.CropBoxVisible = true;
+                    t3.Commit();
+                }
 
+            }
         }
 
         public string GetName()
@@ -36,7 +91,7 @@ namespace MainProjectApi.ViewSheetAsign
         }
 
         public List<Autodesk.Revit.DB.View> GetViewChecked(Document doc)
-        {    
+        {
             List<Autodesk.Revit.DB.View> listView = new List<Autodesk.Revit.DB.View>();
             var listItemView = AppPenalViewToSheet.myFormViewToSheet.listViewViewAssignTo.CheckedItems;
             var listAllView = new FilteredElementCollector(doc).OfClass(typeof(Autodesk.Revit.DB.View)).Cast<Autodesk.Revit.DB.View>();
@@ -64,8 +119,13 @@ namespace MainProjectApi.ViewSheetAsign
             {
                 var sheet = listSheet.Where(x => x.SheetNumber == item.Text).First();
                 listViewSheetCheck.Add(sheet);
-            }          
+            }
             return listViewSheetCheck;
         }
+    }
+    public class ViewSectionBox
+    {
+        public BoundingBoxXYZ BoudingBoxOld;
+        public Autodesk.Revit.DB.View viewAssign;
     }
 }

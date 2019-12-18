@@ -102,6 +102,8 @@ namespace MainProjectApi.AssignView
                                     {
                                         viewPortOldMain = viewport;
                                         viewMain = doc.GetElement(viewport.ViewId) as Autodesk.Revit.DB.View;
+                                        viewMain.CropBoxActive = true;
+                                        viewMain.CropBoxVisible = true;
                                         break;
                                     }
                                 }
