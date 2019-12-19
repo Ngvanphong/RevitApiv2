@@ -81,8 +81,8 @@ namespace MainProjectApi.ViewSheetAsign
                     viewBox.viewAssign.CropBoxVisible = true;
                     t3.Commit();
                 }
-
             }
+            UpdateData(doc);
         }
 
         public string GetName()
@@ -121,6 +121,12 @@ namespace MainProjectApi.ViewSheetAsign
                 listViewSheetCheck.Add(sheet);
             }
             return listViewSheetCheck;
+        }
+        public void UpdateData(Document doc)
+        {
+            AppPenalViewToSheet.myFormViewToSheet.listViewSheetAssignView.Items.Clear();
+            AppPenalViewToSheet.myFormViewToSheet.listViewViewAssignTo.Items.Clear();
+            InforViewSheet.UpdateFormInformation(doc);
         }
     }
     public class ViewSectionBox
