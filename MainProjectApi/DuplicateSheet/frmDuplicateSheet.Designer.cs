@@ -64,7 +64,7 @@
             this.columnHeader2});
             this.listViewSheet.Location = new System.Drawing.Point(12, 76);
             this.listViewSheet.Name = "listViewSheet";
-            this.listViewSheet.Size = new System.Drawing.Size(421, 199);
+            this.listViewSheet.Size = new System.Drawing.Size(426, 333);
             this.listViewSheet.TabIndex = 0;
             this.listViewSheet.UseCompatibleStateImageBehavior = false;
             this.listViewSheet.View = System.Windows.Forms.View.Details;
@@ -90,7 +90,7 @@
             this.groupBox1.Controls.Add(this.listViewSheet);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 349);
+            this.groupBox1.Size = new System.Drawing.Size(460, 483);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View And Sheet";
@@ -145,7 +145,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.Controls.Add(this.radioButtonSchechuleNone);
             this.groupBox3.Controls.Add(this.radioButtonScheduleYes);
-            this.groupBox3.Location = new System.Drawing.Point(238, 281);
+            this.groupBox3.Location = new System.Drawing.Point(238, 415);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(195, 51);
             this.groupBox3.TabIndex = 11;
@@ -180,7 +180,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.radioButtonLegnedNone);
             this.groupBox2.Controls.Add(this.radioButtonLegendYes);
-            this.groupBox2.Location = new System.Drawing.Point(12, 281);
+            this.groupBox2.Location = new System.Drawing.Point(12, 415);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(194, 51);
             this.groupBox2.TabIndex = 10;
@@ -212,7 +212,7 @@
             // btnStartDuplicate
             // 
             this.btnStartDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnStartDuplicate.Location = new System.Drawing.Point(385, 370);
+            this.btnStartDuplicate.Location = new System.Drawing.Point(385, 504);
             this.btnStartDuplicate.Name = "btnStartDuplicate";
             this.btnStartDuplicate.Size = new System.Drawing.Size(89, 32);
             this.btnStartDuplicate.TabIndex = 5;
@@ -224,7 +224,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 380);
+            this.label1.Location = new System.Drawing.Point(13, 514);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 6;
@@ -234,7 +234,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(178, 380);
+            this.label3.Location = new System.Drawing.Point(178, 514);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 7;
@@ -243,7 +243,7 @@
             // textBoxEndNumber
             // 
             this.textBoxEndNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxEndNumber.Location = new System.Drawing.Point(114, 377);
+            this.textBoxEndNumber.Location = new System.Drawing.Point(114, 511);
             this.textBoxEndNumber.Name = "textBoxEndNumber";
             this.textBoxEndNumber.Size = new System.Drawing.Size(61, 20);
             this.textBoxEndNumber.TabIndex = 8;
@@ -252,7 +252,7 @@
             // textBoxEndName
             // 
             this.textBoxEndName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxEndName.Location = new System.Drawing.Point(270, 377);
+            this.textBoxEndName.Location = new System.Drawing.Point(270, 511);
             this.textBoxEndName.Name = "textBoxEndName";
             this.textBoxEndName.Size = new System.Drawing.Size(109, 20);
             this.textBoxEndName.TabIndex = 9;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 416);
+            this.ClientSize = new System.Drawing.Size(491, 550);
             this.Controls.Add(this.textBoxEndName);
             this.Controls.Add(this.textBoxEndNumber);
             this.Controls.Add(this.label3);

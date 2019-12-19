@@ -105,42 +105,37 @@ namespace ProjectApiV3.FilterElement
         private void checkBoxCategoryAll_CheckedChanged(object sender, EventArgs e)
         {
             var listItem = this.listViewCategory.Items;
-            if (this.checkBoxCategoryAll.Checked == false)
+            if (this.checkBoxCategoryAll.Checked == true)
+            {
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = true;
+                }
+            }else
             {
                 foreach (ListViewItem item in listItem)
                 {
                     item.Checked = false;
                 }
             }
-            else
-            {
-
-                foreach (ListViewItem item in listItem)
-                {
-                    item.Checked = true;
-                }
-            }
-
         }
 
         private void checkBoxTypeNameAll_CheckedChanged(object sender, EventArgs e)
         {
             var listItem = this.listViewTypeName.Items;
-            if (this.checkBoxTypeNameAll.Checked == false)
+            if (this.checkBoxTypeNameAll.Checked == true)
+            {
+                foreach (ListViewItem item in listItem)
+                {
+                    item.Checked = true;
+                }
+            }else
             {
                 foreach (ListViewItem item in listItem)
                 {
                     item.Checked = false;
                 }
-            }
-            else
-            {
-
-                foreach (ListViewItem item in listItem)
-                {
-                    item.Checked = true;
-                }
-            }
+            }  
         }
 
         private void checkBoxParameterNone_CheckedChanged(object sender, EventArgs e)
@@ -164,6 +159,24 @@ namespace ProjectApiV3.FilterElement
         private void btnUpdateValueParameter_Click(object sender, EventArgs e)
         {
             _eventValueParameter.Raise();
+        }
+
+        private void checkBoxCategoryNone_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewCategory.Items;
+            foreach (ListViewItem item in listItem)
+            {
+                item.Checked = false;
+            }
+        }
+
+        private void checkBoxFamilyAndTypeNone_CheckedChanged(object sender, EventArgs e)
+        {
+            var listItem = this.listViewTypeName.Items;
+            foreach (ListViewItem item in listItem)
+            {
+                item.Checked = false;
+            }
         }
     }
 }

@@ -44,6 +44,8 @@
             this.checkBoxParameterNone = new System.Windows.Forms.CheckBox();
             this.checkBoxValueParameterNone = new System.Windows.Forms.CheckBox();
             this.btnUpdateValueParameter = new System.Windows.Forms.Button();
+            this.checkBoxFamilyAndTypeNone = new System.Windows.Forms.CheckBox();
+            this.checkBoxCategoryNone = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listViewCategory
@@ -125,7 +127,7 @@
             // 
             this.checkBoxCategoryAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxCategoryAll.AutoSize = true;
-            this.checkBoxCategoryAll.Location = new System.Drawing.Point(35, 341);
+            this.checkBoxCategoryAll.Location = new System.Drawing.Point(64, 341);
             this.checkBoxCategoryAll.Name = "checkBoxCategoryAll";
             this.checkBoxCategoryAll.Size = new System.Drawing.Size(37, 17);
             this.checkBoxCategoryAll.TabIndex = 5;
@@ -148,7 +150,7 @@
             // btnFilterElement
             // 
             this.btnFilterElement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFilterElement.Location = new System.Drawing.Point(78, 337);
+            this.btnFilterElement.Location = new System.Drawing.Point(105, 337);
             this.btnFilterElement.Name = "btnFilterElement";
             this.btnFilterElement.Size = new System.Drawing.Size(51, 23);
             this.btnFilterElement.TabIndex = 6;
@@ -213,11 +215,35 @@
             this.btnUpdateValueParameter.UseVisualStyleBackColor = true;
             this.btnUpdateValueParameter.Click += new System.EventHandler(this.btnUpdateValueParameter_Click);
             // 
+            // checkBoxFamilyAndTypeNone
+            // 
+            this.checkBoxFamilyAndTypeNone.AutoSize = true;
+            this.checkBoxFamilyAndTypeNone.Location = new System.Drawing.Point(206, 341);
+            this.checkBoxFamilyAndTypeNone.Name = "checkBoxFamilyAndTypeNone";
+            this.checkBoxFamilyAndTypeNone.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxFamilyAndTypeNone.TabIndex = 8;
+            this.checkBoxFamilyAndTypeNone.Text = "None";
+            this.checkBoxFamilyAndTypeNone.UseVisualStyleBackColor = true;
+            this.checkBoxFamilyAndTypeNone.CheckedChanged += new System.EventHandler(this.checkBoxFamilyAndTypeNone_CheckedChanged);
+            // 
+            // checkBoxCategoryNone
+            // 
+            this.checkBoxCategoryNone.AutoSize = true;
+            this.checkBoxCategoryNone.Location = new System.Drawing.Point(8, 341);
+            this.checkBoxCategoryNone.Name = "checkBoxCategoryNone";
+            this.checkBoxCategoryNone.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxCategoryNone.TabIndex = 9;
+            this.checkBoxCategoryNone.Text = "None";
+            this.checkBoxCategoryNone.UseVisualStyleBackColor = true;
+            this.checkBoxCategoryNone.CheckedChanged += new System.EventHandler(this.checkBoxCategoryNone_CheckedChanged);
+            // 
             // frmFilerElement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 366);
+            this.Controls.Add(this.checkBoxCategoryNone);
+            this.Controls.Add(this.checkBoxFamilyAndTypeNone);
             this.Controls.Add(this.btnUpdateValueParameter);
             this.Controls.Add(this.btnFilterElement4);
             this.Controls.Add(this.btnFilterElement2);
@@ -258,5 +284,7 @@
         public System.Windows.Forms.CheckBox checkBoxParameterNone;
         public System.Windows.Forms.CheckBox checkBoxValueParameterNone;
         private System.Windows.Forms.Button btnUpdateValueParameter;
+        public System.Windows.Forms.CheckBox checkBoxFamilyAndTypeNone;
+        public System.Windows.Forms.CheckBox checkBoxCategoryNone;
     }
 }
