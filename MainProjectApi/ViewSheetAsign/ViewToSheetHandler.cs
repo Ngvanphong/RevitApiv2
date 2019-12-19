@@ -36,7 +36,7 @@ namespace MainProjectApi.ViewSheetAsign
 
             List<Autodesk.Revit.DB.View> listViewSelect = GetViewChecked(doc);
             List<ViewSheet> listSheetSelect = GetSheetChecked(doc);
-            if (listSheetSelect.Count != listSheetSelect.Count)
+            if (listSheetSelect.Count != listViewSelect.Count)
             {
                 MessageBox.Show("You must choose count of sheets = count of views");
                 return;
