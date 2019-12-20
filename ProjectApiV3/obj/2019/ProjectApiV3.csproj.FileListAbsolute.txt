@@ -83,3 +83,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2019\Pro
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2019\ProjectApiV3.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2019\ProjectApiV3.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2019\ProjectApiV3.pdb
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\ProjectApiV3\obj\2019\ProjectApiV3.csprojResolveAssemblyReference.cache
