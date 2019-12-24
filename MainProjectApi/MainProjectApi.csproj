@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2018\Revit.exe</StartProgram>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2020\Revit.exe</StartProgram>
     <DocumentationFile>
     </DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,16 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2018\Revit.exe</StartProgram>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '2018|AnyCPU'">
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>RELEASE2018</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <WarningLevel>3</WarningLevel>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2020\Revit.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '2019|AnyCPU'">
     <OutputPath>bin\Debug\</OutputPath>
@@ -57,6 +48,11 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '2020|AnyCPU'">
+    <DefineConstants>RELEASE2020 </DefineConstants>
+    <WarningLevel>1</WarningLevel>
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FoxLearn.License, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -69,11 +65,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="RevitAPI" Condition="'$(Configuration)' == '2018'">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2018\RevitAPI.dll</HintPath>
+    <Reference Include="RevitAPI" Condition="'$(Configuration)' == '2020'">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
     </Reference>
-    <Reference Include="RevitAPIUI" Condition="'$(Configuration)' == '2018'">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPIUI" Condition="'$(Configuration)' == '2020'">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPI" Condition="'$(Configuration)' == '2019'">
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
@@ -176,7 +172,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Resources.resx </DependentUpon>
     </Compile>
     <Compile Include="ViewSheetAsign\AppPenalViewToSheet.cs" />
     <Compile Include="ViewSheetAsign\frmViewToSheet.cs">
@@ -238,9 +234,9 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if  "$(ConfigurationName)" =="2018" (
- copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2018"
- copy "$(ProjectDir)bin\debug\*.dll" "$(AppData)\Autodesk\REVIT\Addins\2018"
+    <PostBuildEvent>if  "$(ConfigurationName)" =="2020" (
+ copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2020"
+ copy "$(ProjectDir)bin\debug\*.dll" "$(AppData)\Autodesk\REVIT\Addins\2020"
 ) 
 else if  "$(ConfigurationName)" =="2019"   ( 
 copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2019"
@@ -255,7 +251,7 @@ copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2019"
   </Target>
   -->
   <Target Name="AfterClean">
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2018\MainProjectApi.addin" />
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2018\MainProjectApi.dll" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\MainProjectApi.addin" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\MainProjectApi.dll" />
   </Target>
 </Project>

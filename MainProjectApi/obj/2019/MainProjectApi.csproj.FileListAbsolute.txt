@@ -145,13 +145,12 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\bin\Debug\
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.AssignView.frmAssignView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.ChangeSheetNumber.frmChangeSheetNumber.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.DuplicateSheet.frmDuplicateSheet.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.DuplicateView.frmDuplicateView.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.CreateMaterialFamily.frmCreateMaterialFamily.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.LegendSheet.frmLegendToSheet.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.NoNumberSheet.frmNoNumberSheet.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.Properties.Resources.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.ViewSheetAsign.frmViewToSheet.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.pdb
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.DuplicateView.frmDuplicateView.resources
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.csprojResolveAssemblyReference.cache
-C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2019\MainProjectApi.ViewSheetAsign.frmViewToSheet.resources

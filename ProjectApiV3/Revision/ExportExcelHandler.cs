@@ -35,7 +35,7 @@ namespace ProjectApiV3.Revision
             {
                 DataExcel excelItem = new DataExcel();
                 excelItem.SheetNumber = data.SheetNumber.ToString();
-                excelItem.SheetName = data.ViewName;
+                excelItem.SheetName = data.Name;
                 List<ElementId> revisionIds = data.GetAllRevisionIds().ToList();
                 string revisions = string.Empty;
                 foreach (var id in revisionIds)

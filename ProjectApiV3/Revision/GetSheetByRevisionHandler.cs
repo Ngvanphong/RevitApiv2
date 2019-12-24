@@ -62,7 +62,7 @@ namespace ProjectApiV3.Revision
                     revisionName = doc.GetElement(sheet.GetCurrentRevision()).Name.ToString();
                 }
                 catch { }
-                var sheetName = sheet.ViewName;
+                var sheetName = sheet.Name;
                 var row = new string[] { sheetNumber, revisionName, sheetName };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = lvi;

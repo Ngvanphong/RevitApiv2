@@ -151,3 +151,5 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\M
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.dll
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.pdb
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.csprojResolveAssemblyReference.cache
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.DuplicateView.frmDuplicateView.resources
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2018\MainProjectApi.ViewSheetAsign.frmViewToSheet.resources
