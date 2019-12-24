@@ -85,3 +85,4 @@ C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2020\M
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2020\MainProjectApi.ViewSheetAsign.frmViewToSheet.resources
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2020\MainProjectApi.csproj.GenerateResource.Cache
 C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2020\MainProjectApi.dll
+C:\Users\Windows 10\Documents\revit api\MainProjectApi\MainProjectApi\obj\2020\MainProjectApi.csprojResolveAssemblyReference.cache
