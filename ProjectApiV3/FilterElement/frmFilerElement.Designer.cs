@@ -107,7 +107,8 @@
             // 
             // listViewValueParameter
             // 
-            this.listViewValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewValueParameter.CheckBoxes = true;
             this.listViewValueParameter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5});
@@ -121,7 +122,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Value Parameter";
-            this.columnHeader5.Width = 250;
+            this.columnHeader5.Width = 500;
             // 
             // checkBoxCategoryAll
             // 
