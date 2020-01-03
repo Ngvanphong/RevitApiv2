@@ -50,7 +50,8 @@
             // 
             // listViewCategory
             // 
-            this.listViewCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewCategory.CheckBoxes = true;
             this.listViewCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
@@ -69,7 +70,8 @@
             // 
             // listViewTypeName
             // 
-            this.listViewTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewTypeName.CheckBoxes = true;
             this.listViewTypeName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
@@ -88,7 +90,8 @@
             // 
             // listViewParameter
             // 
-            this.listViewParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewParameter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewParameter.CheckBoxes = true;
             this.listViewParameter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
@@ -107,7 +110,8 @@
             // 
             // listViewValueParameter
             // 
-            this.listViewValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.listViewValueParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewValueParameter.CheckBoxes = true;
             this.listViewValueParameter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -218,6 +222,7 @@
             // 
             // checkBoxFamilyAndTypeNone
             // 
+            this.checkBoxFamilyAndTypeNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxFamilyAndTypeNone.AutoSize = true;
             this.checkBoxFamilyAndTypeNone.Location = new System.Drawing.Point(206, 341);
             this.checkBoxFamilyAndTypeNone.Name = "checkBoxFamilyAndTypeNone";
@@ -229,6 +234,7 @@
             // 
             // checkBoxCategoryNone
             // 
+            this.checkBoxCategoryNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxCategoryNone.AutoSize = true;
             this.checkBoxCategoryNone.Location = new System.Drawing.Point(8, 341);
             this.checkBoxCategoryNone.Name = "checkBoxCategoryNone";
