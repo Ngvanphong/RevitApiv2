@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    
+    <Text>Command MainProjectApi</Text>
+    <Description>Some description for MainProjectApi</Description>
+    <Assembly>MainProjectApi.dll</Assembly>
+    <FullClassName>MainProjectApi.Command</FullClassName>
+    <ClientId>eee67dd5-30a4-4310-ba7f-096655ec7fbf</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application MainProjectApi</Name>
+    <Assembly>MainProjectApi.dll</Assembly>
+    <FullClassName>MainProjectApi.App</FullClassName>
+    <ClientId>4bcf403c-8956-47b7-8794-c55bfc366132</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
