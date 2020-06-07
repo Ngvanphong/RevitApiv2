@@ -44,9 +44,9 @@
             this.listViewSheetAssignView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listViewSheetAssignView.Location = new System.Drawing.Point(326, 12);
+            this.listViewSheetAssignView.Location = new System.Drawing.Point(496, 12);
             this.listViewSheetAssignView.Name = "listViewSheetAssignView";
-            this.listViewSheetAssignView.Size = new System.Drawing.Size(360, 530);
+            this.listViewSheetAssignView.Size = new System.Drawing.Size(360, 534);
             this.listViewSheetAssignView.TabIndex = 0;
             this.listViewSheetAssignView.UseCompatibleStateImageBehavior = false;
             this.listViewSheetAssignView.View = System.Windows.Forms.View.Details;
@@ -64,7 +64,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(611, 548);
+            this.button1.Location = new System.Drawing.Point(781, 552);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.columnHeader3});
             this.listViewViewAssignTo.Location = new System.Drawing.Point(18, 12);
             this.listViewViewAssignTo.Name = "listViewViewAssignTo";
-            this.listViewViewAssignTo.Size = new System.Drawing.Size(302, 530);
+            this.listViewViewAssignTo.Size = new System.Drawing.Size(472, 534);
             this.listViewViewAssignTo.TabIndex = 2;
             this.listViewViewAssignTo.UseCompatibleStateImageBehavior = false;
             this.listViewViewAssignTo.View = System.Windows.Forms.View.Details;
@@ -90,18 +90,16 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "ViewName";
-            this.columnHeader3.Width = 308;
+            this.columnHeader3.Width = 1500;
             // 
             // frmViewToSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 590);
+            this.ClientSize = new System.Drawing.Size(868, 594);
             this.Controls.Add(this.listViewViewAssignTo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewSheetAssignView);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmViewToSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmViewToSheet";

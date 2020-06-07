@@ -47,14 +47,15 @@
             // 
             // listViewView
             // 
-            this.listViewView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewView.CheckBoxes = true;
             this.listViewView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnViewName});
             this.listViewView.Location = new System.Drawing.Point(12, 25);
             this.listViewView.Name = "listViewView";
-            this.listViewView.Size = new System.Drawing.Size(355, 448);
+            this.listViewView.Size = new System.Drawing.Size(470, 526);
             this.listViewView.TabIndex = 0;
             this.listViewView.UseCompatibleStateImageBehavior = false;
             this.listViewView.View = System.Windows.Forms.View.Details;
@@ -62,18 +63,18 @@
             // columnViewName
             // 
             this.columnViewName.Text = "View Name";
-            this.columnViewName.Width = 350;
+            this.columnViewName.Width = 1500;
             // 
             // listViewSelect
             // 
             this.listViewSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewSelect.CheckBoxes = true;
             this.listViewSelect.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnViewSelect});
-            this.listViewSelect.Location = new System.Drawing.Point(462, 25);
+            this.listViewSelect.Location = new System.Drawing.Point(569, 25);
             this.listViewSelect.Name = "listViewSelect";
-            this.listViewSelect.Size = new System.Drawing.Size(304, 448);
+            this.listViewSelect.Size = new System.Drawing.Size(344, 526);
             this.listViewSelect.TabIndex = 1;
             this.listViewSelect.UseCompatibleStateImageBehavior = false;
             this.listViewSelect.View = System.Windows.Forms.View.Details;
@@ -81,11 +82,12 @@
             // columnViewSelect
             // 
             this.columnViewSelect.Text = "View Selection";
-            this.columnViewSelect.Width = 300;
+            this.columnViewSelect.Width = 1500;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(377, 142);
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Location = new System.Drawing.Point(488, 140);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 29);
             this.btnSelect.TabIndex = 4;
@@ -95,7 +97,8 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(377, 187);
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Location = new System.Drawing.Point(488, 185);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 29);
             this.btnRemove.TabIndex = 5;
@@ -105,7 +108,8 @@
             // 
             // btnAssign
             // 
-            this.btnAssign.Location = new System.Drawing.Point(377, 230);
+            this.btnAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAssign.Location = new System.Drawing.Point(488, 228);
             this.btnAssign.Name = "btnAssign";
             this.btnAssign.Size = new System.Drawing.Size(75, 29);
             this.btnAssign.TabIndex = 6;
@@ -116,14 +120,14 @@
             // listSheet
             // 
             this.listSheet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listSheet.CheckBoxes = true;
             this.listSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumber,
             this.columnSheetName});
-            this.listSheet.Location = new System.Drawing.Point(784, 118);
+            this.listSheet.Location = new System.Drawing.Point(931, 118);
             this.listSheet.Name = "listSheet";
-            this.listSheet.Size = new System.Drawing.Size(292, 353);
+            this.listSheet.Size = new System.Drawing.Size(292, 431);
             this.listSheet.TabIndex = 8;
             this.listSheet.UseCompatibleStateImageBehavior = false;
             this.listSheet.View = System.Windows.Forms.View.Details;
@@ -143,8 +147,9 @@
             // 
             // checkBoxFixPosition
             // 
+            this.checkBoxFixPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxFixPosition.AutoSize = true;
-            this.checkBoxFixPosition.Location = new System.Drawing.Point(784, 25);
+            this.checkBoxFixPosition.Location = new System.Drawing.Point(931, 25);
             this.checkBoxFixPosition.Name = "checkBoxFixPosition";
             this.checkBoxFixPosition.Size = new System.Drawing.Size(214, 17);
             this.checkBoxFixPosition.TabIndex = 9;
@@ -155,8 +160,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(781, 74);
+            this.label1.Location = new System.Drawing.Point(928, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 10;
@@ -164,15 +170,17 @@
             // 
             // txtSheetNumber
             // 
-            this.txtSheetNumber.Location = new System.Drawing.Point(887, 70);
+            this.txtSheetNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSheetNumber.Location = new System.Drawing.Point(1034, 70);
             this.txtSheetNumber.Name = "txtSheetNumber";
             this.txtSheetNumber.Size = new System.Drawing.Size(186, 20);
             this.txtSheetNumber.TabIndex = 11;
             // 
             // checkBoxFixPositionNotBox
             // 
+            this.checkBoxFixPositionNotBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxFixPositionNotBox.AutoSize = true;
-            this.checkBoxFixPositionNotBox.Location = new System.Drawing.Point(784, 49);
+            this.checkBoxFixPositionNotBox.Location = new System.Drawing.Point(931, 48);
             this.checkBoxFixPositionNotBox.Name = "checkBoxFixPositionNotBox";
             this.checkBoxFixPositionNotBox.Size = new System.Drawing.Size(171, 17);
             this.checkBoxFixPositionNotBox.TabIndex = 12;
@@ -183,8 +191,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(781, 99);
+            this.label2.Location = new System.Drawing.Point(928, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 13);
             this.label2.TabIndex = 13;
@@ -194,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 499);
+            this.ClientSize = new System.Drawing.Size(1235, 577);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBoxFixPositionNotBox);
             this.Controls.Add(this.txtSheetNumber);
@@ -206,7 +215,6 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.listViewSelect);
             this.Controls.Add(this.listViewView);
-            this.MaximizeBox = false;
             this.Name = "frmAssignView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAssignView";

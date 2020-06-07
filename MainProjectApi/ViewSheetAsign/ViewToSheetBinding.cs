@@ -73,7 +73,8 @@ namespace MainProjectApi.ViewSheetAsign
                 AppPenalViewToSheet.myFormViewToSheet.listViewViewAssignTo.Items.Add(lvi);
             }
 
-            foreach (var sheet in listViewSheet.OrderByDescending(x => x.SheetNumber))
+            IOrderedEnumerable<ViewSheet> vps = from ViewSheet vp in listViewSheet orderby vp.SheetNumber ascending select vp;
+            foreach (var sheet in vps)
             {
                 var sheetNumber = sheet.SheetNumber;
                 var sheetName = sheet.Name;

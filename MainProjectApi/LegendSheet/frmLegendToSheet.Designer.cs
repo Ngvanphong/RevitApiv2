@@ -66,7 +66,7 @@
             // listViewSheetSimilar
             // 
             this.listViewSheetSimilar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewSheetSimilar.CheckBoxes = true;
             this.listViewSheetSimilar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumber,
@@ -88,10 +88,11 @@
             // columnSheetName
             // 
             this.columnSheetName.Text = "Sheet Name";
-            this.columnSheetName.Width = 200;
+            this.columnSheetName.Width = 1500;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(656, 21);
             this.label1.Name = "label1";
@@ -102,8 +103,9 @@
             // 
             // listViewSheet
             // 
-            this.listViewSheet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewSheet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewSheet.CheckBoxes = true;
             this.listViewSheet.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnSheetNumberChose,
@@ -123,7 +125,7 @@
             // columnSheetNameChose
             // 
             this.columnSheetNameChose.Text = "Sheet Name";
-            this.columnSheetNameChose.Width = 200;
+            this.columnSheetNameChose.Width = 1500;
             // 
             // label2
             // 
@@ -188,7 +190,6 @@
             this.Controls.Add(this.listViewSheetSimilar);
             this.Controls.Add(this.listViewLegend);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "frmLegendToSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLegendToSheet";

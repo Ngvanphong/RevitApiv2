@@ -79,8 +79,8 @@ namespace MainProjectApi.AssignView
                 lvi.Tag = lvi;
                 AppPenalAssignView.myFormAssignView.listViewView.Items.Add(lvi);
             }
-
-            foreach (var sheet in listViewSheet.OrderByDescending(x => x.SheetNumber))
+            IOrderedEnumerable<ViewSheet> vps = from ViewSheet vp in listViewSheet orderby vp.SheetNumber descending select vp;
+            foreach (var sheet in vps)
             {
                 var sheetNumber = sheet.SheetNumber;
                 var sheetName = sheet.Name;

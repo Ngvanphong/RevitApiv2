@@ -52,6 +52,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.listViewSheetInfor);
             this.groupBox1.Controls.Add(this.listViewRevisionInfor);
             this.groupBox1.Location = new System.Drawing.Point(1, 12);
@@ -119,6 +121,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.btnExportRevision);
             this.groupBox2.Controls.Add(this.btnRemoveRevision);
             this.groupBox2.Controls.Add(this.btnAssignRevision);
@@ -163,8 +167,9 @@
             // 
             // listViewSheetAssign
             // 
-            this.listViewSheetAssign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listViewSheetAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewSheetAssign.CheckBoxes = true;
             this.listViewSheetAssign.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
@@ -190,7 +195,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Sheet Name";
-            this.columnHeader5.Width = 298;
+            this.columnHeader5.Width = 1500;
             // 
             // listViewRevisionAssign
             // 
@@ -218,7 +223,6 @@
             this.ClientSize = new System.Drawing.Size(1333, 500);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
             this.Name = "frmRevision";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRevision";
