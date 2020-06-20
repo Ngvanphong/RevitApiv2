@@ -42,17 +42,17 @@ namespace ProjectApiV3.CropView
 
         private void listViewViewCropSimilar_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            var listItemChecked = AppPanelCropView.myFormCropView.listViewViewCropSimilar.CheckedItems;
-            if (listItemChecked.Count > 1)
-            {
-                foreach (ListViewItem item in listItemChecked)
-                {
-                    if (item.Index != e.Item.Index)
-                    {
-                        item.Checked = false;
-                    }
-                }
-            }
+            //var listItemChecked = AppPanelCropView.myFormCropView.listViewViewCropSimilar.CheckedItems;
+            //if (listItemChecked.Count > 1)
+            //{
+            //    foreach (ListViewItem item in listItemChecked)
+            //    {
+            //        if (item.Index != e.Item.Index)
+            //        {
+            //            item.Checked = false;
+            //        }
+            //    }
+            //}
         }
     }
 }

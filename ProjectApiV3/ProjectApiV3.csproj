@@ -6,6 +6,8 @@
       None
     </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -60,7 +62,16 @@
     <Reference Include="FoxLearn.License">
       <HintPath>..\..\..\..\Downloads\FoxLearn.License\FoxLearn.License.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI" Condition="'$(Configuration)' == '2020'">
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
     </Reference>
@@ -80,6 +91,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
@@ -100,6 +112,7 @@
     <Compile Include="Button\Trim2DGridLevelButton.cs" />
     <Compile Include="Button\Trim3DGridLevelButton.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="CropView\AddViewHandler.cs" />
     <Compile Include="CropView\AppPanelCropView.cs" />
     <Compile Include="CropView\CropViewBinding.cs" />
     <Compile Include="CropView\CropViewHandler.cs" />
@@ -108,6 +121,9 @@
     </Compile>
     <Compile Include="CropView\frmCropView.Designer.cs">
       <DependentUpon>frmCropView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CropView\wfpCropView.xaml.cs">
+      <DependentUpon>wfpCropView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DimOffset\AppPanelDimOffset.cs" />
     <Compile Include="DimOffset\CancelDimOffsetHandler.cs" />
@@ -188,7 +204,12 @@
     <None Include="packages.config" />
     <None Include="Resources\download-button.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="CropView\wfpCropView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CropView\frmCropView.resx">
       <DependentUpon>frmCropView.cs</DependentUpon>
@@ -231,5 +252,12 @@ copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2019"
   <Target Name="AfterClean">
     <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\ProjectApiV3.addin" />
     <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\ProjectApiV3.dll" />
+  </Target>
+  <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets'))" />
   </Target>
 </Project>

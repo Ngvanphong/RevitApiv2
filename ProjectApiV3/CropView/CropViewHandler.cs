@@ -7,9 +7,10 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using ProjectApiV3.Helper;
+using System.Windows.Controls;
+
 namespace ProjectApiV3.CropView
 {
     public class CropViewHandler : IExternalEventHandler
@@ -24,72 +25,52 @@ namespace ProjectApiV3.CropView
             box.Max = viewChoice.CropBox.Max;
             foreach (ViewPlan view in listView)
             {
-                using (Transaction t= new Transaction(doc, "CropViewPlan"))
-                {                   
+                using (Transaction t = new Transaction(doc, "CropViewPlan"))
+                {
                     t.Start();
                     try
                     {
                         view.CropBox = box;
                         view.CropBoxVisible = true;
                         view.CropBoxActive = true;
-                       
-                        //var choiceShare = viewChoice.GetCropRegionShapeManager();
-                        //var bouding = choiceShare.GetAnnotationCropShape();
-                        //var viewShare = view.GetCropRegionShapeManager();
-                        //viewShare.SetCropShape(bouding);
                         t.Commit();
+                        AppPanelCropView.listAllCrops.Remove(view.Name + " ID=" + view.Id.ToString());
                     }
                     catch
                     {
-                        t.Commit();
+                        t.RollBack();
                         continue;
-
                     }
-                    
+
                 }
             }
-
+            ListView listViewWPF = AppPanelCropView.myFormCropView.FindName("listViewCrop") as ListView;
+            listViewWPF.ItemsSource = null;
+            listViewWPF.ItemsSource = AppPanelCropView.listAllCrops;
         }
 
         public string GetName()
         {
             return "CropView";
         }
-        public List<ViewPlan> getViewChecked(Document doc, out ViewPlan viewSimilar )
-        {
-            ViewPlan viewChoice = null;
+        public List<ViewPlan> getViewChecked(Document doc, out ViewPlan viewSimilar)
+        {           
             List<ViewPlan> listViewChecked = new List<ViewPlan>();
-            var listItemView = AppPanelCropView.myFormCropView.listViewViewCrop.CheckedItems;
-            var listAllView = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan)).Cast<ViewPlan>();
-            foreach ( ListViewItem view in listItemView)
+            List<ElementId> listElementId = new List<ElementId>();
+            foreach(string item in AppPanelCropView.listAllCrops)
             {
-                var name = view.Text;
-                foreach(var viewCheck in listAllView)
+                ElementId elementId = new ElementId(int.Parse(Regex.Split(item," ID=").Last()));
+                var element = doc.GetElement(elementId) as ViewPlan;
+                if (element != null)
                 {
-                    var viewname = viewCheck.ViewType + "/Name: " + viewCheck.Name;
-                    if (viewname == name)
-                    {
-                        listViewChecked.Add(viewCheck);
-                    }
+                    listViewChecked.Add(element);
                 }
             }
-            var listItemChoose = AppPanelCropView.myFormCropView.listViewViewCropSimilar.CheckedItems;
-            foreach (ListViewItem view in listItemChoose)
-            {
-                var name = view.Text;
-                foreach (var viewsl in listAllView)
-                {
-                    var viewname = viewsl.ViewType + "/Name: " + viewsl.Name;
-                    if (viewname == name)
-                    {
-                        viewChoice = viewsl;
-                    }
-                }
-            }
-            viewSimilar = viewChoice;
+            ListView listView = AppPanelCropView.myFormCropView.FindName("CropViewExample") as ListView;
+            string name = listView.Items.GetItemAt(0).ToString();
+            ElementId elementIdOrigin = new ElementId(int.Parse(Regex.Split(name, " ID=").Last()));
+            viewSimilar = doc.GetElement(elementIdOrigin) as ViewPlan;
             return listViewChecked;
         }
-
-
     }
 }

@@ -22,30 +22,30 @@ namespace ProjectApiV3.CropView
             //if (CheckAccess.CheckLicense() == true)
             //{
                 AppPanelCropView.ShowFromCropView();
-                GetViewInfor.InformationForm(doc);               
+                           
             //}
             return Result.Succeeded;
         }
     }
-    public static class GetViewInfor
-    {
-        public static void InformationForm(Document doc)
-        {
-            var listView = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan)).Cast<ViewPlan>();
-            foreach(var item in listView.OrderBy(x => x.ViewType + "/Name: " + x.Name))
-            {
-                var row = new string[] { item.ViewType + "/Name: " + item.Name };
-                var lvi = new ListViewItem(row);
-                lvi.Tag = lvi;
-                AppPanelCropView.myFormCropView.listViewViewCrop.Items.Add(lvi);
-            }
-            foreach (var item in listView.OrderBy(x => x.ViewType + "/Name: " + x.Name))
-            {
-                var row = new string[] { item.ViewType + "/Name: " + item.Name };
-                var lvi = new ListViewItem(row);
-                lvi.Tag = lvi;
-                AppPanelCropView.myFormCropView.listViewViewCropSimilar.Items.Add(lvi);
-            }
-        }
-    }
+    //public static class GetViewInfor
+    //{
+    //    public static void InformationForm(Document doc)
+    //    {
+    //        var listView = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan)).Cast<ViewPlan>();
+    //        foreach(var item in listView.OrderBy(x => x.ViewType + "/Name: " + x.Name))
+    //        {
+    //            var row = new string[] { item.ViewType + "/Name: " + item.Name };
+    //            var lvi = new ListViewItem(row);
+    //            lvi.Tag = lvi;
+    //            AppPanelCropView.myFormCropView.listViewViewCrop.Items.Add(lvi);
+    //        }
+    //        foreach (var item in listView.OrderBy(x => x.ViewType + "/Name: " + x.Name))
+    //        {
+    //            var row = new string[] { item.ViewType + "/Name: " + item.Name };
+    //            var lvi = new ListViewItem(row);
+    //            lvi.Tag = lvi;
+    //            AppPanelCropView.myFormCropView.listViewViewCropSimilar.Items.Add(lvi);
+    //        }
+    //    }
+    //}
 }
