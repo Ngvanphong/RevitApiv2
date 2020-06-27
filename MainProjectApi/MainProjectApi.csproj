@@ -6,6 +6,8 @@
       None
     </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -60,11 +62,18 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI" Condition="'$(Configuration)' == '2020'">
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
     </Reference>
@@ -86,6 +95,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
@@ -174,6 +184,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx </DependentUpon>
     </Compile>
+    <Compile Include="ViewSheetAsign\AddViewHandler.cs" />
     <Compile Include="ViewSheetAsign\AppPenalViewToSheet.cs" />
     <Compile Include="ViewSheetAsign\frmViewToSheet.cs">
       <SubType>Form</SubType>
@@ -183,6 +194,9 @@
     </Compile>
     <Compile Include="ViewSheetAsign\ViewToSheetBinding.cs" />
     <Compile Include="ViewSheetAsign\ViewToSheetHandler.cs" />
+    <Compile Include="ViewSheetAsign\ViewToSheetWpf.xaml.cs">
+      <DependentUpon>ViewToSheetWpf.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainProjectApi.addin">
@@ -231,7 +245,12 @@
       <DependentUpon>frmViewToSheet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="ViewSheetAsign\ViewToSheetWpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if  "$(ConfigurationName)" =="2020" (
@@ -253,5 +272,12 @@ copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2019"
   <Target Name="AfterClean">
     <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\MainProjectApi.addin" />
     <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2020\MainProjectApi.dll" />
+  </Target>
+  <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets'))" />
   </Target>
 </Project>

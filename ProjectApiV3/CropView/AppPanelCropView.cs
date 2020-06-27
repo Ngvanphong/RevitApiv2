@@ -18,10 +18,11 @@ namespace ProjectApiV3.CropView
     public static class AppPanelCropView
     {
         public static wfpCropView myFormCropView;
-        public static List<string> listAllCrops = new List<string>();
+        public static List<string> listAllCrops;
         public static int ChooseButton;
         public static void ShowFromCropView()
         {
+            listAllCrops = new List<string>();
             CropViewHandler cropHandler = new CropViewHandler();
             ExternalEvent cropEvent = ExternalEvent.Create(cropHandler);
             AddViewHandler addViewHandler = new AddViewHandler();

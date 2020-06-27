@@ -116,12 +116,6 @@
     <Compile Include="CropView\AppPanelCropView.cs" />
     <Compile Include="CropView\CropViewBinding.cs" />
     <Compile Include="CropView\CropViewHandler.cs" />
-    <Compile Include="CropView\frmCropView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CropView\frmCropView.Designer.cs">
-      <DependentUpon>frmCropView.cs</DependentUpon>
-    </Compile>
     <Compile Include="CropView\wfpCropView.xaml.cs">
       <DependentUpon>wfpCropView.xaml</DependentUpon>
     </Compile>
@@ -211,9 +205,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CropView\frmCropView.resx">
-      <DependentUpon>frmCropView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DimOffset\frmDimOffset.resx">
       <DependentUpon>frmDimOffset.cs</DependentUpon>
     </EmbeddedResource>

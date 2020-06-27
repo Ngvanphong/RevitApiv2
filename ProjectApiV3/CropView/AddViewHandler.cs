@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using System.Windows.Controls;
-
+using System.Windows;
 
 namespace ProjectApiV3.CropView
 {
@@ -30,7 +30,7 @@ namespace ProjectApiV3.CropView
                 }
                 if (listViewAddNew.Count == 0)
                 {
-                    TaskDialog.Show("Select View", "You must choose views");
+                    MessageBox.Show("You must choose views");
                     return;
                 }
                 ListView listView = AppPanelCropView.myFormCropView.FindName("listViewCrop") as ListView;
@@ -64,7 +64,7 @@ namespace ProjectApiV3.CropView
                 }
                 if (listViewAddNew.Count == 0)
                 {
-                    TaskDialog.Show("Select View", "You must choose a view");
+                    MessageBox.Show("You must choose a view");
                     return;
                 }
                 ListView listView = AppPanelCropView.myFormCropView.FindName("CropViewExample") as ListView;
