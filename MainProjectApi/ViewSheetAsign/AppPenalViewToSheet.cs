@@ -14,11 +14,11 @@ namespace MainProjectApi.ViewSheetAsign
         public static ObservableCollection<ViewInotify> AllViewAssigns;
         public static ViewToSheetWpf myFormViewToSheet;
         public static int ChooseButtonClick;
-        public static View ViewOrigin;
+        public static Viewport ViewportOrigin;
         public static void ShowViewToSheet()
         {
             AllViewAssigns = new ObservableCollection<ViewInotify>();
-            ViewOrigin = null;
+            ViewportOrigin = null;
             ViewToSheetHandler handlerViewToSheet = new ViewToSheetHandler();
             ExternalEvent eventViewToSheet = ExternalEvent.Create(handlerViewToSheet);
             AddViewHandler handlerAddView = new AddViewHandler();

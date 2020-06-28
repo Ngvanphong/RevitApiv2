@@ -74,18 +74,18 @@ namespace MainProjectApi.ViewSheetAsign
                 var selectId = uiDoc.Selection.GetElementIds();
                 if (selectId.Count==0)
                 {
-                    MessageBox.Show("You must select a view");
+                    MessageBox.Show("You must select a Viewport");
                     return;
                 }
                 foreach(var id in selectId)
                 {
-                    View view = doc.GetElement(id) as View;
+                    Viewport view = doc.GetElement(id) as Viewport;
                     if (view != null)
                     {
-                        AppPenalViewToSheet.ViewOrigin = view;
+                        AppPenalViewToSheet.ViewportOrigin = view;
                         ViewInotify viewNoti = new ViewInotify();
                         viewNoti.Id = view.Id.ToString();
-                        viewNoti.Name = view.Name;
+                        viewNoti.Name = doc.GetElement(view.ViewId).Name;
                         var listViewOriginWpf = AppPenalViewToSheet.myFormViewToSheet.FindName("lvViewOrigin") as ListView;
                         listViewOriginWpf.ItemsSource = null;
                         listViewOriginWpf.ItemsSource = new List<ViewInotify> { viewNoti };
