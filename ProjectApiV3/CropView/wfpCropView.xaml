@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ProjectApiV3.CropView"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="500"
+             d:DesignHeight="250" d:DesignWidth="400"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -35,8 +35,8 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
             <Button  Click="btnAddViewCrop"  Style="{StaticResource MaterialDesignRaisedLightButton}" Width="100" Margin="10">Add Crop</Button>
-            <Button Click="btnCropView" Style="{StaticResource MaterialDesignRaisedLightButton}" Width="100" Margin="10">Crop View</Button>
             <Button Click="btnRemoveView"  Width="100" Margin="10">Remove</Button>
+            <Button Click="btnCropView" Style="{StaticResource MaterialDesignRaisedLightButton}" Width="100" Margin="10">Run</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2">
             <Button  Click="btnViewExample"  Style="{StaticResource MaterialDesignRaisedLightButton}" Width="100" Margin="10">Add Origin</Button>
