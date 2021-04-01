@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command ProjectApiV3</Text>
+    <Description>Some description for ProjectApiV3</Description>
+    <Assembly>ProjectApiV3.dll</Assembly>
+    <FullClassName>ProjectApiV3.Command</FullClassName>
+    <ClientId>d146bdf3-df0b-4d3d-90e5-760c760624c8</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application ProjectApiV3</Name>
+    <Assembly>ProjectApiV3.dll</Assembly>
+    <FullClassName>ProjectApiV3.App</FullClassName>
+    <ClientId>0e40e2cb-5830-4e6c-9c44-5b805750d18b</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
