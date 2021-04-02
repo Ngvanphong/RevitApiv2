@@ -11,7 +11,6 @@ namespace ProjectApiV3.FilterElementWpf
     {
         public string Name { set; get; }
         public ElementId Id { set; get; }
-
         public CategoryUser(Category ca)
         {
             Name = ca.Name;

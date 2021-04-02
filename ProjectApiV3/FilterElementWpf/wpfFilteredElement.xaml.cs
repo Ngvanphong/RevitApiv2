@@ -24,7 +24,12 @@ namespace ProjectApiV3.FilterElementWpf
         private ExternalEvent _event;
         private CategoryCheckedWpfHandler _categoryHandler;
         private ExternalEvent _categoryEvent;
-        public wpfFilteredElement(ExternalEvent eventMain,FilteredWpfHandler handlerMain,ExternalEvent categoryEvent,CategoryCheckedWpfHandler categoryHandler)
+        private TypeNameCheckedWpfHandler _typeNameCheckedHandler;
+        private ExternalEvent _typeNameEvent;
+        private ParameterTypeCheckedWpfHandler _parameterHandler;
+        private ExternalEvent _parameterEvent;
+        public wpfFilteredElement(ExternalEvent eventMain,FilteredWpfHandler handlerMain,ExternalEvent categoryEvent,CategoryCheckedWpfHandler categoryHandler,
+            ExternalEvent typeNameEvent, TypeNameCheckedWpfHandler typeNameCheckedHandler, ExternalEvent parameterEvent, ParameterTypeCheckedWpfHandler parameterHandler)
         {
             new MaterialDesignColors.SwatchesProvider();
             new MaterialDesignThemes.Wpf.Card();
@@ -33,16 +38,37 @@ namespace ProjectApiV3.FilterElementWpf
             _event = eventMain;
             _categoryEvent = categoryEvent;
             _categoryHandler = categoryHandler;
+            _typeNameEvent = typeNameEvent;
+            _typeNameCheckedHandler = typeNameCheckedHandler;
+            _parameterHandler = parameterHandler;
+            _parameterEvent = parameterEvent;
         }
 
         private void ChangeSelectedCategory(object sender, SelectionChangedEventArgs e)
         {
 
             var listCategoryChecked = AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems;
-
             if (listCategoryChecked.Count > 0)
             {
                _categoryEvent.Raise();
+            }
+        }
+
+        private void ElementTypeChangeSelection(object sender, SelectionChangedEventArgs e)
+        {
+            var listTypeChecked = AppPanelFilterWpf.myFormFilterElement.listViewElementType.SelectedItems;
+            if (listTypeChecked.Count > 0)
+            {
+                _typeNameEvent.Raise();
+            }
+        }
+
+        private void ParameterChangeValue(object sender, SelectionChangedEventArgs e)
+        {
+            var listParameterChecked = AppPanelFilterWpf.myFormFilterElement.listViewParameter.SelectedItems;
+            if (listParameterChecked.Count > 0)
+            {
+                _parameterEvent.Raise();
             }
         }
     }

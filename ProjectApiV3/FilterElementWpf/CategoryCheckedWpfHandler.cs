@@ -14,7 +14,6 @@ namespace ProjectApiV3.FilterElementWpf
         public void Execute(UIApplication app)
         {
             var listCategoryChecked = AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems;
-
             List<CategoryType> listType = new List<CategoryType>();
             List<Category> listCategory = new List<Category>();
             List<Element> listElementAll = new FilteredElementCollector(app.ActiveUIDocument.Document, app.ActiveUIDocument.Document.ActiveView.Id).WhereElementIsNotElementType().ToList();
@@ -30,7 +29,6 @@ namespace ProjectApiV3.FilterElementWpf
                         {
                             if (item.Id == category.Id)
                             {
-                               
                                 if (!listType.Exists(x=>x.Id==el.GetTypeId()))
                                 {
                                     ElementType elementType = app.ActiveUIDocument.Document.GetElement(el.GetTypeId()) as ElementType;

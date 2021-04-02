@@ -25,16 +25,17 @@ namespace ProjectApiV3.FilterElementWpf
             CategoryCheckedWpfHandler _handlerCategory = new CategoryCheckedWpfHandler();
             ExternalEvent _eventCategory = ExternalEvent.Create(_handlerCategory);
 
-            //TypeNameCheckedHandler _handlerTypeName = new TypeNameCheckedHandler();
-            //ExternalEvent _eventTypeName = ExternalEvent.Create(_handlerTypeName);
+            TypeNameCheckedWpfHandler _handlerTypeName = new TypeNameCheckedWpfHandler();
+            ExternalEvent _eventTypeName = ExternalEvent.Create(_handlerTypeName);
 
-            //ParameterTypeCheckedHandler _handlerParameterType = new ParameterTypeCheckedHandler();
-            //ExternalEvent _eventParameterType = ExternalEvent.Create(_handlerParameterType);
+            ParameterTypeCheckedWpfHandler _handlerParameterType = new ParameterTypeCheckedWpfHandler();
+            ExternalEvent _eventParameterType = ExternalEvent.Create(_handlerParameterType);
 
             //UpdateValueParameterHandler _updateValueParameter = new UpdateValueParameterHandler();
             //ExternalEvent _eventValueParameter = ExternalEvent.Create(_updateValueParameter);
 
-            myFormFilterElement = new wpfFilteredElement(myEvent, handler, _eventCategory, _handlerCategory);
+            myFormFilterElement = new wpfFilteredElement(myEvent, handler, _eventCategory, _handlerCategory,
+                _eventTypeName,_handlerTypeName,_eventParameterType,_handlerParameterType);
             myFormFilterElement.Show();
 
         }

@@ -30,11 +30,11 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="2" />
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -42,9 +42,9 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <GridSplitter Grid.Column="1" Width="1" HorizontalAlignment="Stretch" />
-        <GridSplitter Grid.Column="3" Width="1" HorizontalAlignment="Stretch" />
-        <GridSplitter Grid.Column="5" Width="1" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="3" Width="2" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="5" Width="2" HorizontalAlignment="Stretch" />
 
         <ListView SelectionChanged="ChangeSelectedCategory" x:Name="listViewCategory" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
@@ -63,7 +63,7 @@
             </ListView.View>
         </ListView>
 
-        <ListView x:Name="listViewElementType" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <ListView SelectionChanged="ElementTypeChangeSelection" x:Name="listViewElementType" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Category/Type">
@@ -84,7 +84,7 @@
             </ListView.View>
         </ListView>
 
-        <ListView x:Name="listViewParameter" Grid.Column="4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <ListView SelectionChanged="ParameterChangeValue" x:Name="listViewParameter" Grid.Column="4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Parameter">
@@ -118,8 +118,6 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  DisplayMemberBinding="{Binding ParameterUser.Name}"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Value}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

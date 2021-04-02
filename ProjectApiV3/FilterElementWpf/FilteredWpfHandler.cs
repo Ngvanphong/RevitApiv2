@@ -17,10 +17,8 @@ namespace ProjectApiV3.FilterElementWpf
             Document doc = app.ActiveUIDocument.Document;
             List<ElementId> listSelectIds = new List<ElementId>();
             List<Element> listElementAll = new FilteredElementCollector(doc, doc.ActiveView.Id).WhereElementIsNotElementType().ToList();
-            List<CategoryUser> listCategoryChecked = (from item in AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems as List<CategoryUser>
-                                                      select item).ToList();
-            List<ParameterUser> listParameterChecked= (from item in AppPanelFilterWpf.myFormFilterElement.listViewParameter.SelectedItems as List<ParameterUser>
-                                                       select item).ToList();
+            var listCategoryChecked = AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems;
+            var listParameterChecked= AppPanelFilterWpf.myFormFilterElement.listViewParameter.SelectedItems;
             switch (AppPanelFilterWpf.numberButtonClick)
             {
                 case 0:
@@ -28,7 +26,7 @@ namespace ProjectApiV3.FilterElementWpf
                     {
                         try
                         {
-                            foreach (var ca in listCategoryChecked)
+                            foreach (CategoryUser ca in listCategoryChecked)
                             {
                                 if (item.Category.Id == ca.Id)
                                 {
@@ -59,7 +57,7 @@ namespace ProjectApiV3.FilterElementWpf
                         var parametes = el.Parameters;
                         int count = 0;
                         int countChecked = listParameterChecked.Count;
-                        foreach (var pa in listParameterChecked)
+                        foreach (CategoryType pa in listParameterChecked)
                         {
                             foreach (Parameter paE in el.Parameters)
                             {
@@ -90,55 +88,52 @@ namespace ProjectApiV3.FilterElementWpf
         {
             return "FilteredWpf";
         }
-
-        public static class UpdateInformation
+    }
+    public static class UpdateInformation
+    {
+        public static void UpdateElementTypeName(Document doc)
         {
-            public static void UpdateElementTypeName(Document doc)
+            List<string> nameParameteres = new List<string>();
+            var listCollection = new FilteredElementCollector(doc, doc.ActiveView.Id).WhereElementIsNotElementType().ToList();
+            var listCategoryChecked = AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems;
+            var listTypeChecked = AppPanelFilterWpf.myFormFilterElement.listViewElementType.SelectedItems;
+            List<Element> listElemnetCa = new List<Element>();
+            foreach (CategoryUser cat in listCategoryChecked)
             {
-                List<string> nameParameteres = new List<string>();
-                var listCollection = new FilteredElementCollector(doc, doc.ActiveView.Id).WhereElementIsNotElementType().ToList();
-                List<CategoryUser> listCategoryChecked = (from item in AppPanelFilterWpf.myFormFilterElement.listViewCategory.SelectedItems as List<CategoryUser>
-                                                          select item).ToList();
-                List<CategoryType> listTypeChecked = (from item in AppPanelFilterWpf.myFormFilterElement.listViewElementType.SelectedItems as List<CategoryType>
-                                                          select item).ToList();
-                List<Element> listElemnetCa = new List<Element>();
-                foreach (var cat in listCategoryChecked)
+                foreach (var ele in listCollection)
                 {
-                    foreach (var ele in listCollection)
+                    try
                     {
-                        try
+                        Category catss = null;
+                        catss = ele.Category;
+                        if (catss != null)
                         {
-                            Category catss = null;
-                            catss = ele.Category;
-                            if (catss != null)
+                            if (catss.Id == cat.Id)
                             {
-                                if (catss.Id == cat.Id)
-                                {
-                                    listElemnetCa.Add(ele);
-                                }
+                                listElemnetCa.Add(ele);
                             }
                         }
-                        catch { continue; }
                     }
+                    catch { continue; }
                 }
-                List<Element> listElementSe = new List<Element>();
-                foreach (var type in listTypeChecked)
-                {
-                    foreach (var fa in listElemnetCa)
-                    {
-                        try
-                        {
-                            if (type.Id == fa.GetTypeId())
-                            {
-                                listElementSe.Add(fa);
-                            }
-                        }
-                        catch { continue; }
-
-                    }
-                }
-                AppPanelFilterWpf.listElementName = listElementSe;
             }
+            List<Element> listElementSe = new List<Element>();
+            foreach (CategoryType type in listTypeChecked)
+            {
+                foreach (var fa in listElemnetCa)
+                {
+                    try
+                    {
+                        if (type.Id == fa.GetTypeId())
+                        {
+                            listElementSe.Add(fa);
+                        }
+                    }
+                    catch { continue; }
+
+                }
+            }
+            AppPanelFilterWpf.listElementName = listElementSe;
         }
     }
 }
