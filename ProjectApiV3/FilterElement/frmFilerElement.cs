@@ -178,5 +178,10 @@ namespace ProjectApiV3.FilterElement
                 item.Checked = false;
             }
         }
+
+        private void listViewCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

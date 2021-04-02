@@ -105,6 +105,7 @@
     <Compile Include="Button\AllignBeamFloorButton.cs" />
     <Compile Include="Button\CropViewButton.cs" />
     <Compile Include="Button\DimOffsetButton.cs" />
+    <Compile Include="Button\FilteredWpfButton.cs" />
     <Compile Include="Button\FilterElementButton.cs" />
     <Compile Include="Button\RevisionButton.cs" />
     <Compile Include="Button\RevisionCloudButton.cs" />
@@ -128,6 +129,20 @@
     </Compile>
     <Compile Include="DimOffset\frmDimOffset.Designer.cs">
       <DependentUpon>frmDimOffset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterElementWpf\AppPanelFilterWpf.cs" />
+    <Compile Include="FilterElementWpf\CategoryCheckedWpfHandler.cs" />
+    <Compile Include="FilterElementWpf\CategoryType.cs" />
+    <Compile Include="FilterElementWpf\CategoryUser.cs" />
+    <Compile Include="FilterElementWpf\FilteredWpfBinding.cs" />
+    <Compile Include="FilterElementWpf\FilteredWpfHandler.cs" />
+    <Compile Include="FilterElementWpf\ParameterTypeCheckedWpfHandler.cs" />
+    <Compile Include="FilterElementWpf\ParameterUser.cs" />
+    <Compile Include="FilterElementWpf\ParameterValue.cs" />
+    <Compile Include="FilterElementWpf\TypeNameCheckedWpfHandler.cs" />
+    <Compile Include="FilterElementWpf\UpdateValueParameterWpfHandler.cs" />
+    <Compile Include="FilterElementWpf\wpfFilteredElement.xaml.cs">
+      <DependentUpon>wpfFilteredElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="FilterElement\AppPanelFilterElement.cs" />
     <Compile Include="FilterElement\CategoryCheckedHandler.cs" />
@@ -200,6 +215,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CropView\wfpCropView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterElementWpf\wpfFilteredElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

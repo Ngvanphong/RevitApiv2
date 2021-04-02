@@ -34,6 +34,7 @@ namespace ProjectApiV3
             cropViewButton.CropView(a);
             AlignBeamFloor3DButton alignBeam3d = new AlignBeamFloor3DButton();
             alignBeam3d.CreateAllignBeam3D(a);
+            new FilteredWpfButton().CreateFileredWpf(a);
             return Result.Succeeded;
         }
 

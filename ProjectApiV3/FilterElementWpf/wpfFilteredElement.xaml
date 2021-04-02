@@ -1,0 +1,129 @@
+﻿<Window x:Class="ProjectApiV3.FilterElementWpf.wpfFilteredElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectApiV3.FilterElementWpf"
+             mc:Ignorable="d" 
+             Topmost="True"
+             Width="800" Height="450"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="Templ">
+                <TextBlock HorizontalAlignment="Left" Text="{Binding}"/>
+            </DataTemplate>
+            <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            </Style>
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <GridSplitter Grid.Column="1" Width="1" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="3" Width="1" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="5" Width="1" HorizontalAlignment="Stretch" />
+
+        <ListView SelectionChanged="ChangeSelectedCategory" x:Name="listViewCategory" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Category">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                    Path=IsSelected, Mode=TwoWay}">
+                                    <TextBlock Foreground="DarkBlue" Text="{Binding Name}"></TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="listViewElementType" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Category/Type">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                    Path=IsSelected, Mode=TwoWay}">
+                                    <TextBlock Foreground="DarkBlue" Text="{Binding CategoryUser.Name}">
+                                        <TextBlock Text=": ">
+                                            <TextBlock Foreground="DarkRed" Text="{Binding Name}"/>
+                                        </TextBlock>
+                                    </TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="listViewParameter" Grid.Column="4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Parameter">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                    Path=IsSelected, Mode=TwoWay}">
+                                    <TextBlock Foreground="DarkBlue" Text="{Binding Name}"/>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="listViewValueParameter" Grid.Column="6" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Value Parameter">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                    Path=IsSelected, Mode=TwoWay}">
+                                    <TextBlock Foreground="DarkBlue" Text="{Binding ParameterUser.Name}">
+                                        <TextBlock Text=": ">
+                                            <TextBlock Foreground="DarkRed" Text="{Binding Value}"/>
+                                        </TextBlock>
+                                    </TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding ParameterUser.Name}"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Value}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+    
+</Window>
