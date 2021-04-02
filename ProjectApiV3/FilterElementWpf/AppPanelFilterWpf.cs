@@ -31,11 +31,11 @@ namespace ProjectApiV3.FilterElementWpf
             ParameterTypeCheckedWpfHandler _handlerParameterType = new ParameterTypeCheckedWpfHandler();
             ExternalEvent _eventParameterType = ExternalEvent.Create(_handlerParameterType);
 
-            //UpdateValueParameterHandler _updateValueParameter = new UpdateValueParameterHandler();
-            //ExternalEvent _eventValueParameter = ExternalEvent.Create(_updateValueParameter);
+            UpdateValueParameterWpfHandler _updateValueParameter = new UpdateValueParameterWpfHandler();
+            ExternalEvent _eventValueParameter = ExternalEvent.Create(_updateValueParameter);
 
             myFormFilterElement = new wpfFilteredElement(myEvent, handler, _eventCategory, _handlerCategory,
-                _eventTypeName,_handlerTypeName,_eventParameterType,_handlerParameterType);
+                _eventTypeName,_handlerTypeName,_eventParameterType,_handlerParameterType,_eventValueParameter,_updateValueParameter);
             myFormFilterElement.Show();
 
         }

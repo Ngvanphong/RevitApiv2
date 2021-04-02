@@ -26,6 +26,7 @@ namespace ProjectApiV3.FilterElementWpf
                     {
                         try
                         {
+                            if (item.Category == null) continue;
                             foreach (CategoryUser ca in listCategoryChecked)
                             {
                                 if (item.Category.Id == ca.Id)
@@ -54,10 +55,9 @@ namespace ProjectApiV3.FilterElementWpf
                     }
                     foreach (var el in AppPanelFilterWpf.listElementName)
                     {
-                        var parametes = el.Parameters;
                         int count = 0;
                         int countChecked = listParameterChecked.Count;
-                        foreach (CategoryType pa in listParameterChecked)
+                        foreach (ParameterUser pa in listParameterChecked)
                         {
                             foreach (Parameter paE in el.Parameters)
                             {
@@ -79,7 +79,6 @@ namespace ProjectApiV3.FilterElementWpf
                         }
                     }
                     break;
-
             }
             app.ActiveUIDocument.Selection.SetElementIds(listSelectIds);
         }

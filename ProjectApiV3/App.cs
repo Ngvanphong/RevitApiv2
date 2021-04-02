@@ -16,8 +16,6 @@ namespace ProjectApiV3
         {
             //AllignBeamFloorButton allignBeam = new AllignBeamFloorButton();
             //allignBeam.CreateAlllignBeam(a);
-            FilterElementButton filterClass = new FilterElementButton();
-            filterClass.FilterElement(a);
             RevisionButton revisionClass = new RevisionButton();
             revisionClass.CreateRevision(a);
             //RevisionCloudButton revisionCloud = new RevisionCloudButton();

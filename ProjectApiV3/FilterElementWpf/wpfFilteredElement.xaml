@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ProjectApiV3.FilterElementWpf"
              mc:Ignorable="d" 
              Topmost="True"
-             Width="800" Height="450"
+             Width="900" Height="450"
         >
     <Window.Resources>
         <ResourceDictionary>
@@ -35,7 +35,7 @@
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2" />
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -62,7 +62,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <Button Click="CategoryNone" Margin="10,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="70" Grid.Row="1">None</Button>
+        <Button Click="CategoryAll" Margin="85,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="60" Grid.Row="1">All</Button>
+        <Button Click="CategorySelect" Margin="150,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRaisedButton}" Width="80" Grid.Row="1">Select</Button>
         <ListView SelectionChanged="ElementTypeChangeSelection" x:Name="listViewElementType" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
                 <GridView>
@@ -83,6 +85,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Click="ElementTypeNone" Margin="10,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="70" Grid.Row="1" Grid.Column="2">None</Button>
+        <Button Click="ElementTypeAll" Margin="85,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="60" Grid.Row="1" Grid.Column="2">All</Button>
+        <Button Click="ElementTypeSelect" Margin="150,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRaisedButton}" Width="80" Grid.Row="1" Grid.Column="2">Select</Button>
+
 
         <ListView SelectionChanged="ParameterChangeValue" x:Name="listViewParameter" Grid.Column="4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
@@ -100,6 +106,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        
+        <Button Click="ParameterNone" Margin="10,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="70" Grid.Row="1" Grid.Column="4">None</Button>
 
         <ListView x:Name="listViewValueParameter" Grid.Column="6" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.View>
@@ -121,6 +129,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Click="ValueTypeNone" Margin="10,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="70" Grid.Row="1" Grid.Column="6">None</Button>
+        <Button Click="UpdateValue" Margin="85,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="80" Grid.Row="1" Grid.Column="6">Reload</Button>
+        <Button Click="ValueSelect" Margin="170,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRaisedButton}" Width="80" Grid.Row="1" Grid.Column="6">Select</Button>
+
 
     </Grid>
     
