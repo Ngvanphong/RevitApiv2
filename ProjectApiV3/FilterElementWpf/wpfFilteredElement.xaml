@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:ProjectApiV3.FilterElementWpf"
              mc:Ignorable="d" 
              Topmost="True"
-             Width="900" Height="450"
+             Width="930" Height="450"
+            Title="Filter"
         >
     <Window.Resources>
         <ResourceDictionary>
@@ -19,21 +20,12 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Grid.Resources>
-            <DataTemplate x:Key="Templ">
-                <TextBlock HorizontalAlignment="Left" Text="{Binding}"/>
-            </DataTemplate>
-            <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
-                <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            </Style>
-        </Grid.Resources>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2" />
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.2*"/>
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
@@ -47,14 +39,19 @@
         <GridSplitter Grid.Column="5" Width="2" HorizontalAlignment="Stretch" />
 
         <ListView SelectionChanged="ChangeSelectedCategory" x:Name="listViewCategory" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Category">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                <CheckBox Width="500" Style="{StaticResource MaterialDesignAccentCheckBox}"  IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
                                     Path=IsSelected, Mode=TwoWay}">
-                                    <TextBlock Foreground="DarkBlue" Text="{Binding Name}"></TextBlock>
+                                    <TextBlock  Foreground="DarkBlue" Text="{Binding Name}"></TextBlock>
                                 </CheckBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -66,12 +63,17 @@
         <Button Click="CategoryAll" Margin="85,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="60" Grid.Row="1">All</Button>
         <Button Click="CategorySelect" Margin="150,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRaisedButton}" Width="80" Grid.Row="1">Select</Button>
         <ListView SelectionChanged="ElementTypeChangeSelection" x:Name="listViewElementType" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Category/Type">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                <CheckBox Width="500" Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
                                     Path=IsSelected, Mode=TwoWay}">
                                     <TextBlock Foreground="DarkBlue" Text="{Binding CategoryUser.Name}">
                                         <TextBlock Text=": ">
@@ -91,12 +93,17 @@
 
 
         <ListView SelectionChanged="ParameterChangeValue" x:Name="listViewParameter" Grid.Column="4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Parameter">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
+                                <CheckBox Width="500" Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
                                     Path=IsSelected, Mode=TwoWay}">
                                     <TextBlock Foreground="DarkBlue" Text="{Binding Name}"/>
                                 </CheckBox>
@@ -110,6 +117,11 @@
         <Button Click="ParameterNone" Margin="10,0,0,0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignOutlinedButton}" Width="70" Grid.Row="1" Grid.Column="4">None</Button>
 
         <ListView x:Name="listViewValueParameter" Grid.Column="6" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Value Parameter">
@@ -117,7 +129,7 @@
                             <DataTemplate>
                                 <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="0,0,0,0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}},
                                     Path=IsSelected, Mode=TwoWay}">
-                                    <TextBlock Foreground="DarkBlue" Text="{Binding ParameterUser.Name}">
+                                    <TextBlock Width="500" Foreground="DarkBlue" Text="{Binding ParameterUser.Name}">
                                         <TextBlock Text=": ">
                                             <TextBlock Foreground="DarkRed" Text="{Binding Value}"/>
                                         </TextBlock>

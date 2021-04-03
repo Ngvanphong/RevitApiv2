@@ -42,7 +42,7 @@ namespace ProjectApiV3.Button
             }
             Image img = ProjectApiV3.Properties.Resources.iconfinder_61_62718;
             ImageSource imgSrc = Helper.Extension.GetImageSource(img);
-            PushButtonData btnData = new PushButtonData("FilterElements", "FilterElements",
+            PushButtonData btnData = new PushButtonData("FilterElements", "Filter \r Elements",
                 Assembly.GetExecutingAssembly().Location, "ProjectApiV3.FilterElementWpf.FilteredWpfBinding")
             {
                 ToolTip = "Filter for element",

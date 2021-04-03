@@ -106,7 +106,6 @@
     <Compile Include="Button\CropViewButton.cs" />
     <Compile Include="Button\DimOffsetButton.cs" />
     <Compile Include="Button\FilteredWpfButton.cs" />
-    <Compile Include="Button\FilterElementButton.cs" />
     <Compile Include="Button\RevisionButton.cs" />
     <Compile Include="Button\RevisionCloudButton.cs" />
     <Compile Include="Button\ShowHideHeaderButton.cs" />
